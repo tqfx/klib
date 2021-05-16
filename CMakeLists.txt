@@ -7,7 +7,7 @@ if (NOT CMAKE_BUILD_TYPE)
 set (CMAKE_BUILD_TYPE "Debug")
 endif (NOT CMAKE_BUILD_TYPE)
 
-include (cmake_flags.cmake)
+include (klib/cmake-flags.cmake)
 
 message (STATUS ${CMAKE_SYSTEM})
 
