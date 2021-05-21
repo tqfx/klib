@@ -5,7 +5,7 @@ project (KLIB)
 
 include (cmake-flags.cmake)
 
-aux_source_directory(. SRC_KLIB)
+aux_source_directory(. SOURCE_KLIB)
 
-add_library(klib STATIC ${SRC_KLIB})
+add_library(klib STATIC ${SOURCE_KLIB})
 
