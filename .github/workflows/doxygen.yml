@@ -1,4 +1,4 @@
-name: release
+name: doxygen
 
 on:
   push:
@@ -15,26 +15,32 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build
-        env:
-          library: klib
+      - name: Install
         shell: bash
         run: |
+          sudo apt-get install -f -q -qq -y doxygen graphviz
+
+      - name: Build
+        env:
+          output: html
+        shell: bash
+        run: |
+          doxygen doxygen/Doxyfile
           echo "remove..."
           for i in `ls -A`; do \
           if [ "$i" == ".git" ]; then continue; fi;\
-          if [ "$i" == "$library" ]; then continue; fi;\
+          if [ "$i" == "$output" ]; then continue; fi;\
           rm -rf $i; done
           echo "move..."
-          for i in `ls -A $library`; do \
-          mv -t . $library/$i; done
-          rmdir $library
+          for i in `ls -A $output`; do \
+          mv -t . $output/$i; done
+          rmdir $output
 
       - name: Push
         env:
           GPG_PRIVATE: ${{ secrets.GPG_ACTION_PRIVATE }}
           GPG_ID: ${{ secrets.GPG_ACTION_ID }}
-          branch: release
+          branch: gh-pages
         shell: bash
         run: |
           git config user.name       "github-actions[bot]"
