@@ -1,5 +1,8 @@
 # Klib: a Generic Library in C
 
+[![Doxygen](https://github.com/tqfx/klib/actions/workflows/doxygen.yml/badge.svg)](https://github.com/tqfx/klib/actions/workflows/doxygen.yml)
+[![release](https://github.com/tqfx/klib/actions/workflows/release.yml/badge.svg?branch=master)](https://github.com/tqfx/klib/actions/workflows/release.yml)
+
 ## Common components
 
 * [kstring.{h,c}][kstring]: basic string library.
