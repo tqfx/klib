@@ -1,5 +1,5 @@
 
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.10)
 
 project (KLIB_TEST)
 
@@ -7,11 +7,11 @@ if (NOT CMAKE_BUILD_TYPE)
 set (CMAKE_BUILD_TYPE "Debug")
 endif (NOT CMAKE_BUILD_TYPE)
 
-include (klib/cmake-flags.cmake)
+include (cmake/cmake-flags.cmake)
 
 message (STATUS ${CMAKE_SYSTEM})
 
-include_directories ("${PROJECT_SOURCE_DIR}/klib")
+# include_directories ("${PROJECT_SOURCE_DIR}/klib")
 
 add_subdirectory (klib)
 
