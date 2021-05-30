@@ -1,544 +1,379 @@
-/**
- * *****************************************************************************
- * @file         kvec.h
- * @brief        vector library
- * @details      generic dynamic array
- * @author       tqfx
- * @date         20210421
- * @version      1
- * @copyright    Copyright (C) 2021
- * @code         utf-8                                                  @endcode
- * *****************************************************************************
+/*!
+ @file           kvec.h
+ @brief          vector library
+ @author         tqfx tqfx@foxmail.com
+ @version        0
+ @date           2021-05-30
+ @copyright      Copyright (C) 2021 tqfx
+ \n \n
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ \n \n
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ \n \n
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
+/* Define to prevent recursive inclusion */
 #ifndef __KVEC_H__
 #define __KVEC_H__
 
-/* Includes ------------------------------------------------------------------*/
 #include "klib.h"
 
-/* Private includes ----------------------------------------------------------*/
 #include <stdlib.h>
 #include <string.h>
 
-/* Exported macro ------------------------------------------------------------*/
-
-/* __KVEC_TYPE ---------------------------------------------------------------*/
-#undef __KVEC_TYPE
-
-#define __KVEC_TYPE(_NAME_, _TYPE_)                 \
-                                                    \
-    typedef struct Kvec_##_NAME_ kvec_##_NAME_##_t; \
-                                                    \
-    struct Kvec_##_NAME_                            \
-    {                                               \
-        size_t  n; /* number of elements      */    \
-        size_t  m; /* size of real memory     */    \
-        _TYPE_ *v; /* first address of vector */    \
-    }
-
+/* kvec_type */
 #ifndef kvec_type
-
-/**
- * @brief        Register type of vector structure
- * @param[in]    _name_: identity name of vector structure
- * @param[in]    _type_: type of vector data
+/*!
+ @brief          Register type of vector structure
+ @param[in]      name: identity name of vector structure
+ @param[in]      type: type of vector data
 */
-#define kvec_type(_name_, _type_) __KVEC_TYPE(_name_, _type_)
-
+#define kvec_type(name, type)                   \
+    typedef struct kvec_##name##_t              \
+    {                                           \
+        size_t n; /* number of elements      */ \
+        size_t m; /* size of real memory     */ \
+        type *v;  /* first address of vector */ \
+    } kvec_##name##_t
 #endif /* kvec_type */
 
-/* __KVEC_T ------------------------------------------------------------------*/
-#undef __KVEC_T
-
-#define __KVEC_T(_NAME_) kvec_##_NAME_##_t
-
+/* kvec_t */
 #ifndef kvec_t
-
-/**
- * @brief        typedef of vector registration
- * @param[in]    _name_: identity name of vector structure
+/*!
+ @brief          typedef of vector registration
+ @param[in]      name: identity name of vector structure
 */
-#define kvec_t(_name_) __KVEC_T(_name_)
-
+#define kvec_t(name) kvec_##name##_t
 #endif /* kvec_t */
 
-/* __KVEC_S ------------------------------------------------------------------*/
-#undef __KVEC_S
-
-#define __KVEC_S(_TYPE_)                         \
-                                                 \
-    struct                                       \
-    {                                            \
-        size_t  n; /* number of elements      */ \
-        size_t  m; /* size of real memory     */ \
-        _TYPE_ *v; /* first address of vector */ \
-    }
-
+/* kvec_s */
 #ifndef kvec_s
-
-/**
- * @brief        Anonymous structure of vector
- * @param[in]    _type_: type of vector data
+/*!
+ @brief        Anonymous structure of vector
+ @param[in]    type: type of vector data
 */
-#define kvec_s(_type_) __KVEC_S(_type_)
-
+#define kvec_s(type)                            \
+    struct                                      \
+    {                                           \
+        size_t n; /* number of elements      */ \
+        size_t m; /* size of real memory     */ \
+        type *v;  /* first address of vector */ \
+    }
 #endif /* kvec_s */
 
-/* __KV_INIT -----------------------------------------------------------------*/
-#undef __KV_INIT
-
-#define __KV_INIT(_KV_) \
-                        \
-    (/**/               \
-     (_KV_).n = 0U,     \
-     (_KV_).m = 0U,     \
-     (_KV_).v = NULL /**/)
-
+/* kv_init */
 #ifndef kv_init
-
-/**
- * @brief        Initialize vector structure
- * @param[in]    _kv_: vector structure
+/*!
+ @brief        Initialize vector structure
+ @param[in]    kv: vector structure
 */
-#define kv_init(_kv_) __KV_INIT(_kv_)
-
+#define kv_init(kv) \
+    (/**/ (kv).n = 0U, (kv).m = 0U, (kv).v = NULL /**/)
 #endif /* kv_init */
 
-/* __KV_PINIT ----------------------------------------------------------------*/
-#undef __KV_PINIT
-
-#define __KV_PINIT(_NAME_, _PKV_)                             \
-                                                              \
-    (/**/                                                     \
-     (_PKV_) = (kvec_##_NAME_##_t *)malloc(sizeof(*(_PKV_))), \
-     __KV_INIT(*(_PKV_)) /**/)
-
+/* kv_pinit */
 #ifndef kv_pinit
-
-/**
- * @brief        Initialize pointer of vector structure
- * @param[in]    _name_: identity name of vector structure
- * @param[out]   _pkv_: pointer of vector structure
+/*!
+ @brief        Initialize pointer of vector structure
+ @param[in]    name: identity name of vector structure
+ @param[out]   pkv: pointer of vector structure
 */
-#define kv_pinit(_name_, _pkv_) __KV_PINIT(_name_, _pkv_)
-
+#define kv_pinit(name, pkv)                                  \
+    (/**/ (pkv) = (kvec_##name##_t *)malloc(sizeof(*(pkv))), \
+     kv_init(*(pkv)) /**/)
 #endif /* kv_pinit */
 
-/* __KV_CLEAR ----------------------------------------------------------------*/
-#undef __KV_CLEAR
-
-#define __KV_CLEAR(_KV_) \
-                         \
-    (/**/                \
-     (_KV_).n = 0U,      \
-     (_KV_).m = 0U,      \
-     free((_KV_).v),     \
-     (_KV_).v = NULL /**/)
-
+/* kv_clear */
 #ifndef kv_clear
-
-/**
- * @brief        Free memory of data and clear vector structure
- * @param[in]    _kv_: vector structure
+/*!
+ @brief        Free memory of data and clear vector structure
+ @param[in]    kv: vector structure
 */
-#define kv_clear(_kv_) __KV_CLEAR(_kv_)
-
+#define kv_clear(kv) \
+    (/**/ (kv).n = 0U, (kv).m = 0U, free((kv).v), (kv).v = NULL /**/)
 #endif /* kv_clear */
 
-/* __KV_PCLEAR ---------------------------------------------------------------*/
-#undef __KV_PCLEAR
-
-#define __KV_PCLEAR(_PKV_) \
-                           \
-    (/**/                  \
-     __KV_CLEAR(*(_PKV_)), \
-     free(_PKV_),          \
-     (_PKV_) = NULL /**/)
-
+/* kv_pclear */
 #ifndef kv_pclear
-
-/**
- * @brief        Free memory and clear pointer of vector structure
- * @param[in]    _pkv_: pointer of vector structure
+/*!
+ @brief        Free memory and clear pointer of vector structure
+ @param[in]    pkv: pointer of vector structure
 */
-#define kv_pclear(_pkv_) __KV_PCLEAR(_pkv_)
-
+#define kv_pclear(pkv) \
+    (/**/ kv_clear(*(pkv)), free(pkv), (pkv) = NULL /**/)
 #endif /* kv_pclear */
 
-/* __KV_RESIZE ---------------------------------------------------------------*/
-#undef __KV_RESIZE
-
-#define __KV_RESIZE(_TYPE_, _KV_, _N_) \
-                                       \
-    (/**/                              \
-     (_KV_).m = (_N_),                 \
-     (_KV_).v = (_TYPE_ *)realloc((_KV_).v, sizeof(*(_KV_).v) * (_N_)) /**/)
-
+/* kv_resize */
 #ifndef kv_resize
-
-/**
- * @brief        Resize real memory of data
- * @param[in]    _type_: type of vector data
- * @param[in]    _kv_: vector structure
- * @param[in]    _n_: new size of real memory
+/*!
+ @brief        Resize real memory of data
+ @param[in]    type: type of vector data
+ @param[in]    kv: vector structure
+ @param[in]    n: new size of real memory
 */
-#define kv_resize(_type_, _kv_, _n_) __KV_RESIZE(_type_, _kv_, _n_)
-
+#define kv_resize(type, kv, n) \
+    (/**/                      \
+     (kv).m = (n),             \
+     (kv).v = (type *)realloc((kv).v, sizeof(*(kv).v) * (n)) /**/)
 #endif /* kv_resize */
 
-/* __KV_PRESIZE --------------------------------------------------------------*/
-#undef __KV_PRESIZE
-
-#define __KV_PRESIZE(_TYPE_, _PKV_, _N_) __KV_RESIZE(_TYPE_, *(_PKV_), _N_)
-
+/* kv_presize */
 #ifndef kv_presize
-
-/**
- * @brief        Resize real memory of data by pointer
- * @param[in]    _type_: type of vector data
- * @param[in]    _pkv_: pointer of vector structure
- * @param[in]    _n_: new size of real memory
+/*!
+ @brief        Resize real memory of data by pointer
+ @param[in]    type: type of vector data
+ @param[in]    pkv: pointer of vector structure
+ @param[in]    n: new size of real memory
 */
-#define kv_presize(_type_, _pkv_, _n_) __KV_PRESIZE(_type_, _pkv_, _n_)
-
+#define kv_presize(type, pkv, n) kv_resize(type, *(pkv), n)
 #endif /* kv_presize */
 
-/* __KV_V --------------------------------------------------------------------*/
-#undef __KV_V
-
-#define __KV_V(_KV_, _I_) (_KV_).v[(_I_)]
-
+/* kv_v */
 #ifndef kv_v
-
-/**
- * @brief        element whose index is i. static
- * @param[in]    _kv_: vector structure
- * @param[in]    _i_: index of element
- * @return       (_kv_).v[(_i_)]
+/*!
+ @brief        element whose index is i. static
+ @param[in]    kv: vector structure
+ @param[in]    i: index of element
+ @return       (kv).v[(i)]
 */
-#define kv_v(_kv_, _i_) __KV_V(_kv_, _i_)
-
+#define kv_v(kv, i) (kv).v[(i)]
 #endif /* kv_v */
 
-/* __KV_PV -------------------------------------------------------------------*/
-#undef __KV_PV
-
-#define __KV_PV(_PKV_, _I_) __KV_V(*(_PKV_), _I_)
-
+/* kv_pv */
 #ifndef kv_pv
-
-/**
- * @brief        element whose index is i. static by pointer
- * @param[in]    _pkv_: pointer of vector structure
- * @param[in]    _i_: index of element
- * @return       (_pkv_)->v[(_i_)]
+/*!
+ @brief        element whose index is i. static by pointer
+ @param[in]    pkv: pointer of vector structure
+ @param[in]    i: index of element
+ @return       (pkv)->v[(i)]
 */
-#define kv_pv(_pkv_, _i_) __KV_PV(_pkv_, _i_)
-
+#define kv_pv(pkv, i) kv_v(*(pkv), i)
 #endif /* kv_pv */
 
-/* __KV_SIZE -----------------------------------------------------------------*/
-#undef __KV_SIZE
-
-#define __KV_SIZE(_KV_) (_KV_).n
-
+/* kv_size */
 #ifndef kv_size
-
-/**
- * @brief        number of elements
- * @param[in]    _kv_: vector structure
- * @return       (_kv_).n
+/*!
+ @brief        number of elements
+ @param[in]    kv: vector structure
+ @return       (kv).n
 */
-#define kv_size(_kv_) __KV_SIZE(_kv_)
-
+#define kv_size(kv) (kv).n
 #endif /* kv_size */
 
-/* __KV_PSIZE ----------------------------------------------------------------*/
-#undef __KV_PSIZE
-
-#define __KV_PSIZE(_PKV_) __KV_SIZE(*(_PKV_))
-
+/* kv_psize */
 #ifndef kv_psize
-
-/**
- * @brief        number of elements by pointer
- * @param[in]    _pkv_: pointer of vector structure
- * @return       (_pkv_)->n
+/*!
+ @brief        number of elements by pointer
+ @param[in]    pkv: pointer of vector structure
+ @return       (pkv)->n
 */
-#define kv_psize(_pkv_) __KV_PSIZE(_pkv_)
-
+#define kv_psize(pkv) kv_size(*(pkv))
 #endif /* kv_psize */
 
-/* __KV_MAX ------------------------------------------------------------------*/
-#undef __KV_MAX
-
-#define __KV_MAX(_KV_) (_KV_).m
-
+/* kv_max */
 #ifndef kv_max
-
-/**
- * @brief        size of real memory
- * @param[in]    _kv_: vector structure
- * @return       (_kv_).m
+/*!
+ @brief        size of real memory
+ @param[in]    kv: vector structure
+ @return       (kv).m
 */
-#define kv_max(_kv_) __KV_MAX(_kv_)
-
+#define kv_max(kv) (kv).m
 #endif /* kv_max */
 
-/* __KV_PMAX -----------------------------------------------------------------*/
-#undef __KV_PMAX
-
-#define __KV_PMAX(_PKV_) __KV_MAX(*(_PKV_))
-
+/* __KV_PMAX */
 #ifndef kv_pmax
-
-/**
- * @brief        size of real memory by pointer
- * @param[in]    _pkv_: pointer of vector structure
- * @return       (_pkv_)->m
+/*!
+ @brief        size of real memory by pointer
+ @param[in]    pkv: pointer of vector structure
+ @return       (pkv)->m
 */
-#define kv_pmax(_pkv_) __KV_PMAX(_pkv_)
-
+#define kv_pmax(pkv) kv_max(*(pkv))
 #endif /* kv_pmax */
 
-/* __KV_COPY -----------------------------------------------------------------*/
-#undef __KV_COPY
-
-#define __KV_COPY(_TYPE_, _KV1_, _KV0_)          \
-                                                 \
-    (/**/                                        \
-     (_KV1_).m < (_KV0_).n                       \
-         ? __KV_RESIZE(_TYPE_, _KV1_, (_KV0_).n) \
-         : 0, /* (_KV1_).m >= (_KV0_).n */       \
-     (_KV1_).n = (_KV0_).n,                      \
-     (void)memcpy(                               \
-         (_KV1_).v,                              \
-         (_KV0_).v,                              \
-         sizeof(*(_KV0_).v) * (_KV0_).n) /**/)
-
+/* kv_copy */
 #ifndef kv_copy
-
-/**
- * @brief        Copy kv0 to kv1 by vector structure
- * @param[in]    _type_: type of vector data
- * @param[out]   _kv1_: vector structure, destination
- * @param[in]    _kv0_: vector structure, source
+/*!
+ @brief        Copy kv0 to kv1 by vector structure
+ @param[in]    type: type of vector data
+ @param[out]   kv1: vector structure, destination
+ @param[in]    kv0: vector structure, source
 */
-#define kv_copy(_type_, _kv1_, _kv0_) __KV_COPY(_type_, _kv1_, _kv0_)
-
+#define kv_copy(type, kv1, kv0)          \
+    (/**/                                \
+     (kv1).m < (kv0).n                   \
+         ? kv_resize(type, kv1, (kv0).n) \
+         : 0, /* (kv1).m >= (kv0).n */   \
+     (kv1).n = (kv0).n,                  \
+     (void)memcpy(                       \
+         (kv1).v,                        \
+         (kv0).v,                        \
+         sizeof(*(kv0).v) * (kv0).n) /**/)
 #endif /* kv_copy */
 
-/* __KV_PCOPY ----------------------------------------------------------------*/
-#undef __KV_PCOPY
-
-#define __KV_PCOPY(_NAME_, _TYPE_, _PKV1_, _PKV0_) \
-                                                   \
-    (/**/                                          \
-     (_PKV1_)                                      \
-         ? 0 /* _PKV1_ != NULL */                  \
-         : __KV_PINIT(_NAME_, _PKV1_),             \
-     __KV_COPY(_TYPE_, *(_PKV1_), *(_PKV0_)) /**/)
-
+/* kv_pcopy */
 #ifndef kv_pcopy
-
-/**
- * @brief        Copy pkv0 to pkv1 by pointer of vector structure
- * @param[in]    _name_: identity name of vector structure
- * @param[in]    _type_: type of vector data
- * @param[out]   _pkv1_: pointer of vector structure, destination
- * @param[in]    _pkv0_: pointer of vector structure, source
+/*!
+ @brief        Copy pkv0 to pkv1 by pointer of vector structure
+ @param[in]    name: identity name of vector structure
+ @param[in]    type: type of vector data
+ @param[out]   pkv1: pointer of vector structure, destination
+ @param[in]    pkv0: pointer of vector structure, source
 */
-#define kv_pcopy(_name_, _type_, _pkv1_, _pkv0_) \
-                                                 \
-    __KV_PCOPY(_name_, _type_, _pkv1_, _pkv0_)
-
+#define kv_pcopy(name, type, pkv1, pkv0) \
+    (/**/                                \
+     (pkv1)                              \
+         ? 0 /* pkv1 != NULL */          \
+         : kv_pinit(name, pkv1),         \
+     kv_copy(type, *(pkv1), *(pkv0)) /**/)
 #endif /* kv_pcopy */
 
-/* __KV_POP ------------------------------------------------------------------*/
-#undef __KV_POP
-
-#define __KV_POP(_KV_) (_KV_).v[(/**/ (_KV_).n ? --(_KV_).n : 0U /**/)]
-
+/* kv_pop */
 #ifndef kv_pop
-
-/**
- * @brief        Pop a element by vector structure
- * @param[in]    _kv_: vector structure
- * @return       (_kv_).v[((_kv_).n ? --(_kv_).n : 0U)]
+/*!
+ @brief        Pop a element by vector structure
+ @param[in]    kv: vector structure
+ @return       (kv).v[(kv).n ? --(kv).n : 0U]
 */
-#define kv_pop(_kv_) __KV_POP(_kv_)
-
+#define kv_pop(kv) (kv).v[(kv).n ? --(kv).n : 0U]
 #endif /* kv_pop */
 
-/* __KV_PPOP -----------------------------------------------------------------*/
-#undef __KV_PPOP
-
-#define __KV_PPOP(_PKV_) __KV_POP(*(_PKV_))
-
+/* kv_ppop */
 #ifndef kv_ppop
-
-/**
- * @brief        Pop a element pointer of vector structure
- * @param[in]    _pkv_: pointer of vector structure
- * @return       (_pkv_)->v[((_pkv_)->n ? --(_pkv_)->n : 0U)]
+/*!
+ @brief        Pop a element pointer of vector structure
+ @param[in]    pkv: pointer of vector structure
+ @return       (pkv)->v[(pkv)->n ? --(pkv)->n : 0U]
 */
-#define kv_ppop(_pkv_) __KV_PPOP(_pkv_)
-
+#define kv_ppop(pkv) kv_pop(*(pkv))
 #endif /* kv_ppop */
 
-/* __KV_PUSH -----------------------------------------------------------------*/
-#undef __KV_PUSH
-
-#define __KV_PUSH(_TYPE_, _KV_, _X_)                             \
-    (/**/                                                        \
-     (_KV_).n == (_KV_).m                                        \
-         ? ((_KV_).m = ((_KV_).m                                 \
-                            ? ((_KV_).m << 1U) /* m != 0 */      \
-                            : 2U),             /* m == 0 */      \
-            (_KV_).v = (_TYPE_ *)                                \
-                realloc((_KV_).v, sizeof(*(_KV_).v) * (_KV_).m), \
-            0)                                                   \
-         : (/* n != m */ 0),                                     \
-     (_KV_).v[(_KV_).n++] = (_X_) /**/)
-
+/* kv_push */
 #ifndef kv_push
-
-/**
- * @brief        Push a element by vector structure
- * @param[in]    _type_: type of vector data
- * @param[in]    _kv_: vector structure
- * @param[in]    _x_: element whose pushed
+/*!
+ @brief        Push a element by vector structure
+ @param[in]    type: type of vector data
+ @param[in]    kv: vector structure
+ @param[in]    x: element whose pushed
 */
-#define kv_push(_type_, _kv_, _x_) __KV_PUSH(_type_, _kv_, _x_)
-
+#define kv_push(type, kv, x)                               \
+    (/**/                                                  \
+     (kv).n == (kv).m                                      \
+         ? ((kv).m = ((kv).m                               \
+                          ? ((kv).m << 1U) /* m != 0 */    \
+                          : 2U),           /* m == 0 */    \
+            (kv).v = (type *)                              \
+                realloc((kv).v, sizeof(*(kv).v) * (kv).m), \
+            0)                                             \
+         : (/* n != m */ 0),                               \
+     (kv).v[(kv).n++] = (x) /**/)
 #endif /* kv_push */
 
-/* __KV_PPUSH ----------------------------------------------------------------*/
-#undef __KV_PPUSH
-
-#define __KV_PPUSH(_TYPE_, _PKV_, _X_) __KV_PUSH(_TYPE_, *(_PKV_), _X_)
-
+/* kv_ppush */
 #ifndef kv_ppush
-
-/**
- * @brief        Push a element by pointer of vector structure
- * @param[in]    _type_: type of vector data
- * @param[in]    _pkv_: pointer of vector structure
- * @param[in]    _x_: element whose pushed
+/*!
+ @brief        Push a element by pointer of vector structure
+ @param[in]    type: type of vector data
+ @param[in]    pkv: pointer of vector structure
+ @param[in]    x: element whose pushed
 */
-#define kv_ppush(_type_, _pkv_, _x_) __KV_PPUSH(_type_, _pkv_, _x_)
-
+#define kv_ppush(type, pkv, x) kv_push(type, *(pkv), x)
 #endif /* kv_ppush */
 
-/* __KV_PUSHP ----------------------------------------------------------------*/
-#undef __KV_PUSHP
-
-#define __KV_PUSHP(_TYPE_, _KV_)                                  \
-                                                                  \
-    ((/**/                                                        \
-      (_KV_).n == (_KV_).m                                        \
-          ? (/* n == m */                                         \
-             (_KV_).m = ((_KV_).m                                 \
-                             ? ((_KV_).m << 1U)                   \
-                             : 2U),                               \
-             (_KV_).v = (_TYPE_ *)                                \
-                 realloc((_KV_).v, sizeof(*(_KV_).v) * (_KV_).m), \
-             0)                                                   \
-          : (/* n != m */ 0),                                     \
-      /**/ 0),                                                    \
-     (_KV_).v + (_KV_).n++)
-
+/* kv_pushp */
 #ifndef kv_pushp
 
-/**
- * @brief        address of element to be pushed
- * @param[in]    _type_: type of vector data
- * @param[in]    _kv_: vector structure
- * @return       ((_kv_).v + (_kv_).n++)
+/*!
+ @brief        address of element to be pushed
+ @param[in]    type: type of vector data
+ @param[in]    kv: vector structure
+ @return       ((kv).v + (kv).n++)
 */
-#define kv_pushp(_type_, _kv_) __KV_PUSHP(_type_, _kv_)
-
+#define kv_pushp(type, kv)                                  \
+    ((/**/                                                  \
+      (kv).n == (kv).m                                      \
+          ? (/* n == m */                                   \
+             (kv).m = ((kv).m                               \
+                           ? ((kv).m << 1U)                 \
+                           : 2U),                           \
+             (kv).v = (type *)                              \
+                 realloc((kv).v, sizeof(*(kv).v) * (kv).m), \
+             0)                                             \
+          : (/* n != m */ 0),                               \
+      /**/ 0),                                              \
+     (kv).v + (kv).n++)
 #endif /* kv_pushp */
 
-/* __KV_PPUSHP ---------------------------------------------------------------*/
-#undef __KV_PPUSHP
-
-#define __KV_PPUSHP(_TYPE_, _PKV_) __KV_PUSHP(_TYPE_, *(_PKV_))
-
+/* kv_ppushp */
 #ifndef kv_ppushp
-
-/**
- * @brief        address of element to be pushed
- * @param[in]    _type_: type of vector data
- * @param[in]    _pkv_: pointer of vector structure
- * @return       ((_kv_)->v + (_kv_)->n++)
+/*!
+ @brief        address of element to be pushed
+ @param[in]    type: type of vector data
+ @param[in]    pkv: pointer of vector structure
+ @return       ((kv)->v + (kv)->n++)
 */
-#define kv_ppushp(_type_, _pkv_) __KV_PPUSHP(_type_, _pkv_)
-
+#define kv_ppushp(type, pkv) kv_pushp(type, *(pkv))
 #endif /* kv_ppushp */
 
-/* __KV_VI -------------------------------------------------------------------*/
-#undef __KV_VI
-
-#define __KV_VI(_TYPE_, _KV_, _I_)                               \
-                                                                 \
-    (/**/                                                        \
-     (_KV_).m <= (_I_)                                           \
-         ? (/*m <= i*/                                           \
-            (_KV_).m = (_KV_).n = (_I_) + 1U,                    \
-            __KROUNDUP32((_KV_).m), /* m = n = i + 1 */          \
-            (_KV_).v = (_TYPE_ *)                                \
-                realloc((_KV_).v, sizeof(*(_KV_).v) * (_KV_).m), \
-            0)                                                   \
-         : (/*m > i*/                                            \
-            (_KV_).n <= (_I_)                                    \
-                ? (/* n <= i */ (_KV_).n = (_I_) + 1U)           \
-                : (/* n > i */ 0),                               \
-            0),                                                  \
-     /**/ 0),                                                    \
-        (_KV_).v[(_I_)]
-
+/* kv_vi */
 #ifndef kv_vi
-
-/**
- * @brief        element whose index is i. dynamic
- * @param[in]    _type_: type of vector data
- * @param[in]    _kv_: vector structure
- * @param[in]    _i_: index of element
- * @return       (_kv_).v[(_i_)]
+/*!
+ @brief        element whose index is i. dynamic
+ @param[in]    type: type of vector data
+ @param[in]    kv: vector structure
+ @param[in]    i: index of element
+ @return       (kv).v[(i)]
 */
-#define kv_vi(_type_, _kv_, _i_) __KV_VI(_type_, _kv_, _i_)
-
+#define kv_vi(type, kv, i)                                 \
+                                                           \
+    (/**/                                                  \
+     (kv).m <= (i)                                         \
+         ? (/*m <= i*/                                     \
+            (kv).m = (kv).n = (i) + 1U,                    \
+            kroundup32((kv).m), /* m = n = i + 1 */        \
+            (kv).v = (type *)                              \
+                realloc((kv).v, sizeof(*(kv).v) * (kv).m), \
+            0)                                             \
+         : (/*m > i*/                                      \
+            (kv).n <= (i)                                  \
+                ? (/* n <= i */ (kv).n = (i) + 1U)         \
+                : (/* n > i */ 0),                         \
+            0),                                            \
+     /**/ 0),                                              \
+        (kv).v[(i)]
 #endif /* kv_vi */
 
-/* __KV_PVI ------------------------------------------------------------------*/
-#undef __KV_PVI
-
-#define __KV_PVI(_TYPE_, _PKV_, _I_) __KV_VI(_TYPE_, *(_PKV_), _I_)
-
+/* kv_pvi */
 #ifndef kv_pvi
-
-/**
- * @brief        element whose index is i. dynamic by pointer
- * @param[in]    _type_: type of vector data
- * @param[in]    _pkv_: pointer of vector structure
- * @param[in]    _i_: index of element
- * @return       (_kv_)->v[(_i_)]
+/*!
+ @brief        element whose index is i. dynamic by pointer
+ @param[in]    type: type of vector data
+ @param[in]    pkv: pointer of vector structure
+ @param[in]    i: index of element
+ @return       (kv)->v[(i)]
 */
-#define kv_pvi(_type_, _pkv_, _i_) __KV_PVI(_type_, _pkv_, _i_)
-
+#define kv_pvi(type, pkv, i) kv_vi(type, *(pkv), i)
 #endif /* kv_pvi */
 
-/* __KVEC_IMPL ---------------------------------------------------------------*/
+/* __KVEC_IMPL */
 #undef __KVEC_IMPL
-
-#define __KVEC_IMPL(_SCOPE_, _NAME_, _TYPE_)                    \
+#define __KVEC_IMPL(SCOPE, NAME, TYPE)                          \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    void kv_##_NAME_##_init(kvec_##_NAME_##_t *kv)              \
+    SCOPE                                                       \
+    void kv_##NAME##_init(kvec_##NAME##_t *kv)                  \
     {                                                           \
         kv->n = 0U;                                             \
         kv->m = 0U;                                             \
@@ -546,10 +381,10 @@
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_pinit(kvec_##_NAME_##_t **pkv)            \
+    SCOPE                                                       \
+    int kv_##NAME##_pinit(kvec_##NAME##_t **pkv)                \
     {                                                           \
-        *pkv = (kvec_##_NAME_##_t *)malloc(sizeof(**pkv));      \
+        *pkv = (kvec_##NAME##_t *)malloc(sizeof(**pkv));        \
         if (!*pkv)                                              \
         {                                                       \
             return -1;                                          \
@@ -561,8 +396,8 @@
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    void kv_##_NAME_##_clear(kvec_##_NAME_##_t *kv)             \
+    SCOPE                                                       \
+    void kv_##NAME##_clear(kvec_##NAME##_t *kv)                 \
     {                                                           \
         kv->n = 0U;                                             \
         kv->m = 0U;                                             \
@@ -571,8 +406,8 @@
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    void kv_##_NAME_##_pclear(kvec_##_NAME_##_t **pkv)          \
+    SCOPE                                                       \
+    void kv_##NAME##_pclear(kvec_##NAME##_t **pkv)              \
     {                                                           \
         (*pkv)->n = (*pkv)->m = 0U;                             \
         free((*pkv)->v);                                        \
@@ -582,15 +417,15 @@
     }                                                           \
                                                                 \
     __NONNULL((1))                                              \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_resize(kvec_##_NAME_##_t *kv,             \
-                             size_t             n)              \
+    SCOPE                                                       \
+    int kv_##NAME##_resize(kvec_##NAME##_t *kv,                 \
+                           size_t n)                            \
     {                                                           \
         void *p = realloc(kv->v, sizeof(*kv->v) * n);           \
         if (p || !n)                                            \
         {                                                       \
-            kv->v = (_TYPE_ *)p;                                \
-            p     = NULL;                                       \
+            kv->v = (TYPE *)p;                                  \
+            p = NULL;                                           \
             kv->m = n;                                          \
             return 0;                                           \
         }                                                       \
@@ -598,10 +433,10 @@
     }                                                           \
                                                                 \
     __NONNULL((1, 2))                                           \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_v(_TYPE_ *                 dst,           \
-                        const kvec_##_NAME_##_t *kv,            \
-                        size_t                   i)             \
+    SCOPE                                                       \
+    int kv_##NAME##_v(TYPE *dst,                                \
+                      const kvec_##NAME##_t *kv,                \
+                      size_t i)                                 \
     {                                                           \
         if (i < kv->n)                                          \
         {                                                       \
@@ -612,27 +447,27 @@
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    size_t kv_##_NAME_##_size(const kvec_##_NAME_##_t *kv)      \
+    SCOPE                                                       \
+    size_t kv_##NAME##_size(const kvec_##NAME##_t *kv)          \
     {                                                           \
         return kv->n;                                           \
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    size_t kv_##_NAME_##_max(const kvec_##_NAME_##_t *kv)       \
+    SCOPE                                                       \
+    size_t kv_##NAME##_max(const kvec_##NAME##_t *kv)           \
     {                                                           \
         return kv->m;                                           \
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_copy(kvec_##_NAME_##_t *      kv1,        \
-                           const kvec_##_NAME_##_t *kv0)        \
+    SCOPE                                                       \
+    int kv_##NAME##_copy(kvec_##NAME##_t *kv1,                  \
+                         const kvec_##NAME##_t *kv0)            \
     {                                                           \
         if (kv1->m < kv0->n)                                    \
         {                                                       \
-            if (kv_##_NAME_##_resize(kv1, kv0->n))              \
+            if (kv_##NAME##_resize(kv1, kv0->n))                \
             {                                                   \
                 return -1;                                      \
             }                                                   \
@@ -643,9 +478,9 @@
     }                                                           \
                                                                 \
     __NONNULL_ALL                                               \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_pop(_TYPE_ *           dst,               \
-                          kvec_##_NAME_##_t *kv)                \
+    SCOPE                                                       \
+    int kv_##NAME##_pop(TYPE *dst,                              \
+                        kvec_##NAME##_t *kv)                    \
     {                                                           \
         if (kv->n)                                              \
         {                                                       \
@@ -656,18 +491,18 @@
     }                                                           \
                                                                 \
     __NONNULL((1))                                              \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_push(kvec_##_NAME_##_t *kv,               \
-                           _TYPE_             v)                \
+    SCOPE                                                       \
+    int kv_##NAME##_push(kvec_##NAME##_t *kv,                   \
+                         TYPE v)                                \
     {                                                           \
         if (kv->n == kv->m)                                     \
         {                                                       \
-            kv->m   = (kv->m ? (kv->m << 1U) : 2U);             \
+            kv->m = (kv->m ? (kv->m << 1U) : 2U);               \
             void *p = realloc(kv->v, sizeof(*kv->v) * kv->m);   \
             if (p)                                              \
             {                                                   \
-                kv->v = (_TYPE_ *)p;                            \
-                p     = NULL;                                   \
+                kv->v = (TYPE *)p;                              \
+                p = NULL;                                       \
             }                                                   \
             else                                                \
             {                                                   \
@@ -680,20 +515,20 @@
     }                                                           \
                                                                 \
     __NONNULL((1))                                              \
-    _SCOPE_                                                     \
-    int kv_##_NAME_##_vi(kvec_##_NAME_##_t *kv,                 \
-                         size_t             i,                  \
-                         _TYPE_             v)                  \
+    SCOPE                                                       \
+    int kv_##NAME##_vi(kvec_##NAME##_t *kv,                     \
+                       size_t i,                                \
+                       TYPE v)                                  \
     {                                                           \
         if (kv->m <= i)                                         \
         {                                                       \
             size_t m = i + 1U;                                  \
-            __KROUNDUP32(m);                                    \
+            kroundup32(m);                                      \
             void *p = realloc(kv->v, sizeof(*kv->v) * m);       \
             if (p)                                              \
             {                                                   \
-                kv->v = (_TYPE_ *)p;                            \
-                p     = NULL;                                   \
+                kv->v = (TYPE *)p;                              \
+                p = NULL;                                       \
                 kv->m = m;                                      \
             }                                                   \
             else                                                \
@@ -711,37 +546,31 @@
     }
 
 #ifndef kvec_impl
-
-/**
- * @brief        Vector function Initial Microprogram Loading
- * @param[in]    _scope_: scope of function
- * @param[in]    _name_: identity name of vector structure
- * @param[in]    _type_: type of vector data
+/*!
+ @brief        Vector function Initial Microprogram Loading
+ @param[in]    scope: scope of function
+ @param[in]    name: identity name of vector structure
+ @param[in]    type: type of vector data
 */
-#define kvec_impl(_scope_, _name_, _type_) __KVEC_IMPL(_scope_, _name_, _type_)
-
+#define kvec_impl(scope, name, type) __KVEC_IMPL(scope, name, type)
 #endif /* kvec_impl */
 
-/* __KVEC_INIT ---------------------------------------------------------------*/
+/* __KVEC_INIT */
 #undef __KVEC_INIT
-
-#define __KVEC_INIT(_NAME_, _TYPE_) \
-                                    \
-    __KVEC_TYPE(_NAME_, _TYPE_);    \
-    __KVEC_IMPL(static inline __UNUSED, _NAME_, _TYPE_)
+#define __KVEC_INIT(NAME, TYPE) \
+    kvec_type(NAME, TYPE);      \
+    __KVEC_IMPL(__STATIC_INLINE __UNUSED, NAME, TYPE)
 
 #ifndef kvec_init
-
-/**
- * @brief        Vector function Initial Microprogram Loading
- * @param[in]    _name_ identity name of vector structure
- * @param[in]    _type_ type of vector data
+/*!
+ @brief        Vector function Initial Microprogram Loading
+ @param[in]    name: identity name of vector structure
+ @param[in]    type: type of vector data
 */
-#define kvec_init(_name_, _type_) __KVEC_INIT(_name_, _type_)
-
+#define kvec_init(name, type) __KVEC_INIT(name, type)
 #endif /* kvec_init */
 
-/* __KVEC_H__ ----------------------------------------------------------------*/
+/* Enddef to prevent recursive inclusion */
 #endif /* __KVEC_H__ */
 
-/************************ (C) COPYRIGHT tqfx *******************END OF FILE****/
+/* END OF FILE */

@@ -1,34 +1,39 @@
-/**
- * *****************************************************************************
- * @file         test_kvec.c
- * @brief        test kvector library
- * @details      
- * @author       tqfx
- * @date         20210421
- * @version      1
- * @copyright    Copyright (C) 2021
- * @code         utf-8                                                  @endcode
- * *****************************************************************************
+/*!
+ @file           test_kvec.c
+ @brief          test kvector library
+ @author         tqfx tqfx@foxmail.com
+ @version        0
+ @date           2021-05-30
+ @copyright      Copyright (C) 2021 tqfx
+ \n \n
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ \n \n
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ \n \n
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 */
 
-/* Includes ------------------------------------------------------------------*/
 #include "kvec.h"
 
-/* Private includes ----------------------------------------------------------*/
 #include <cstdio>
 #include <cstring>
 #include <ctime>
 #include <vector>
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private user code ---------------------------------------------------------*/
-
-/**
- * @brief        test kver_s
+/*!
+ @brief          test kver_s
 */
 void test1(void)
 {
@@ -36,19 +41,19 @@ void test1(void)
 
     kv_init(kv);
 
-    for (unsigned int i = 0; i < 5; i++)
+    for (unsigned int i = 0; i != 5; ++i)
     {
         kv_push(unsigned int, kv, i);
     }
 
-    for (unsigned int i = 5; i < 7; i++)
+    for (unsigned int i = 5; i != 7; ++i)
     {
         unsigned int *n = kv_pushp(unsigned int, kv);
 
         *n = i;
     }
 
-    for (unsigned int i = 7; i < 10; i++)
+    for (unsigned int i = 7; i != 10; ++i)
     {
         kv_vi(unsigned int, kv, i) = i;
     }
@@ -58,13 +63,13 @@ void test1(void)
     kv_copy(unsigned int, kv2, kv);
     kv_clear(kv);
 
-    for (unsigned int i = 0; i < 5; i++)
+    for (unsigned int i = 0; i != 5; ++i)
     {
         unsigned int n = kv_pop(kv2);
         printf("%u ", n);
     }
 
-    for (unsigned int i = 0; i < kv_size(kv2); i++)
+    for (unsigned int i = 0; i != kv_size(kv2); ++i)
     {
         printf("%u ", kv_v(kv2, i));
     }
@@ -77,8 +82,8 @@ void test1(void)
 /* impl type and functon */
 __KVEC_INIT(u32, unsigned int)
 
-/**
- * @brief        test kver_t macros
+/*!
+ @brief          test kver_t macros
 */
 void test2(void)
 {
@@ -86,19 +91,19 @@ void test2(void)
 
     kv_pinit(u32, kv);
 
-    for (unsigned int i = 0; i < 5; i++)
+    for (unsigned int i = 0; i != 5; ++i)
     {
         kv_ppush(unsigned int, kv, i);
     }
 
-    for (unsigned int i = 5; i < 7; i++)
+    for (unsigned int i = 5; i != 7; ++i)
     {
         unsigned int *n = kv_ppushp(unsigned int, kv);
 
         *n = i;
     }
 
-    for (unsigned int i = 7; i < 10; i++)
+    for (unsigned int i = 7; i != 10; ++i)
     {
         kv_pvi(unsigned int, kv, i) = i;
     }
@@ -107,13 +112,13 @@ void test2(void)
     kv_pcopy(u32, unsigned int, pkv, kv);
     kv_pclear(kv);
 
-    for (unsigned int i = 0; i < 5; i++)
+    for (unsigned int i = 0; i != 5; ++i)
     {
         unsigned int n = kv_ppop(pkv);
         printf("%u ", n);
     }
 
-    for (unsigned int i = 0; i < kv_psize(pkv); i++)
+    for (unsigned int i = 0; i != kv_psize(pkv); ++i)
     {
         printf("%u ", kv_pv(pkv, i));
     }
@@ -123,8 +128,8 @@ void test2(void)
     kv_pclear(pkv);
 }
 
-/**
- * @brief        test kver_t function
+/*!
+ @brief          test kver_t function
 */
 void test3(void)
 {
@@ -132,12 +137,12 @@ void test3(void)
 
     kv_u32_pinit(&kv);
 
-    for (unsigned int i = 0; i < 5; i++)
+    for (unsigned int i = 0; i != 5; ++i)
     {
         kv_u32_push(kv, i);
     }
 
-    for (unsigned int i = 5; i < 10; i++)
+    for (unsigned int i = 5; i != 10; ++i)
     {
         kv_u32_vi(kv, i, i);
     }
@@ -147,14 +152,14 @@ void test3(void)
     kv_u32_copy(&kv2, kv);
     kv_u32_pclear(&kv);
 
-    for (unsigned int i = 0; i < 5; i++)
+    for (unsigned int i = 0; i != 5; ++i)
     {
         unsigned int n = 0;
         kv_u32_pop(&n, &kv2);
         printf("%u ", n);
     }
 
-    for (unsigned int i = 0; i < kv_u32_size(&kv2); i++)
+    for (unsigned int i = 0; i != kv_u32_size(&kv2); ++i)
     {
         unsigned int n = 0;
         kv_u32_v(&n, &kv2, i);
@@ -166,8 +171,8 @@ void test3(void)
     kv_u32_clear(&kv2);
 }
 
-/**
- * @brief        test c and c++
+/*!
+ @brief          test c and c++
 */
 void test4(void)
 {
@@ -177,24 +182,24 @@ void test4(void)
     unsigned int j = 0;
 
     clock_t t = clock();
-    for (i = 0; i < M; ++i)
+    for (i = 0; i != M; ++i)
     {
         unsigned int *array = (unsigned int *)malloc(sizeof(int) * N);
-        for (j = 0; j < N; ++j)
+        for (j = 0; j != N; ++j)
         {
             array[j] = j;
         }
         free(array);
     }
     printf("C array, preallocated: %.3f sec\n",
-           (float)(clock() - t) / CLOCKS_PER_SEC);
+           (double)(clock() - t) / CLOCKS_PER_SEC);
 
     t = clock();
-    for (i = 0; i < M; ++i)
+    for (i = 0; i != M; ++i)
     {
         unsigned int *array = 0;
-        unsigned int  max   = 0;
-        for (j = 0; j < N; ++j)
+        unsigned int max = 0;
+        for (j = 0; j != N; ++j)
         {
             if (j == max)
             {
@@ -208,61 +213,61 @@ void test4(void)
         free(array);
     }
     printf("C array, dynamic: %.3f sec\n",
-           (float)(clock() - t) / CLOCKS_PER_SEC);
+           (double)(clock() - t) / CLOCKS_PER_SEC);
 
     t = clock();
-    for (i = 0; i < M; ++i)
+    for (i = 0; i != M; ++i)
     {
         kvec_s(unsigned int) array;
         kv_init(array);
         kv_resize(unsigned int, array, N);
-        for (j = 0; j < N; ++j)
+        for (j = 0; j != N; ++j)
         {
             kv_v(array, j) = j;
         }
         kv_clear(array);
     }
     printf("C vector, dynamic(kv_v): %.3f sec\n",
-           (float)(clock() - t) / CLOCKS_PER_SEC);
+           (double)(clock() - t) / CLOCKS_PER_SEC);
 
     t = clock();
-    for (i = 0; i < M; ++i)
+    for (i = 0; i != M; ++i)
     {
         kvec_s(unsigned int) array;
         kv_init(array);
-        for (j = 0; j < N; ++j)
+        for (j = 0; j != N; ++j)
         {
             kv_push(unsigned int, array, j);
         }
         kv_clear(array);
     }
     printf("C vector, dynamic(kv_push): %.3f sec\n",
-           (float)(clock() - t) / CLOCKS_PER_SEC);
+           (double)(clock() - t) / CLOCKS_PER_SEC);
 
     t = clock();
-    for (i = 0; i < M; ++i)
+    for (i = 0; i != M; ++i)
     {
         std::vector<unsigned int> array;
         array.reserve(N);
-        for (j = 0; j < N; ++j)
+        for (j = 0; j != N; ++j)
         {
             array[j] = j;
         }
     }
     printf("C++ vector, preallocated: %.3f sec\n",
-           (float)(clock() - t) / CLOCKS_PER_SEC);
+           (double)(clock() - t) / CLOCKS_PER_SEC);
 
     t = clock();
-    for (i = 0; i < M; ++i)
+    for (i = 0; i != M; ++i)
     {
         std::vector<unsigned int> array;
-        for (j = 0; j < N; ++j)
+        for (j = 0; j != N; ++j)
         {
             array.push_back(j);
         }
     }
     printf("C++ vector, dynamic: %.3f sec\n",
-           (float)(clock() - t) / CLOCKS_PER_SEC);
+           (double)(clock() - t) / CLOCKS_PER_SEC);
 }
 
 int main(void)
@@ -278,4 +283,4 @@ int main(void)
     return 0;
 }
 
-/************************ (C) COPYRIGHT tqfx *******************END OF FILE****/
+/* END OF FILE */
