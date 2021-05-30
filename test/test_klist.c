@@ -1,31 +1,35 @@
-/**
- * *****************************************************************************
- * @file         test_klist.c
- * @brief        test klist library
- * @details
- * @author       tqfx
- * @date         20210212
- * @version      1
- * @copyright    Copyright (C) 2021
- * @code         utf-8                                                  @endcode
- * *****************************************************************************
+/*!
+ @file           test_klist.c
+ @brief          test klist library
+ @author         tqfx tqfx@foxmail.com
+ @version        0
+ @date           2021-05-31
+ @copyright      Copyright (C) 2021 tqfx
+ \n \n
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ \n \n
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ \n \n
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 */
 
-/* Includes ------------------------------------------------------------------*/
 #include "klist.h"
 
-/* Private includes ----------------------------------------------------------*/
 #include <stdio.h>
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-
 #define test_free(x) printf("%i ", x->data)
-
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private user code ---------------------------------------------------------*/
 
 __KLIST_INIT(i32, int, test_free)
 
@@ -127,7 +131,7 @@ void test3(void)
     for (int i = 5; i < 10; i++)
     {
         int *x = kl_i32_pushp(kl);
-        *x     = i;
+        *x = i;
     }
 
     for (int i = 0; i < 5; i++)
@@ -172,4 +176,4 @@ int main(void)
     return 0;
 }
 
-/************************ (C) COPYRIGHT tqfx *******************END OF FILE****/
+/* END OF FILE */
