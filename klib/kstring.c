@@ -1,42 +1,45 @@
-/**
- * *****************************************************************************
- * @file         kstring.c
- * @brief        string library
- * @details      basic string library
- * @author       tqfx
- * @date         20210421
- * @version      1
- * @copyright    Copyright (C) 2021
- * @code         utf-8                                                  @endcode
- * *****************************************************************************
+/*!
+ @file           kstring.c
+ @brief          basic string library
+ @author         tqfx tqfx@foxmail.com
+ @version        0
+ @date           2021-05-30
+ @copyright      Copyright (C) 2021 tqfx
+ \n \n
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ \n \n
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ \n \n
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 */
 
-/* Includes ------------------------------------------------------------------*/
 #include "kstring.h"
 
-/* Private includes ----------------------------------------------------------*/
+#include <assert.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private user code ---------------------------------------------------------*/
-
-/**
- * @defgroup     printf
- * @{
- * @brief        print string to kstring_t
-*/
-
-int kvsprintf(kstring_t * ks,
+int kvsprintf(kstring_t *ks,
               const char *fmt,
-              va_list     ap)
+              va_list ap)
 {
+    assert(ks && "ks is null");
+    assert(fmt && "fmt is null");
+
     va_list args;
 
     va_copy(args, ap);
@@ -55,14 +58,19 @@ int kvsprintf(kstring_t * ks,
         l = vsnprintf(ks->s + ks->l, ks->m - ks->l, fmt, args);
         va_end(args);
     }
+
     ks->l += (size_t)l;
+
     return l;
 }
 
-int ksprintf(kstring_t * ks,
+int ksprintf(kstring_t *ks,
              const char *fmt,
              ...)
 {
+    assert(ks && "ks is null");
+    assert(fmt && "fmt is null");
+
     va_list ap;
 
     va_start(ap, fmt);
@@ -72,223 +80,345 @@ int ksprintf(kstring_t * ks,
     return l;
 }
 
-/** @} printf */
+void *ks_find(void *dst,
+              size_t nd,
+              const void *src,
+              size_t ns)
+{
+    assert(dst);
+    assert(src);
 
-/**
- * @defgroup     ks_cnt
- * @{
- * @brief        count substring from kstring_t
-*/
+    /* when ns is 0, return dst */
+    void *ret = (void *)dst;
+    /* ns is 0 */
+    if (!ns)
+    {
+        return ret;
+    }
+
+    /* When data is not found, return null */
+    ret = NULL;
+
+    /* The end pointer of source */
+    const char *src_end = (const char *)src + ns;
+    /* The end pointer of destination */
+    char *dst_end = (char *)dst + nd;
+
+    /* Start the iteration */
+    char *p = (char *)dst;
+    while (p != dst_end)
+    {
+        /* When nd is less than ns */
+        if ((size_t)(dst_end - p) < ns)
+        {
+            break;
+        }
+
+        /* The start pointer of source */
+        const char *ps = (const char *)src;
+        /* The start pointer of destination */
+        char *pd = p;
+
+        /* memcmp */
+        while (ps != src_end)
+        {
+            if (*ps != *pd)
+            {
+                break;
+            }
+
+            ++pd;
+            ++ps;
+        }
+
+        /* The data has been found */
+        if (ps == src_end)
+        {
+            ret = (void *)p;
+            break;
+        }
+
+        ++p;
+    }
+
+    return ret;
+}
 
 size_t ks_cnt_(const kstring_t *ks,
-               const char *     s,
-               size_t           l)
+               const char *s,
+               size_t l)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
+    size_t ret = 0U;
+
     /* when l is 0, it will goes into an infinite cycle */
     if (!l)
     {
-        return 0U;
+        return ret;
     }
 
-    size_t count = 0U;
-    char * p     = ks->s;
-    while ((p = strstr(p, s)))
+    /* The end pointer of substring */
+    const char *pend = ks->s + ks->l;
+    /* The start pointer */
+    char *p = ks->s;
+    while ((p = (char *)ks_find(p, (size_t)(pend - p), s, l)))
     {
         p += l;
-        ++count;
+        ++ret;
     }
-    return count;
+
+    return ret;
 }
 
 size_t ks_cnt(const kstring_t *ks,
-              const char *     s)
+              const char *s)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
     return ks_cnt_(ks, s, strlen(s));
 }
 
-/** @} ks_cnt */
-
-/**
- * @defgroup     ks_ins
- * @{
- * @brief        insert string in kstring_t
-*/
-
-int ks_ins_(kstring_t * ks,
-            size_t      i,
+int ks_ins_(kstring_t *ks,
+            size_t i,
             const char *s,
-            size_t      l)
+            size_t l)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
+    /* Expand memory */
     if (ks_resize(ks, ks->l + l + 1U))
     {
         return -1;
     }
 
+    /* Restrict where to insert */
     i = i > ks->l ? ks->l : i;
-    (void)memmove(ks->s + i + l, ks->s + i, ks->l + 1U - i);
+
+    /* Move data back through from back to front */
+    char *pstart = ks->s + i - 1U;
+    char *p = ks->s + ks->l;
+    char *pend = p + l;
+    while (p != pstart)
+    {
+        *pend-- = *p--;
+    }
+
     (void)memcpy(ks->s + i, s, l);
     ks->l += l;
+
     return 0;
 }
 
 int ks_ins(kstring_t *ks, size_t i, const char *s)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
     return ks_ins_(ks, i, s, strlen(s));
 }
 
-/** @} ks_ins */
-
-/**
- * @defgroup     ks_del
- * @{
- * @brief        delete substring from kstring_t
-*/
-
-size_t ks_del_(kstring_t * ks,
+size_t ks_del_(kstring_t *ks,
                const char *s,
-               size_t      l)
+               size_t l)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
+    size_t ret = 0U;
+
     /* when l is 0, it will goes into an infinite cycle */
     if (!l)
     {
-        return 0U;
+        return ret;
     }
 
-    char *ps = strstr(ks->s, s);
+    /* Trying to find substring */
+    char *ps = (char *)ks_find(ks->s, ks->l, s, l);
     if (!ps)
     {
-        return 0U;
+        return ret;
     }
 
-    size_t count = 0U;
-    size_t j     = (size_t)(ps - ks->s);
-    for (size_t i = 0U; ps; j += i)
+    /* The end pointer of string */
+    char *pend = ks->s + ks->l;
+    /* The current pointer of string */
+    char *p = ps;
+
+    while (ps != pend)
     {
         ps += l;
-        char *p = strstr(ps, s);
-        if (p)
+        /* The next pointer that is the same as the substring */
+        char *pd = (char *)ks_find(ps, (size_t)(pend - ps), s, l);
+        if (!pd)
         {
-            i = (size_t)(p - ps);
+            /* No substring found */
+            pd = pend;
         }
-        else
+
+        /* memcpy */
+        while (ps != pd)
         {
-            i = (size_t)(ks->l + 1U + ks->s - ps);
+            *p++ = *ps++;
         }
-        (void)memmove(ks->s + j, ps, i);
-        ps = p;
-        ++count;
+
+        /* count */
+        ++ret;
     }
 
-    ks->l = j - 1U;
-    (void)ks_resize_(ks, j);
-    return count;
+    *p = 0;
+    /* Recalculate the length of the string */
+    ks->l = (size_t)(p - ks->s);
+
+    return ret;
 }
 
-size_t ks_del(kstring_t * ks,
+size_t ks_del(kstring_t *ks,
               const char *s)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
     return ks_del_(ks, s, strlen(s));
 }
 
-int ks_del1_(kstring_t * ks,
+int ks_del1_(kstring_t *ks,
              const char *s,
-             size_t      l)
+             size_t l)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
     /* when l is 0, not need to delete */
     if (!l)
     {
         return -1;
     }
 
-    char *ps = strstr(ks->s, s);
+    /* Trying to find substring */
+    char *ps = (char *)ks_find(ks->s, ks->l, s, l);
     if (!ps)
     {
         return -1;
     }
 
-    (void)memmove(ps, ps + l, ks->l + 1U - l);
+    /* The end pointer of string */
+    char *pend = ks->s + ks->l;
+    /* The start pointer that needs to be copied */
+    char *p = ps + l;
+
+    /* memcpy */
+    while (p != pend)
+    {
+        *ps++ = *p++;
+    }
+
+    *ps = 0;
+
     ks->l -= l;
-    return ks_resize_(ks, ks->l + 1U - l);
+
+    return 0;
 }
 
-int ks_del1(kstring_t * ks,
+int ks_del1(kstring_t *ks,
             const char *s)
 {
+    assert(ks && "ks is null");
+    assert(s && "s is null");
+
     return ks_del1_(ks, s, strlen(s));
 }
 
-/** @} ks_del */
-
-/**
- * @defgroup     ks_mod
- * @{
- * @brief        replace src to ss from kstring_t
-*/
-
-size_t ks_mod_(kstring_t * ks,
-               const char *src,
-               const char *s,
-               size_t      l)
+size_t ks_mod_(kstring_t *ks,
+               const char *old,
+               const char *new,
+               size_t l)
 {
-    const size_t n = strlen(src);
+    assert(ks && "ks is null");
+    assert(old && "old is null");
+    assert(new && "new is null");
+
+    size_t ret = 0U;
+
+    const size_t n = strlen(old);
     /* when n is 0, it will goes into an infinite cycle */
     if (!n)
     {
-        return 0U;
+        return ret;
     }
 
-    char * p     = ks->s;
-    char * ps    = ks->s;
-    size_t count = 0U;
+    /* The start pointer of string */
+    char *pstart = ks->s;
+    /* The end pointer of string */
+    char *pend = ks->s + ks->l;
+    /* The current pointer of string */
+    char *ps = ks->s;
 
     kstring_t *tmp = ks_init();
-    while ((ps = strstr(ps, src)))
+    while ((ps = (char *)ks_find(ps, (size_t)(pend - ps), old, n)))
     {
-        (void)kputsn(p, (size_t)(ps - p), tmp);
-        (void)kputsn(s, l, tmp);
+        (void)kputsn(tmp, pstart, (size_t)(ps - pstart));
+        (void)kputsn(tmp, new, l);
+        /* Move pointer */
         ps += n;
-        p = ps;
-        ++count;
+        pstart = ps;
+        /* count */
+        ++ret;
     }
-    (void)kputs(p, tmp);
-
-    if (count)
+    (void)kputs(tmp, pstart);
+    if (ret)
     {
+        /* Move a pointer to memory */
         free(ks->s);
         (void)memcpy(ks, tmp, sizeof(kstring_t));
     }
     free(tmp);
     tmp = NULL;
 
-    return count;
+    return ret;
 }
 
-size_t ks_mod(kstring_t * ks,
-              const char *src,
-              const char *s)
+size_t ks_mod(kstring_t *ks,
+              const char *old,
+              const char *new)
 {
-    return ks_mod_(ks, src, s, strlen(s));
+    assert(ks && "ks is null");
+    assert(old && "old is null");
+    assert(new && "new is null");
+
+    return ks_mod_(ks, old, new, strlen(new));
 }
 
-int ks_mod1_(kstring_t *ks, const char *src, const char *s, size_t l)
+int ks_mod1_(kstring_t *ks,
+             const char *old,
+             const char *new,
+             size_t l)
 {
-    const size_t n = strlen(src);
+    assert(ks && "ks is null");
+    assert(old && "old is null");
+    assert(new && "new is null");
+
+    const size_t n = strlen(old);
     /* when l is 0, not need to delete */
     if (!n)
     {
         return -1;
     }
 
-    char *ps = strstr(ks->s, src);
+    char *ps = (char *)ks_find(ks->s, ks->l, old, n);
     if (!ps)
     {
         return -1;
     }
 
     kstring_t *tmp = ks_init();
-    (void)kputsn(ks->s, (size_t)(ps - ks->s), tmp);
-    (void)kputsn(s, l, tmp);
-    (void)kputs(ps + n, tmp);
+    (void)kputsn(tmp, ks->s, (size_t)(ps - ks->s));
+    (void)kputsn(tmp, new, l);
+    (void)kputs(tmp, ps + n);
+    /* Move a pointer to memory */
     free(ks->s);
     (void)memcpy(ks, tmp, sizeof(kstring_t));
     free(tmp);
@@ -297,13 +427,15 @@ int ks_mod1_(kstring_t *ks, const char *src, const char *s, size_t l)
     return 0;
 }
 
-int ks_mod1(kstring_t * ks,
-            const char *src,
-            const char *s)
+int ks_mod1(kstring_t *ks,
+            const char *old,
+            const char *new)
 {
-    return ks_mod1_(ks, src, s, strlen(s));
+    assert(ks && "ks is null");
+    assert(old && "old is null");
+    assert(new && "new is null");
+
+    return ks_mod1_(ks, old, new, strlen(new));
 }
 
-/** @} ks_mod */
-
-/************************ (C) COPYRIGHT tqfx *******************END OF FILE****/
+/* END OF FILE */
