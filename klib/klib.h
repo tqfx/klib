@@ -1,21 +1,35 @@
-/**
- * *****************************************************************************
- * @file         klib.h
- * @brief        Some macros of klib
- * @details      
- * @author       tqfx
- * @date         20210212
- * @version      1
- * @copyright    Copyright (C) 2021
- * @code         utf-8                                                  @endcode
- * *****************************************************************************
+/*!
+ @file           klib.h
+ @brief          Some macros of klib
+ @author         tqfx tqfx@foxmail.com
+ @version        0
+ @date           2021-05-30
+ @copyright      Copyright (C) 2021 tqfx
+ \n \n
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ \n \n
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ \n \n
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
+/* Define to prevent recursive inclusion */
 #ifndef __KLIB_H__
 #define __KLIB_H__
 
-/* C --> C++ -----------------------------------------------------------------*/
+/* C --> C++ */
 #undef __BEGIN_DECLS
 #undef __END_DECLS
 
@@ -23,13 +37,14 @@
 #define __BEGIN_DECLS \
     extern "C"        \
     {
-#define __END_DECLS }
+#define __END_DECLS \
+    }
 #else
 #define __BEGIN_DECLS
 #define __END_DECLS
 #endif /* __cplusplus */
 
-/* GCC version check ---------------------------------------------------------*/
+/* GCC version check */
 #if defined __GNUC__ && defined __GNUC_MINOR__
 #define __GNUC_PREREQ(maj, min) \
     ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
@@ -37,7 +52,7 @@
 #define __GNUC_PREREQ(maj, min) 0
 #endif /* defined __GNUC__ && defined __GNUC_MINOR__ */
 
-/* clang version check -------------------------------------------------------*/
+/* clang version check */
 #if defined __clang_major__ && defined __clang_minor__
 #define __glibc_clang_prereq(maj, min) \
     ((__clang_major__ << 16) + __clang_minor__ >= ((maj) << 16) + (min))
@@ -45,7 +60,7 @@
 #define __glibc_clang_prereq(maj, min) 0
 #endif /* defined __clang_major__ && defined __clang_minor__ */
 
-/* attribute nonnull ---------------------------------------------------------*/
+/* attribute nonnull */
 #undef __NONNULL
 #undef __NONNULL_ALL
 
@@ -64,7 +79,7 @@
 #define __nonnull_all __NONNULL_ALL
 #endif /* __nonnull_all */
 
-/* attribute warn unused result ----------------------------------------------*/
+/* attribute warn unused result */
 #undef __RESULT_USE_CHECK
 
 #if __GNUC_PREREQ(3, 4)
@@ -77,7 +92,7 @@
 #define __result_use_check __RESULT_USE_CHECK
 #endif /* __result_use_check */
 
-/* attribute always inline ---------------------------------------------------*/
+/* attribute always inline */
 #undef __ALWAYS_INLINE
 
 #if __GNUC_PREREQ(3, 2)
@@ -90,7 +105,7 @@
 #define __always_inline __ALWAYS_INLINE
 #endif /* __always_inline */
 
-/* builtin expect ------------------------------------------------------------*/
+/* builtin expect */
 #undef __PREDICT_TRUE
 #undef __PREDICT_FALSE
 
@@ -114,7 +129,7 @@
 #define __predict_false(_exp_) __PREDICT_FALSE(_exp_)
 #endif /* __predict_false */
 
-/* attribute weak ------------------------------------------------------------*/
+/* attribute weak */
 #undef __WEAK
 
 #if defined __GNUC__
@@ -131,7 +146,7 @@
 #define __weak __WEAK
 #endif /* __weak */
 
-/* attribute unused ----------------------------------------------------------*/
+/* attribute unused */
 #undef __UNUSED
 
 #if __glibc_clang_prereq(3, 3)
@@ -144,37 +159,41 @@
 #define __unused __UNUSED
 #endif /* __unused */
 
-/* klib roundup x -> 2^* -----------------------------------------------------*/
+/* static inline */
+#undef __STATIC_INLINE
+
+#define __STATIC_INLINE static inline
+
+#ifndef __static_inline
+#define __static_inline __STATIC_INLINE
+#endif /* __static_inline */
+
+/* klib roundup x -> 2^* */
 #undef __KROUNDUP32
 
-#define __KROUNDUP32(_X_)   \
-                            \
-    (/**/ --(_X_),          \
-     (_X_) |= (_X_) >> 1U,  \
-     (_X_) |= (_X_) >> 2U,  \
-     (_X_) |= (_X_) >> 4U,  \
-     (_X_) |= (_X_) >> 8U,  \
-     (_X_) |= (_X_) >> 16U, \
+#define __KROUNDUP32(_X_)  \
+    (/**/ --(_X_),         \
+     (_X_) |= (_X_) >> 1,  \
+     (_X_) |= (_X_) >> 2,  \
+     (_X_) |= (_X_) >> 4,  \
+     (_X_) |= (_X_) >> 8,  \
+     (_X_) |= (_X_) >> 16, \
      ++(_X_) /**/)
 
 #ifndef kroundup32
 #define kroundup32(_x_) __KROUNDUP32(_x_)
 #endif /* kroundup32 */
 
-/* pointer free --------------------------------------------------------------*/
+/* pointer free */
 #undef __PFREE
 
-#define __PFREE(_FUN_, _P_) \
-                            \
-    (/**/                   \
-     (void)_FUN_(_P_),      \
-     _P_ = NULL /**/)
+#define __PFREE(_FUN_, _P_) (/**/ (void)_FUN_(_P_), _P_ = (void*)0 /**/)
 
 #ifndef pfree
 #define pfree(_fun_, _p_) __PFREE(_fun_, _p_)
 #endif /* pfree */
 
-/* __KLIB_H__ ----------------------------------------------------------------*/
+/* Enddef to prevent recursive inclusion */
 #endif /* __KLIB_H__ */
 
-/************************ (C) COPYRIGHT tqfx *******************END OF FILE****/
+/* END OF FILE */
