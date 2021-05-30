@@ -46,151 +46,158 @@
 
 /* GCC version check */
 #if defined __GNUC__ && defined __GNUC_MINOR__
+
+#ifndef __GNUC_PREREQ
 #define __GNUC_PREREQ(maj, min) \
     ((__GNUC__ << 16) + __GNUC_MINOR__ >= ((maj) << 16) + (min))
+#endif /* __GNUC_PREREQ */
+
 #else
+
+#ifndef __GNUC_PREREQ
 #define __GNUC_PREREQ(maj, min) 0
+#endif /* __GNUC_PREREQ */
+
 #endif /* defined __GNUC__ && defined __GNUC_MINOR__ */
 
 /* clang version check */
 #if defined __clang_major__ && defined __clang_minor__
+
+#ifndef __glibc_clang_prereq
 #define __glibc_clang_prereq(maj, min) \
     ((__clang_major__ << 16) + __clang_minor__ >= ((maj) << 16) + (min))
+#endif /* __glibc_clang_prereq */
+
 #else
+
+#ifndef __glibc_clang_prereq
 #define __glibc_clang_prereq(maj, min) 0
+#endif /* __glibc_clang_prereq */
+
 #endif /* defined __clang_major__ && defined __clang_minor__ */
 
 /* attribute nonnull */
-#undef __NONNULL
-#undef __NONNULL_ALL
-
 #if __GNUC_PREREQ(3, 3)
-#define __NONNULL(_X_) __attribute__((__nonnull__ _X_))
-#define __NONNULL_ALL  __attribute__((__nonnull__))
+
+#ifndef __NONNULL
+#define __NONNULL(x) __attribute__((__nonnull__ x))
+#endif /* __NONNULL */
+#ifndef __NONNULL_ALL
+#define __NONNULL_ALL __attribute__((__nonnull__))
+#endif /* __NONNULL_ALL */
+
 #else
-#define __NONNULL(_X_)
+
+#ifndef __NONNULL
+#define __NONNULL(x)
+#endif /* __NONNULL */
+#ifndef __NONNULL_ALL
 #define __NONNULL_ALL
+#endif /* __NONNULL_ALL */
+
 #endif /* __GNUC_PREREQ(3, 3) */
 
-#ifndef __nonnull
-#define __nonnull(_x_) __NONNULL(_x_)
-#endif /* __nonnull */
-#ifndef __nonnull_all
-#define __nonnull_all __NONNULL_ALL
-#endif /* __nonnull_all */
-
 /* attribute warn unused result */
-#undef __RESULT_USE_CHECK
-
 #if __GNUC_PREREQ(3, 4)
+
+#ifndef __RESULT_USE_CHECK
 #define __RESULT_USE_CHECK __attribute__((__warn_unused_result__))
+#endif /* __RESULT_USE_CHECK */
+
 #else
+
+#ifndef __RESULT_USE_CHECK
 #define __RESULT_USE_CHECK
+#endif /* __RESULT_USE_CHECK */
+
 #endif /* __GNUC_PREREQ(3, 4) */
 
-#ifndef __result_use_check
-#define __result_use_check __RESULT_USE_CHECK
-#endif /* __result_use_check */
-
 /* attribute always inline */
-#undef __ALWAYS_INLINE
-
 #if __GNUC_PREREQ(3, 2)
-#define __ALWAYS_INLINE __inline __attribute__((__always_inline__))
+
+#ifndef __ALEAYS_INLINE
+#define __ALEAYS_INLINE __inline __attribute__((__always_inline__))
+#endif /* __ALEAYS_INLINE */
+
 #else
-#define __ALWAYS_INLINE
+
+#ifndef __ALEAYS_INLINE
+#define __ALEAYS_INLINE
+#endif /* __ALEAYS_INLINE */
+
 #endif /* __GNUC_PREREQ (3,2) */
 
-#ifndef __always_inline
-#define __always_inline __ALWAYS_INLINE
-#endif /* __always_inline */
-
 /* builtin expect */
-#undef __PREDICT_TRUE
-#undef __PREDICT_FALSE
+#if defined __GNUC__ && __GNUC__ >= 3
 
-#if defined __GNUC__
-#if __GNUC__ >= 3
-#define __PREDICT_TRUE(_EXP_)  __builtin_expect((_EXP_), 1)
-#define __PREDICT_FALSE(_EXP_) __builtin_expect((_EXP_), 0)
-#else /* __GNUC__ < 3 */
-#define __PREDICT_TRUE(_EXP_)  (_EXP_)
-#define __PREDICT_FALSE(_EXP_) (_EXP_)
-#endif /* __GNUC__ >= 3 */
-#else  /* Not GCC */
-#define __PREDICT_TRUE(_EXP_)  (_EXP_)
-#define __PREDICT_FALSE(_EXP_) (_EXP_)
-#endif /* __GNUC__ */
+#ifndef __PREDICT_TRUE
+#define __PREDICT_TRUE(exp) __builtin_expect((exp), 1)
+#endif /* __PREDICT_TRUE */
+#ifndef __PREDICT_FALSE
+#define __PREDICT_FALSE(exp) __builtin_expect((exp), 0)
+#endif /* __PREDICT_FALSE */
 
-#ifndef __predict_true
-#define __predict_true(_exp_) __PREDICT_TRUE(_exp_)
-#endif /* __predict_true */
-#ifndef __predict_false
-#define __predict_false(_exp_) __PREDICT_FALSE(_exp_)
-#endif /* __predict_false */
+#else /* Not GCC || __GNUC__ < 3 */
+
+#ifndef __PREDICT_TRUE
+#define __PREDICT_TRUE(exp) (exp)
+#endif /* __PREDICT_TRUE */
+#ifndef __PREDICT_FALSE
+#define __PREDICT_FALSE(exp) (exp)
+#endif /* __PREDICT_FALSE */
+
+#endif /* defined __GNUC__ && __GNUC__ >= 3 */
 
 /* attribute weak */
-#undef __WEAK
+#if defined __GNUC__ && __GNUC__ >= 3
 
-#if defined __GNUC__
-#if __GNUC__ >= 3
+#ifndef __WEAK
 #define __WEAK __attribute__((__weak__))
-#else /* __GNUC__ < 3 */
-#define __WEAK
-#endif /* __GNUC__ >= 3 */
-#else  /* Not GCC */
-#define __WEAK
-#endif /* __GNUC__ */
+#endif /* __WEAK */
 
-#ifndef __weak
-#define __weak __WEAK
-#endif /* __weak */
+#else /* Not gcc || __GNUC__ < 3 */
+
+#ifndef __WEAK
+#define __WEAK
+#endif /* __WEAK */
+
+#endif /* defined __GNUC__ && __GNUC__ >= 3 */
 
 /* attribute unused */
-#undef __UNUSED
-
 #if __glibc_clang_prereq(3, 3)
+
+#ifndef __UNUSED
 #define __UNUSED __attribute__((__unused__))
+#endif /* __UNUSED */
+
 #else
+
+#ifndef __UNUSED
 #define __UNUSED
+#endif /* __UNUSED */
+
 #endif /* __glibc_clang_prereq(3, 3) */
 
-#ifndef __unused
-#define __unused __UNUSED
-#endif /* __unused */
-
 /* static inline */
-#undef __STATIC_INLINE
-
+#ifndef __STATIC_INLINE
 #define __STATIC_INLINE static inline
-
-#ifndef __static_inline
-#define __static_inline __STATIC_INLINE
-#endif /* __static_inline */
+#endif /* __STATIC_INLINE */
 
 /* klib roundup x -> 2^* */
-#undef __KROUNDUP32
-
-#define __KROUNDUP32(_X_)  \
-    (/**/ --(_X_),         \
-     (_X_) |= (_X_) >> 1,  \
-     (_X_) |= (_X_) >> 2,  \
-     (_X_) |= (_X_) >> 4,  \
-     (_X_) |= (_X_) >> 8,  \
-     (_X_) |= (_X_) >> 16, \
-     ++(_X_) /**/)
-
 #ifndef kroundup32
-#define kroundup32(_x_) __KROUNDUP32(_x_)
+#define kroundup32(x)  \
+    (/**/ --(x),       \
+     (x) |= (x) >> 1,  \
+     (x) |= (x) >> 2,  \
+     (x) |= (x) >> 4,  \
+     (x) |= (x) >> 8,  \
+     (x) |= (x) >> 16, \
+     ++(x) /**/)
 #endif /* kroundup32 */
 
 /* pointer free */
-#undef __PFREE
-
-#define __PFREE(_FUN_, _P_) (/**/ (void)_FUN_(_P_), _P_ = (void*)0 /**/)
-
 #ifndef pfree
-#define pfree(_fun_, _p_) __PFREE(_fun_, _p_)
+#define pfree(func, p) (/**/ (void)func(p), p = ((void *)0) /**/)
 #endif /* pfree */
 
 /* Enddef to prevent recursive inclusion */
