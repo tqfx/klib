@@ -1,339 +1,289 @@
-/**
- * *****************************************************************************
- * @file         ksort.h
- * @brief        sort library
- * @details      generic sort, including introsort, merge sort, heap sort,
- *               comb sort, Knuth shuffle and  k-small algorithm.
- * @author       tqfx
- * @date         20210421
- * @version      1
- * @copyright    Copyright (C) 2021
- * @code         utf-8                                                  @endcode
- * *****************************************************************************
+/*!
+ @file           ksort.h
+ @brief          sort library
+ @details        generic sort, including introsort, merge sort, heap sort,
+                 comb sort, Knuth shuffle and  k-small algorithm.
+ @author         tqfx tqfx@foxmail.com
+ @version        0
+ @date           2021-05-31
+ @copyright      Copyright (C) 2021 tqfx
+ \n \n
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ \n \n
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ \n \n
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
+/* Define to prevent recursive inclusion */
 #ifndef __KSORT_H__
 #define __KSORT_H__
 
-/* Includes ------------------------------------------------------------------*/
 #include "klib.h"
 
-/* Private includes ----------------------------------------------------------*/
 #include <stdlib.h>
 #include <string.h>
 
-/* swap ----------------------------------------------------------------------*/
-#undef __KSORT_SWAP
-
-#define __KSORT_SWAP(_T_, _A_, _B_) \
-                                    \
-    do                              \
-    {                               \
-        _T_ _swap = (_A_);          \
-        (_A_)     = (_B_);          \
-        (_B_)     = _swap;          \
-    } while (0)
-
+/* swap */
 #ifndef ksort_swap
-
-/**
- * @brief        swap _a_ and _b_
- * @param[in]    _t_: type of swep
- * @param[in]    _a_: variable that need to swap
- * @param[in]    _b_: variable that need to swap
+/*!
+ @brief          swap a and b
+ @param[in]      t: type of swep
+ @param[in]      a: variable that need to swap
+ @param[in]      b: variable that need to swap
 */
-#define ksort_swap(_t_, _a_, _b_) \
-                                  \
-    __KSORT_SWAP(_t_, _a_, _b_)
-
+#define ksort_swap(t, a, b) \
+    do                      \
+    {                       \
+        t _swap = (a);      \
+        (a) = (b);          \
+        (b) = _swap;        \
+    } while (0)
 #endif /* ksort_swap */
 
-/* merge sort ----------------------------------------------------------------*/
-#undef __KSORT_MERGE
-
-#define __KSORT_MERGE(_T_, _P_, _N_, _FUN_, _A_)                    \
-                                                                    \
-    do                                                              \
-    {                                                               \
-        _T_* _merge_p_[2U] = {                                      \
-            (_P_),                                                  \
-            (_A_)                                                   \
-                ? (_A_)                                             \
-                : (_T_*)malloc(sizeof(*(_P_)) * (_N_)),             \
-        };                                                          \
-        unsigned int _merge_site_ = 0U;                             \
-        for (size_t _merge_step_ = 1U;                              \
-             _merge_step_ < (_N_);                                  \
-             _merge_step_ <<= 1U)                                   \
-        {                                                           \
-            _T_* _merge_a_ = _merge_p_[_merge_site_];               \
-            _T_* _merge_b_ = _merge_p_[!_merge_site_];              \
-            while (_merge_b_ != (_merge_p_[!_merge_site_] + (_N_))) \
-            {                                                       \
-                _T_* _merge_a1_ = _merge_a_;                        \
-                _T_* _merge_e1_ =                                   \
-                    (_merge_a_ + _merge_step_) <                    \
-                            (_merge_p_[_merge_site_] + (_N_))       \
-                        ? (_merge_a_ + _merge_step_)                \
-                        : (_merge_p_[_merge_site_] + (_N_));        \
-                _T_* _merge_a2_ = _merge_e1_;                       \
-                _T_* _merge_e2_ =                                   \
-                    (_merge_a_ + (_merge_step_ << 1U)) <            \
-                            (_merge_p_[_merge_site_] + (_N_))       \
-                        ? (_merge_a_ + (_merge_step_ << 1U))        \
-                        : (_merge_p_[_merge_site_] + (_N_));        \
-                while (_merge_a1_ != _merge_e1_ &&                  \
-                       _merge_a2_ != _merge_e2_)                    \
-                {                                                   \
-                    if (_FUN_(*_merge_a1_, *_merge_a2_))            \
-                    {                                               \
-                        *_merge_b_++ = *_merge_a1_++;               \
-                    }                                               \
-                    else                                            \
-                    {                                               \
-                        *_merge_b_++ = *_merge_a2_++;               \
-                    }                                               \
-                }                                                   \
-                while (_merge_a1_ != _merge_e1_)                    \
-                {                                                   \
-                    *_merge_b_++ = *_merge_a1_++;                   \
-                }                                                   \
-                while (_merge_a2_ != _merge_e2_)                    \
-                {                                                   \
-                    *_merge_b_++ = *_merge_a2_++;                   \
-                }                                                   \
-                _merge_a_ = _merge_e2_;                             \
-            }                                                       \
-            _merge_site_ = !_merge_site_;                           \
-        }                                                           \
-        if (_merge_site_)                                           \
-        {                                                           \
-            _T_* _merge_a_ = _merge_p_[0U];                         \
-            _T_* _merge_b_ = _merge_p_[1U];                         \
-            while (_merge_a_ != (_merge_p_[0U] + (_N_)))            \
-            {                                                       \
-                *_merge_a_++ = *_merge_b_++;                        \
-            }                                                       \
-        }                                                           \
-        if (!(_A_))                                                 \
-        {                                                           \
-            free(_merge_p_[1U]);                                    \
-            _merge_p_[1U] = NULL;                                   \
-        }                                                           \
-    } while (0)
-
+/* merge sort */
 #ifndef ksort_merge
-
-/**
- * @brief        Merge sort
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
- * @param[in]    _a_: pointer of buffer, length >= _n_
+/*!
+ @brief          Merge sort
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
+ @param[in]      a: pointer of buffer, length >= n
 */
-#define ksort_merge(_t_, _p_, _n_, _fun_, _a_) \
-                                               \
-    __KSORT_MERGE(_t_, _p_, _n_, _fun_, _a_)
-
+#define ksort_merge(t, p, n, func, a)                          \
+    do                                                         \
+    {                                                          \
+        t* _merge_p[2U] = {                                    \
+            (p),                                               \
+            (a)                                                \
+                ? (a)                                          \
+                : (t*)malloc(sizeof(*(p)) * (n)),              \
+        };                                                     \
+        unsigned int _merge_site = 0U;                         \
+        for (size_t _merge_step = 1U;                          \
+             _merge_step < (n);                                \
+             _merge_step <<= 1U)                               \
+        {                                                      \
+            t* _merge_a = _merge_p[_merge_site];               \
+            t* _merge_b = _merge_p[!_merge_site];              \
+            while (_merge_b != (_merge_p[!_merge_site] + (n))) \
+            {                                                  \
+                t* _merge_a1 = _merge_a;                       \
+                t* _merge_e1 =                                 \
+                    (_merge_a + _merge_step) <                 \
+                            (_merge_p[_merge_site] + (n))      \
+                        ? (_merge_a + _merge_step)             \
+                        : (_merge_p[_merge_site] + (n));       \
+                t* _merge_a2 = _merge_e1;                      \
+                t* _merge_e2 =                                 \
+                    (_merge_a + (_merge_step << 1U)) <         \
+                            (_merge_p[_merge_site] + (n))      \
+                        ? (_merge_a + (_merge_step << 1U))     \
+                        : (_merge_p[_merge_site] + (n));       \
+                while (_merge_a1 != _merge_e1 &&               \
+                       _merge_a2 != _merge_e2)                 \
+                {                                              \
+                    if (func(*_merge_a1, *_merge_a2))          \
+                    {                                          \
+                        *_merge_b++ = *_merge_a1++;            \
+                    }                                          \
+                    else                                       \
+                    {                                          \
+                        *_merge_b++ = *_merge_a2++;            \
+                    }                                          \
+                }                                              \
+                while (_merge_a1 != _merge_e1)                 \
+                {                                              \
+                    *_merge_b++ = *_merge_a1++;                \
+                }                                              \
+                while (_merge_a2 != _merge_e2)                 \
+                {                                              \
+                    *_merge_b++ = *_merge_a2++;                \
+                }                                              \
+                _merge_a = _merge_e2;                          \
+            }                                                  \
+            _merge_site = !_merge_site;                        \
+        }                                                      \
+        if (_merge_site)                                       \
+        {                                                      \
+            t* _merge_a = _merge_p[0U];                        \
+            t* _merge_b = _merge_p[1U];                        \
+            while (_merge_a != (_merge_p[0U] + (n)))           \
+            {                                                  \
+                *_merge_a++ = *_merge_b++;                     \
+            }                                                  \
+        }                                                      \
+        if (!(a))                                              \
+        {                                                      \
+            free(_merge_p[1U]);                                \
+            _merge_p[1U] = NULL;                               \
+        }                                                      \
+    } while (0)
 #endif /* ksort_merge */
 
-/* heap adjust ---------------------------------------------------------------*/
-#undef __KSORT_HEAP_ADJUST
-
-#define __KSORT_HEAP_ADJUST(_T_, _P_, _I_, _N_, _FUN_)        \
-                                                              \
-    do                                                        \
-    {                                                         \
-        _T_    _heap_p_ = (_P_)[(_I_)];                       \
-        size_t _heap_i_ = (_I_);                              \
-        size_t _heap_j_ = (_I_);                              \
-        while ((_heap_i_ = (_heap_i_ << 1U) + 1U) < (_N_))    \
-        {                                                     \
-            if (_heap_i_ != (_N_)-1U &&                       \
-                _FUN_((_P_)[_heap_i_], (_P_)[_heap_i_ + 1U])) \
-            {                                                 \
-                ++_heap_i_;                                   \
-            }                                                 \
-            if (_FUN_((_P_)[_heap_i_], _heap_p_))             \
-            {                                                 \
-                break;                                        \
-            }                                                 \
-            (_P_)[_heap_j_] = (_P_)[_heap_i_];                \
-            _heap_j_        = _heap_i_;                       \
-        }                                                     \
-        (_P_)[_heap_j_] = _heap_p_;                           \
-    } while (0)
-
+/* heap adjust */
 #ifndef ksort_heap_adjust
-
-/**
- * @brief        Heap adjust
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _i_: index of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
+/*!
+ @brief          Heap adjust
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      i: index of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
 */
-#define ksort_heap_adjust(_t_, _p_, _i_, _n_, _fun_) \
-                                                     \
-    __KSORT_HEAP_ADJUST(_t_, _p_, _i_, _n_, _fun_)
-
+#define ksort_heap_adjust(t, p, i, n, func)            \
+    do                                                 \
+    {                                                  \
+        t _heap_p = (p)[(i)];                          \
+        size_t _heap_i = (i);                          \
+        size_t _heap_j = (i);                          \
+        while ((_heap_i = (_heap_i << 1U) + 1U) < (n)) \
+        {                                              \
+            if (_heap_i != (n)-1U &&                   \
+                func((p)[_heap_i], (p)[_heap_i + 1U])) \
+            {                                          \
+                ++_heap_i;                             \
+            }                                          \
+            if (func((p)[_heap_i], _heap_p))           \
+            {                                          \
+                break;                                 \
+            }                                          \
+            (p)[_heap_j] = (p)[_heap_i];               \
+            _heap_j = _heap_i;                         \
+        }                                              \
+        (p)[_heap_j] = _heap_p;                        \
+    } while (0)
 #endif /* ksort_heap_adjust */
 
-/* heap make -----------------------------------------------------------------*/
-#undef __KSORT_HEAP_MAKE
-
-#define __KSORT_HEAP_MAKE(_T_, _P_, _N_, _FUN_)                  \
-                                                                 \
-    do                                                           \
-    {                                                            \
-        for (size_t _heap_k_ = ((_N_) >> 1U) - 1U;               \
-             _heap_k_ != (size_t)(-1);                           \
-             --_heap_k_)                                         \
-        {                                                        \
-            __KSORT_HEAP_ADJUST(_T_, _P_, _heap_k_, _N_, _FUN_); \
-        }                                                        \
-    } while (0)
-
+/* heap make */
 #ifndef ksort_heap_make
-
-/**
- * @brief        Heap make
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
+/*!
+ @brief          Heap make
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
 */
-#define ksort_heap_make(_t_, _p_, _n_, _fun_) \
-                                              \
-    __KSORT_HEAP_MAKE(_t_, _p_, _n_, _fun_)
-
+#define ksort_heap_make(t, p, n, func)                 \
+    do                                                 \
+    {                                                  \
+        for (size_t _heap_k = ((n) >> 1U) - 1U;        \
+             _heap_k != (size_t)(-1);                  \
+             --_heap_k)                                \
+        {                                              \
+            ksort_heap_adjust(t, p, _heap_k, n, func); \
+        }                                              \
+    } while (0)
 #endif /* ksort_heap_make */
 
-/* heap sort -----------------------------------------------------------------*/
-#undef __KSORT_HEAP
-
-#define __KSORT_HEAP(_T_, _P_, _N_, _FUN_)                      \
-                                                                \
-    do                                                          \
-    {                                                           \
-        for (size_t _heap_k_ = (_N_)-1U; _heap_k_; --_heap_k_)  \
-        {                                                       \
-            __KSORT_SWAP(_T_, *(_P_), (_P_)[_heap_k_]);         \
-            __KSORT_HEAP_ADJUST(_T_, _P_, 0U, _heap_k_, _FUN_); \
-        }                                                       \
-    } while (0)
-
+/* heap sort */
 #ifndef ksort_heap
-
-/**
- * @brief        Heap sort
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
+/*!
+ @brief          Heap sort
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
 */
-#define ksort_heap(_t_, _p_, _n_, _fun_) \
-                                         \
-    __KSORT_HEAP(_t_, _p_, _n_, _fun_)
-
+#define ksort_heap(t, p, n, func)                         \
+    do                                                    \
+    {                                                     \
+        for (size_t _heap_k = (n)-1U; _heap_k; --_heap_k) \
+        {                                                 \
+            ksort_swap(t, *(p), (p)[_heap_k]);            \
+            ksort_heap_adjust(t, p, 0U, _heap_k, func);   \
+        }                                                 \
+    } while (0)
 #endif /* ksort_heap */
 
-/* insert sort ---------------------------------------------------------------*/
-#undef __KSORT_INSERT
-
-#define __KSORT_INSERT(_T_, _P_, _N_, _FUN_)                        \
-                                                                    \
-    do                                                              \
-    {                                                               \
-        for (_T_* _insert_i_ = (_P_) + 1U;                          \
-             _insert_i_ != ((_P_) + (_N_));                         \
-             ++_insert_i_)                                          \
-        {                                                           \
-            for (_T_* _insert_j_ = _insert_i_;                      \
-                 _insert_j_ != (_P_) &&                             \
-                 _FUN_(*_insert_j_, *(_insert_j_ - 1U));            \
-                 --_insert_j_)                                      \
-            {                                                       \
-                __KSORT_SWAP(_T_, *_insert_j_, *(_insert_j_ - 1U)); \
-            }                                                       \
-        }                                                           \
-    } while (0)
-
+/* insert sort */
 #ifndef ksort_insert
-
-/**
- * @brief        Insert sort
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
+/*!
+ @brief          Insert sort
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
 */
-#define ksort_insert(_t_, _p_, _n_, _fun_) \
-                                           \
-    __KSORT_INSERT(_t_, _p_, _n_, _fun_)
-
+#define ksort_insert(t, p, n, func)                           \
+    do                                                        \
+    {                                                         \
+        for (t* _insert_i = (p) + 1U;                         \
+             _insert_i != ((p) + (n));                        \
+             ++_insert_i)                                     \
+        {                                                     \
+            for (t* _insert_j = _insert_i;                    \
+                 _insert_j != (p) &&                          \
+                 func(*_insert_j, *(_insert_j - 1U));         \
+                 --_insert_j)                                 \
+            {                                                 \
+                ksort_swap(t, *_insert_j, *(_insert_j - 1U)); \
+            }                                                 \
+        }                                                     \
+    } while (0)
 #endif /* ksort_insert */
 
-/* comb sort -----------------------------------------------------------------*/
-#undef __KSORT_COMB
-
-#define __KSORT_COMB(_T_, _P_, _N_, _FUN_)                                   \
-                                                                             \
-    do                                                                       \
-    {                                                                        \
-        const double _shrink_factor_ = 1.2473309501039786540366528676643;    \
-        unsigned int _comb_swap_     = 0U;                                   \
-        size_t       _comb_gap_      = (_N_);                                \
-        do                                                                   \
-        {                                                                    \
-            if (_comb_gap_ > 2U)                                             \
-            {                                                                \
-                _comb_gap_ = (size_t)((double)_comb_gap_ / _shrink_factor_); \
-                if (_comb_gap_ == 9U || _comb_gap_ == 10U)                   \
-                {                                                            \
-                    _comb_gap_ = 11U;                                        \
-                }                                                            \
-            }                                                                \
-            _comb_swap_ = 0U;                                                \
-            for (_T_* _comb_i_ = (_P_);                                      \
-                 _comb_i_ < (_P_) + (_N_)-_comb_gap_;                        \
-                 ++_comb_i_)                                                 \
-            {                                                                \
-                _T_* _comb_j_ = _comb_i_ + _comb_gap_;                       \
-                if (_FUN_(*_comb_j_, *_comb_i_))                             \
-                {                                                            \
-                    __KSORT_SWAP(_T_, *_comb_i_, *_comb_j_);                 \
-                    _comb_swap_ = 1U;                                        \
-                }                                                            \
-            }                                                                \
-        } while (_comb_swap_ || _comb_gap_ > 2U);                            \
-        if (_comb_gap_ != 1U)                                                \
-        {                                                                    \
-            __KSORT_INSERT(_T_, _P_, _N_, _FUN_);                            \
-        }                                                                    \
-    } while (0)
-
+/* comb sort */
 #ifndef ksort_comb
-
-/**
- * @brief        Comb sort
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
+/*!
+ @brief          Comb sort
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
 */
-#define ksort_comb(_t_, _p_, _n_, _fun_) \
-                                         \
-    __KSORT_COMB(_t_, _p_, _n_, _fun_)
-
+#define ksort_comb(t, p, n, func)                                         \
+    do                                                                    \
+    {                                                                     \
+        const double _shrink_factor = 1.2473309501039786540366528676643;  \
+        unsigned int _comb_swap = 0U;                                     \
+        size_t _comb_gap = (n);                                           \
+        do                                                                \
+        {                                                                 \
+            if (_comb_gap > 2U)                                           \
+            {                                                             \
+                _comb_gap = (size_t)((double)_comb_gap / _shrink_factor); \
+                if (_comb_gap == 9U || _comb_gap == 10U)                  \
+                {                                                         \
+                    _comb_gap = 11U;                                      \
+                }                                                         \
+            }                                                             \
+            _comb_swap = 0U;                                              \
+            for (t* _comb_i = (p);                                        \
+                 _comb_i < (p) + (n)-_comb_gap;                           \
+                 ++_comb_i)                                               \
+            {                                                             \
+                t* _comb_j = _comb_i + _comb_gap;                         \
+                if (func(*_comb_j, *_comb_i))                             \
+                {                                                         \
+                    ksort_swap(t, *_comb_i, *_comb_j);                    \
+                    _comb_swap = 1U;                                      \
+                }                                                         \
+            }                                                             \
+        } while (_comb_swap || _comb_gap > 2U);                           \
+        if (_comb_gap != 1U)                                              \
+        {                                                                 \
+            ksort_insert(t, p, n, func);                                  \
+        }                                                                 \
+    } while (0)
 #endif /* ksort_comb */
 
-/* intro sort ----------------------------------------------------------------*/
+/* intro sort */
 
-typedef struct
+typedef struct ksort_stack_t
 {
     void* left;
     void* right;
@@ -341,244 +291,228 @@ typedef struct
     unsigned int depth;
 } ksort_stack_t;
 
-#define __KSORT_INTRO(_T_, _P_, _N_, _FUN_)                            \
-                                                                       \
-    do                                                                 \
-    {                                                                  \
-        if ((_N_) < 1U)                                                \
-        {                                                              \
-            break;                                                     \
-        }                                                              \
-        else if ((_N_) == 2U)                                          \
-        {                                                              \
-            if (_FUN_(*(_P_ + 1U), *(_P_)))                            \
-            {                                                          \
-                __KSORT_SWAP(_T_, *(_P_), *(_P_ + 1U));                \
-            }                                                          \
-            break;                                                     \
-        }                                                              \
-        unsigned int _intro_d_ = 2U;                                   \
-        while (1ULL << _intro_d_ < (_N_))                              \
-        {                                                              \
-            ++_intro_d_;                                               \
-        }                                                              \
-        ksort_stack_t* _intro_stack_ = (ksort_stack_t*)                \
-            malloc(sizeof(ksort_stack_t) *                             \
-                   (sizeof(size_t) * _intro_d_ + 2U));                 \
-        ksort_stack_t* _intro_top_ = _intro_stack_;                    \
-        _intro_d_ <<= 1U;                                              \
-        _T_* _intro_s_ = (_P_);                                        \
-        _T_* _intro_t_ = (_P_) + (_N_)-1U;                             \
-        _T_* _intro_i_ = NULL;                                         \
-        _T_* _intro_j_ = NULL;                                         \
-        _T_* _intro_k_ = NULL;                                         \
-        for (;;)                                                       \
-        {                                                              \
-            if (_intro_s_ < _intro_t_)                                 \
-            {                                                          \
-                if (--_intro_d_ == 0U)                                 \
-                {                                                      \
-                    __KSORT_COMB(_T_,                                  \
-                                 _intro_s_,                            \
-                                 (size_t)(_intro_t_ - _intro_s_) + 1U, \
-                                 _FUN_);                               \
-                    _intro_t_ = _intro_s_;                             \
-                    continue;                                          \
-                }                                                      \
-                _intro_i_ = _intro_s_;                                 \
-                _intro_j_ = _intro_t_;                                 \
-                _intro_k_ = _intro_i_ +                                \
-                            ((_intro_j_ - _intro_i_) >> 1U) + 1U;      \
-                if (_FUN_(*_intro_k_, *_intro_i_))                     \
-                {                                                      \
-                    if (_FUN_(*_intro_k_, *_intro_j_))                 \
-                    {                                                  \
-                        _intro_k_ = _intro_j_;                         \
-                    }                                                  \
-                }                                                      \
-                else                                                   \
-                {                                                      \
-                    _intro_k_ = _FUN_(*_intro_j_, *_intro_i_)          \
-                                    ? _intro_i_                        \
-                                    : _intro_j_;                       \
-                }                                                      \
-                _T_ _intro_rp_ = *_intro_k_;                           \
-                if (_intro_k_ != _intro_t_)                            \
-                {                                                      \
-                    __KSORT_SWAP(_T_, *_intro_k_, *_intro_t_);         \
-                }                                                      \
-                for (;;)                                               \
-                {                                                      \
-                    do                                                 \
-                    {                                                  \
-                        ++_intro_i_;                                   \
-                    } while (_FUN_(*_intro_i_, _intro_rp_));           \
-                    do                                                 \
-                    {                                                  \
-                        --_intro_j_;                                   \
-                    } while (_intro_i_ <= _intro_j_ &&                 \
-                             _FUN_(_intro_rp_, *_intro_j_));           \
-                    if (_intro_j_ <= _intro_i_)                        \
-                    {                                                  \
-                        break;                                         \
-                    }                                                  \
-                    __KSORT_SWAP(_T_, *_intro_i_, *_intro_j_);         \
-                }                                                      \
-                __KSORT_SWAP(_T_, *_intro_i_, *_intro_t_);             \
-                if (_intro_i_ - _intro_s_ > _intro_t_ - _intro_i_)     \
-                {                                                      \
-                    if (_intro_i_ - _intro_s_ > 16U)                   \
-                    {                                                  \
-                        _intro_top_->left  = (void*)_intro_s_;         \
-                        _intro_top_->right = (void*)(_intro_i_ - 1U);  \
-                        _intro_top_->depth = _intro_d_;                \
-                        ++_intro_top_;                                 \
-                    }                                                  \
-                    _intro_s_ = _intro_t_ - _intro_i_ > 16U            \
-                                    ? _intro_i_ + 1U                   \
-                                    : _intro_t_;                       \
-                }                                                      \
-                else                                                   \
-                {                                                      \
-                    if (_intro_t_ - _intro_i_ > 16U)                   \
-                    {                                                  \
-                        _intro_top_->left  = (void*)(_intro_i_ + 1U);  \
-                        _intro_top_->right = (void*)_intro_t_;         \
-                        _intro_top_->depth = _intro_d_;                \
-                        ++_intro_top_;                                 \
-                    }                                                  \
-                    _intro_t_ = _intro_i_ - _intro_s_ > 16U            \
-                                    ? _intro_i_ - 1U                   \
-                                    : _intro_s_;                       \
-                }                                                      \
-            }                                                          \
-            else                                                       \
-            {                                                          \
-                if (_intro_top_ == _intro_stack_)                      \
-                {                                                      \
-                    free(_intro_stack_);                               \
-                    _intro_stack_ = NULL;                              \
-                    __KSORT_INSERT(_T_, _P_, _N_, _FUN_);              \
-                    break;                                             \
-                }                                                      \
-                else                                                   \
-                {                                                      \
-                    --_intro_top_;                                     \
-                    _intro_s_ = (_T_*)_intro_top_->left;               \
-                    _intro_t_ = (_T_*)_intro_top_->right;              \
-                    _intro_d_ = _intro_top_->depth;                    \
-                }                                                      \
-            }                                                          \
-        }                                                              \
-    } while (0)
-
 #ifndef ksort_intro
-
-/**
- * @brief        Intro sort
- * @param[in]    _t_: type of data array
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
+/*!
+ @brief          Intro sort
+ @param[in]      t: type of data array
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
 */
-#define ksort_intro(_t_, _p_, _n_, _fun_) \
-                                          \
-    __KSORT_INTRO(_t_, _p_, _n_, _fun_)
-
+#define ksort_intro(t, p, n, func)                                  \
+    do                                                              \
+    {                                                               \
+        if ((n) < 1U)                                               \
+        {                                                           \
+            break;                                                  \
+        }                                                           \
+        else if ((n) == 2U)                                         \
+        {                                                           \
+            if (func(*(p + 1U), *(p)))                              \
+            {                                                       \
+                ksort_swap(t, *(p), *(p + 1U));                     \
+            }                                                       \
+            break;                                                  \
+        }                                                           \
+        unsigned int _intro_d = 2U;                                 \
+        while (1ULL << _intro_d < (n))                              \
+        {                                                           \
+            ++_intro_d;                                             \
+        }                                                           \
+        ksort_stack_t* _intro_stack = (ksort_stack_t*)              \
+            malloc(sizeof(ksort_stack_t) *                          \
+                   (sizeof(size_t) * _intro_d + 2U));               \
+        ksort_stack_t* _intro_top = _intro_stack;                   \
+        _intro_d <<= 1U;                                            \
+        t* _intro_s = (p);                                          \
+        t* _intro_t = (p) + (n)-1U;                                 \
+        t* _intro_i = NULL;                                         \
+        t* _intro_j = NULL;                                         \
+        t* _intro_k = NULL;                                         \
+        for (;;)                                                    \
+        {                                                           \
+            if (_intro_s < _intro_t)                                \
+            {                                                       \
+                if (--_intro_d == 0U)                               \
+                {                                                   \
+                    ksort_comb(t,                                   \
+                               _intro_s,                            \
+                               (size_t)(_intro_t - _intro_s) + 1U,  \
+                               func);                               \
+                    _intro_t = _intro_s;                            \
+                    continue;                                       \
+                }                                                   \
+                _intro_i = _intro_s;                                \
+                _intro_j = _intro_t;                                \
+                _intro_k = _intro_i +                               \
+                           ((_intro_j - _intro_i) >> 1U) + 1U;      \
+                if (func(*_intro_k, *_intro_i))                     \
+                {                                                   \
+                    if (func(*_intro_k, *_intro_j))                 \
+                    {                                               \
+                        _intro_k = _intro_j;                        \
+                    }                                               \
+                }                                                   \
+                else                                                \
+                {                                                   \
+                    _intro_k = func(*_intro_j, *_intro_i)           \
+                                   ? _intro_i                       \
+                                   : _intro_j;                      \
+                }                                                   \
+                t _intro_rp = *_intro_k;                            \
+                if (_intro_k != _intro_t)                           \
+                {                                                   \
+                    ksort_swap(t, *_intro_k, *_intro_t);            \
+                }                                                   \
+                for (;;)                                            \
+                {                                                   \
+                    do                                              \
+                    {                                               \
+                        ++_intro_i;                                 \
+                    } while (func(*_intro_i, _intro_rp));           \
+                    do                                              \
+                    {                                               \
+                        --_intro_j;                                 \
+                    } while (_intro_i <= _intro_j &&                \
+                             func(_intro_rp, *_intro_j));           \
+                    if (_intro_j <= _intro_i)                       \
+                    {                                               \
+                        break;                                      \
+                    }                                               \
+                    ksort_swap(t, *_intro_i, *_intro_j);            \
+                }                                                   \
+                ksort_swap(t, *_intro_i, *_intro_t);                \
+                if (_intro_i - _intro_s > _intro_t - _intro_i)      \
+                {                                                   \
+                    if (_intro_i - _intro_s > 16U)                  \
+                    {                                               \
+                        _intro_top->left = (void*)_intro_s;         \
+                        _intro_top->right = (void*)(_intro_i - 1U); \
+                        _intro_top->depth = _intro_d;               \
+                        ++_intro_top;                               \
+                    }                                               \
+                    _intro_s = _intro_t - _intro_i > 16U            \
+                                   ? _intro_i + 1U                  \
+                                   : _intro_t;                      \
+                }                                                   \
+                else                                                \
+                {                                                   \
+                    if (_intro_t - _intro_i > 16U)                  \
+                    {                                               \
+                        _intro_top->left = (void*)(_intro_i + 1U);  \
+                        _intro_top->right = (void*)_intro_t;        \
+                        _intro_top->depth = _intro_d;               \
+                        ++_intro_top;                               \
+                    }                                               \
+                    _intro_t = _intro_i - _intro_s > 16U            \
+                                   ? _intro_i - 1U                  \
+                                   : _intro_s;                      \
+                }                                                   \
+            }                                                       \
+            else                                                    \
+            {                                                       \
+                if (_intro_top == _intro_stack)                     \
+                {                                                   \
+                    free(_intro_stack);                             \
+                    _intro_stack = NULL;                            \
+                    ksort_insert(t, p, n, func);                    \
+                    break;                                          \
+                }                                                   \
+                else                                                \
+                {                                                   \
+                    --_intro_top;                                   \
+                    _intro_s = (t*)_intro_top->left;                \
+                    _intro_t = (t*)_intro_top->right;               \
+                    _intro_d = _intro_top->depth;                   \
+                }                                                   \
+            }                                                       \
+        }                                                           \
+    } while (0)
 #endif /* ksort_intro */
 
-/* intro sort ----------------------------------------------------------------*/
-#undef __KSORT_KSMALL
-
-#define __KSORT_KSMALL(_T_, _RET_, _P_, _N_, _FUN_, _K_)              \
-                                                                      \
-    do                                                                \
-    {                                                                 \
-        _T_* _ksmall_low_  = (_P_);                                   \
-        _T_* _ksmall_high_ = (_P_) + (_N_)-1U;                        \
-        _T_* _ksmall_k_    = (_P_) + (_K_) % (_N_);                   \
-        _T_* _ksmall_ll_   = NULL;                                    \
-        _T_* _ksmall_hh_   = NULL;                                    \
-        _T_* _ksmall_mid_  = NULL;                                    \
-        for (;;)                                                      \
-        {                                                             \
-            if (_ksmall_high_ <= _ksmall_low_)                        \
-            {                                                         \
-                _RET_ = *_ksmall_k_;                                  \
-                break;                                                \
-            }                                                         \
-            if (_ksmall_high_ == _ksmall_low_ + 1U)                   \
-            {                                                         \
-                if (_FUN_(*_ksmall_high_, *_ksmall_low_))             \
-                {                                                     \
-                    __KSORT_SWAP(_T_, *_ksmall_low_, *_ksmall_high_); \
-                }                                                     \
-                _RET_ = *_ksmall_k_;                                  \
-                break;                                                \
-            }                                                         \
-            _ksmall_mid_ = _ksmall_low_ +                             \
-                           (_ksmall_high_ - _ksmall_low_) / 2U;       \
-            if (_FUN_(*_ksmall_high_, *_ksmall_mid_))                 \
-            {                                                         \
-                __KSORT_SWAP(_T_, *_ksmall_high_, *_ksmall_mid_);     \
-            }                                                         \
-            if (_FUN_(*_ksmall_high_, *_ksmall_low_))                 \
-            {                                                         \
-                __KSORT_SWAP(_T_, *_ksmall_high_, *_ksmall_low_);     \
-            }                                                         \
-            if (_FUN_(*_ksmall_low_, *_ksmall_mid_))                  \
-            {                                                         \
-                __KSORT_SWAP(_T_, *_ksmall_low_, *_ksmall_mid_);      \
-            }                                                         \
-            __KSORT_SWAP(_T_, *_ksmall_mid_, *(_ksmall_low_ + 1U));   \
-            _ksmall_ll_ = _ksmall_low_ + 1U;                          \
-            _ksmall_hh_ = _ksmall_high_;                              \
-            for (;;)                                                  \
-            {                                                         \
-                do                                                    \
-                {                                                     \
-                    ++_ksmall_ll_;                                    \
-                } while (_FUN_(*_ksmall_ll_, *_ksmall_low_));         \
-                do                                                    \
-                {                                                     \
-                    --_ksmall_hh_;                                    \
-                } while (_FUN_(*_ksmall_low_, *_ksmall_hh_));         \
-                if (_ksmall_hh_ < _ksmall_ll_)                        \
-                {                                                     \
-                    break;                                            \
-                }                                                     \
-                __KSORT_SWAP(_T_, *_ksmall_ll_, *_ksmall_hh_);        \
-            }                                                         \
-            __KSORT_SWAP(_T_, *_ksmall_low_, *_ksmall_hh_);           \
-            if (_ksmall_hh_ <= _ksmall_k_)                            \
-            {                                                         \
-                _ksmall_low_ = _ksmall_ll_;                           \
-            }                                                         \
-            if (_ksmall_hh_ >= _ksmall_k_)                            \
-            {                                                         \
-                _ksmall_high_ = _ksmall_hh_ - 1U;                     \
-            }                                                         \
-        }                                                             \
-    } while (0)
-
+/* ksmall */
 #ifndef ksort_ksmall
-
-/**
- * @brief        Ksmall
- * @param[in]    _t_: type of data array
- * @param[out]   _ret_ return variable of macro
- * @param[in]    _p_: pointer of data array
- * @param[in]    _n_: length of data array
- * @param[in]    _fun_: function of compare
- * @param[in]    _k_   0U <= _k_ < _n_
+/*!
+ @brief          Ksmall
+ @param[in]      t: type of data array
+ @param[out]     ret return variable of macro
+ @param[in]      p: pointer of data array
+ @param[in]      n: length of data array
+ @param[in]      func: function of compare
+ @param[in]      k   0U <= k < n
 */
-#define ksort_ksmall(_t_, _ret_, _p_, _n_, _fun_, _k_) \
-                                                       \
-    __KSORT_KSMALL(_t_, _ret_, _p_, _n_, _fun_, _k_)
-
+#define ksort_ksmall(t, ret, p, n, func, k)                     \
+    do                                                          \
+    {                                                           \
+        t* _ksmall_low = (p);                                   \
+        t* _ksmall_high = (p) + (n)-1U;                         \
+        t* _ksmall_k = (p) + (k) % (n);                         \
+        t* _ksmall_ll = NULL;                                   \
+        t* _ksmall_hh = NULL;                                   \
+        t* _ksmall_mid = NULL;                                  \
+        for (;;)                                                \
+        {                                                       \
+            if (_ksmall_high <= _ksmall_low)                    \
+            {                                                   \
+                ret = *_ksmall_k;                               \
+                break;                                          \
+            }                                                   \
+            if (_ksmall_high == _ksmall_low + 1U)               \
+            {                                                   \
+                if (func(*_ksmall_high, *_ksmall_low))          \
+                {                                               \
+                    ksort_swap(t, *_ksmall_low, *_ksmall_high); \
+                }                                               \
+                ret = *_ksmall_k;                               \
+                break;                                          \
+            }                                                   \
+            _ksmall_mid = _ksmall_low +                         \
+                          (_ksmall_high - _ksmall_low) / 2U;    \
+            if (func(*_ksmall_high, *_ksmall_mid))              \
+            {                                                   \
+                ksort_swap(t, *_ksmall_high, *_ksmall_mid);     \
+            }                                                   \
+            if (func(*_ksmall_high, *_ksmall_low))              \
+            {                                                   \
+                ksort_swap(t, *_ksmall_high, *_ksmall_low);     \
+            }                                                   \
+            if (func(*_ksmall_low, *_ksmall_mid))               \
+            {                                                   \
+                ksort_swap(t, *_ksmall_low, *_ksmall_mid);      \
+            }                                                   \
+            ksort_swap(t, *_ksmall_mid, *(_ksmall_low + 1U));   \
+            _ksmall_ll = _ksmall_low + 1U;                      \
+            _ksmall_hh = _ksmall_high;                          \
+            for (;;)                                            \
+            {                                                   \
+                do                                              \
+                {                                               \
+                    ++_ksmall_ll;                               \
+                } while (func(*_ksmall_ll, *_ksmall_low));      \
+                do                                              \
+                {                                               \
+                    --_ksmall_hh;                               \
+                } while (func(*_ksmall_low, *_ksmall_hh));      \
+                if (_ksmall_hh < _ksmall_ll)                    \
+                {                                               \
+                    break;                                      \
+                }                                               \
+                ksort_swap(t, *_ksmall_ll, *_ksmall_hh);        \
+            }                                                   \
+            ksort_swap(t, *_ksmall_low, *_ksmall_hh);           \
+            if (_ksmall_hh <= _ksmall_k)                        \
+            {                                                   \
+                _ksmall_low = _ksmall_ll;                       \
+            }                                                   \
+            if (_ksmall_hh >= _ksmall_k)                        \
+            {                                                   \
+                _ksmall_high = _ksmall_hh - 1U;                 \
+            }                                                   \
+        }                                                       \
+    } while (0)
 #endif /* ksort_ksmall */
 
-/* __KSORT_H__ ---------------------------------------------------------------*/
+/* Enddef to prevent recursive inclusion */
 #endif /* __KSORT_H__ */
 
-/************************ (C) COPYRIGHT tqfx *******************END OF FILE****/
+/* END OF FILE */
