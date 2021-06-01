@@ -1,4 +1,3 @@
-
 name: Release
 
 on:
@@ -15,38 +14,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Build
-        shell: bash
-        env:
-          library: klib
-        run: |
-          for i in `ls -A`; do \
-          if [ "$i" == ".git" ]; then continue; fi;\
-          if [ "$i" == "$library" ]; then continue; fi;\
-          rm -rf $i; done
-          for i in `ls -A $library`; do \
-          mv -t . $library/$i; done
-          rmdir $library
+        with:
+          submodules: true
 
       - name: Deploy
-        env:
-          GPG_KEY: ${{ secrets.COMMIT_GPG_KEY }}
-          GPG_ID: ${{ secrets.COMMIT_GPG_ID }}
-          branch: release
         shell: bash
+        env:
+          COMMIT_GPG_KEY: ${{ secrets.COMMIT_GPG_KEY }}
+          COMMIT_GPG_ID: ${{ secrets.COMMIT_GPG_ID }}
+          BRANCH: release
         run: |
-          git config user.name       "github-actions[bot]"
-          git config user.email      "59302530+tqfx@users.noreply.github.com"
-          git config user.signingkey $GPG_ID
-          git config commit.gpgsign  true
-          git config core.autocrlf   input
-          git config core.quotepath  false
-          git config core.filemode   false
-          git config core.ignorecase false
-          git config --list
-          git checkout --quiet --orphan $branch
-          git add --all
-          echo "$GPG_KEY" > $GPG_ID && gpg --import $GPG_ID && rm $GPG_ID
-          git commit --quiet --signoff --message $(git rev-parse origin/master)
-          git push --force origin $branch
+          bash scripts/gh-config.sh
+          bash scripts/gh-deploy.sh klib LICENSE

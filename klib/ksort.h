@@ -356,8 +356,8 @@ typedef struct ksort_stack_t
                 else                                                 \
                 {                                                    \
                     _intro_k = func(*_intro_j, *_intro_i)            \
-                                   ? _intro_i                        \
-                                   : _intro_j;                       \
+                                 ? _intro_i                          \
+                                 : _intro_j;                         \
                 }                                                    \
                 t _intro_rp = *_intro_k;                             \
                 if (_intro_k != _intro_t)                            \
@@ -392,8 +392,8 @@ typedef struct ksort_stack_t
                         ++_intro_top;                                \
                     }                                                \
                     _intro_s = _intro_t - _intro_i > 16U             \
-                                   ? _intro_i + 1U                   \
-                                   : _intro_t;                       \
+                                 ? _intro_i + 1U                     \
+                                 : _intro_t;                         \
                 }                                                    \
                 else                                                 \
                 {                                                    \
@@ -405,8 +405,8 @@ typedef struct ksort_stack_t
                         ++_intro_top;                                \
                     }                                                \
                     _intro_t = _intro_i - _intro_s > 16U             \
-                                   ? _intro_i - 1U                   \
-                                   : _intro_s;                       \
+                                 ? _intro_i - 1U                     \
+                                 : _intro_s;                         \
                 }                                                    \
             }                                                        \
             else                                                     \

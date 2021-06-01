@@ -8,6 +8,7 @@ AlignConsecutiveBitFields: true
 # AlignConsecutiveDeclarations: true
 
 AlignEscapedNewlines: Left
+AlignOperands: AlignAfterOperator
 
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false

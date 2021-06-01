@@ -16,4 +16,3 @@ clean:
 
 format: klib test
 	@-find $^ -regex '.*\.\(cpp\|hpp\|cu\|c\|h\)' -exec clang-format --verbose -style=file -i {} \;
-
