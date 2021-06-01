@@ -66,29 +66,29 @@
 #define ksort_merge(t, p, n, func, a)                          \
     do                                                         \
     {                                                          \
-        t* _merge_p[2U] = {                                    \
+        t *_merge_p[2U] = {                                    \
             (p),                                               \
             (a)                                                \
                 ? (a)                                          \
-                : (t*)malloc(sizeof(*(p)) * (n)),              \
+                : (t *)malloc(sizeof(*(p)) * (n)),             \
         };                                                     \
         unsigned int _merge_site = 0U;                         \
         for (size_t _merge_step = 1U;                          \
              _merge_step < (n);                                \
              _merge_step <<= 1U)                               \
         {                                                      \
-            t* _merge_a = _merge_p[_merge_site];               \
-            t* _merge_b = _merge_p[!_merge_site];              \
+            t *_merge_a = _merge_p[_merge_site];               \
+            t *_merge_b = _merge_p[!_merge_site];              \
             while (_merge_b != (_merge_p[!_merge_site] + (n))) \
             {                                                  \
-                t* _merge_a1 = _merge_a;                       \
-                t* _merge_e1 =                                 \
+                t *_merge_a1 = _merge_a;                       \
+                t *_merge_e1 =                                 \
                     (_merge_a + _merge_step) <                 \
                             (_merge_p[_merge_site] + (n))      \
                         ? (_merge_a + _merge_step)             \
                         : (_merge_p[_merge_site] + (n));       \
-                t* _merge_a2 = _merge_e1;                      \
-                t* _merge_e2 =                                 \
+                t *_merge_a2 = _merge_e1;                      \
+                t *_merge_e2 =                                 \
                     (_merge_a + (_merge_step << 1U)) <         \
                             (_merge_p[_merge_site] + (n))      \
                         ? (_merge_a + (_merge_step << 1U))     \
@@ -119,8 +119,8 @@
         }                                                      \
         if (_merge_site)                                       \
         {                                                      \
-            t* _merge_a = _merge_p[0U];                        \
-            t* _merge_b = _merge_p[1U];                        \
+            t *_merge_a = _merge_p[0U];                        \
+            t *_merge_b = _merge_p[1U];                        \
             while (_merge_a != (_merge_p[0U] + (n)))           \
             {                                                  \
                 *_merge_a++ = *_merge_b++;                     \
@@ -221,11 +221,11 @@
 #define ksort_insert(t, p, n, func)                           \
     do                                                        \
     {                                                         \
-        for (t* _insert_i = (p) + 1U;                         \
+        for (t *_insert_i = (p) + 1U;                         \
              _insert_i != ((p) + (n));                        \
              ++_insert_i)                                     \
         {                                                     \
-            for (t* _insert_j = _insert_i;                    \
+            for (t *_insert_j = _insert_i;                    \
                  _insert_j != (p) &&                          \
                  func(*_insert_j, *(_insert_j - 1U));         \
                  --_insert_j)                                 \
@@ -262,11 +262,11 @@
                 }                                                         \
             }                                                             \
             _comb_swap = 0U;                                              \
-            for (t* _comb_i = (p);                                        \
+            for (t *_comb_i = (p);                                        \
                  _comb_i < (p) + (n)-_comb_gap;                           \
                  ++_comb_i)                                               \
             {                                                             \
-                t* _comb_j = _comb_i + _comb_gap;                         \
+                t *_comb_j = _comb_i + _comb_gap;                         \
                 if (func(*_comb_j, *_comb_i))                             \
                 {                                                         \
                     ksort_swap(t, *_comb_i, *_comb_j);                    \
@@ -285,8 +285,8 @@
 
 typedef struct ksort_stack_t
 {
-    void* left;
-    void* right;
+    void *left;
+    void *right;
 
     unsigned int depth;
 } ksort_stack_t;
@@ -299,134 +299,134 @@ typedef struct ksort_stack_t
  @param[in]      n: length of data array
  @param[in]      func: function of compare
 */
-#define ksort_intro(t, p, n, func)                                  \
-    do                                                              \
-    {                                                               \
-        if ((n) < 1U)                                               \
-        {                                                           \
-            break;                                                  \
-        }                                                           \
-        else if ((n) == 2U)                                         \
-        {                                                           \
-            if (func(*(p + 1U), *(p)))                              \
-            {                                                       \
-                ksort_swap(t, *(p), *(p + 1U));                     \
-            }                                                       \
-            break;                                                  \
-        }                                                           \
-        unsigned int _intro_d = 2U;                                 \
-        while (1ULL << _intro_d < (n))                              \
-        {                                                           \
-            ++_intro_d;                                             \
-        }                                                           \
-        ksort_stack_t* _intro_stack = (ksort_stack_t*)              \
-            malloc(sizeof(ksort_stack_t) *                          \
-                   (sizeof(size_t) * _intro_d + 2U));               \
-        ksort_stack_t* _intro_top = _intro_stack;                   \
-        _intro_d <<= 1U;                                            \
-        t* _intro_s = (p);                                          \
-        t* _intro_t = (p) + (n)-1U;                                 \
-        t* _intro_i = NULL;                                         \
-        t* _intro_j = NULL;                                         \
-        t* _intro_k = NULL;                                         \
-        for (;;)                                                    \
-        {                                                           \
-            if (_intro_s < _intro_t)                                \
-            {                                                       \
-                if (--_intro_d == 0U)                               \
-                {                                                   \
-                    ksort_comb(t,                                   \
-                               _intro_s,                            \
-                               (size_t)(_intro_t - _intro_s) + 1U,  \
-                               func);                               \
-                    _intro_t = _intro_s;                            \
-                    continue;                                       \
-                }                                                   \
-                _intro_i = _intro_s;                                \
-                _intro_j = _intro_t;                                \
-                _intro_k = _intro_i +                               \
-                           ((_intro_j - _intro_i) >> 1U) + 1U;      \
-                if (func(*_intro_k, *_intro_i))                     \
-                {                                                   \
-                    if (func(*_intro_k, *_intro_j))                 \
-                    {                                               \
-                        _intro_k = _intro_j;                        \
-                    }                                               \
-                }                                                   \
-                else                                                \
-                {                                                   \
-                    _intro_k = func(*_intro_j, *_intro_i)           \
-                                   ? _intro_i                       \
-                                   : _intro_j;                      \
-                }                                                   \
-                t _intro_rp = *_intro_k;                            \
-                if (_intro_k != _intro_t)                           \
-                {                                                   \
-                    ksort_swap(t, *_intro_k, *_intro_t);            \
-                }                                                   \
-                for (;;)                                            \
-                {                                                   \
-                    do                                              \
-                    {                                               \
-                        ++_intro_i;                                 \
-                    } while (func(*_intro_i, _intro_rp));           \
-                    do                                              \
-                    {                                               \
-                        --_intro_j;                                 \
-                    } while (_intro_i <= _intro_j &&                \
-                             func(_intro_rp, *_intro_j));           \
-                    if (_intro_j <= _intro_i)                       \
-                    {                                               \
-                        break;                                      \
-                    }                                               \
-                    ksort_swap(t, *_intro_i, *_intro_j);            \
-                }                                                   \
-                ksort_swap(t, *_intro_i, *_intro_t);                \
-                if (_intro_i - _intro_s > _intro_t - _intro_i)      \
-                {                                                   \
-                    if (_intro_i - _intro_s > 16U)                  \
-                    {                                               \
-                        _intro_top->left = (void*)_intro_s;         \
-                        _intro_top->right = (void*)(_intro_i - 1U); \
-                        _intro_top->depth = _intro_d;               \
-                        ++_intro_top;                               \
-                    }                                               \
-                    _intro_s = _intro_t - _intro_i > 16U            \
-                                   ? _intro_i + 1U                  \
-                                   : _intro_t;                      \
-                }                                                   \
-                else                                                \
-                {                                                   \
-                    if (_intro_t - _intro_i > 16U)                  \
-                    {                                               \
-                        _intro_top->left = (void*)(_intro_i + 1U);  \
-                        _intro_top->right = (void*)_intro_t;        \
-                        _intro_top->depth = _intro_d;               \
-                        ++_intro_top;                               \
-                    }                                               \
-                    _intro_t = _intro_i - _intro_s > 16U            \
-                                   ? _intro_i - 1U                  \
-                                   : _intro_s;                      \
-                }                                                   \
-            }                                                       \
-            else                                                    \
-            {                                                       \
-                if (_intro_top == _intro_stack)                     \
-                {                                                   \
-                    free(_intro_stack);                             \
-                    _intro_stack = NULL;                            \
-                    ksort_insert(t, p, n, func);                    \
-                    break;                                          \
-                }                                                   \
-                else                                                \
-                {                                                   \
-                    --_intro_top;                                   \
-                    _intro_s = (t*)_intro_top->left;                \
-                    _intro_t = (t*)_intro_top->right;               \
-                    _intro_d = _intro_top->depth;                   \
-                }                                                   \
-            }                                                       \
-        }                                                           \
+#define ksort_intro(t, p, n, func)                                   \
+    do                                                               \
+    {                                                                \
+        if ((n) < 1U)                                                \
+        {                                                            \
+            break;                                                   \
+        }                                                            \
+        else if ((n) == 2U)                                          \
+        {                                                            \
+            if (func(*(p + 1U), *(p)))                               \
+            {                                                        \
+                ksort_swap(t, *(p), *(p + 1U));                      \
+            }                                                        \
+            break;                                                   \
+        }                                                            \
+        unsigned int _intro_d = 2U;                                  \
+        while (1ULL << _intro_d < (n))                               \
+        {                                                            \
+            ++_intro_d;                                              \
+        }                                                            \
+        ksort_stack_t *_intro_stack = (ksort_stack_t *)              \
+            malloc(sizeof(ksort_stack_t) *                           \
+                   (sizeof(size_t) * _intro_d + 2U));                \
+        ksort_stack_t *_intro_top = _intro_stack;                    \
+        _intro_d <<= 1U;                                             \
+        t *_intro_s = (p);                                           \
+        t *_intro_t = (p) + (n)-1U;                                  \
+        t *_intro_i = NULL;                                          \
+        t *_intro_j = NULL;                                          \
+        t *_intro_k = NULL;                                          \
+        for (;;)                                                     \
+        {                                                            \
+            if (_intro_s < _intro_t)                                 \
+            {                                                        \
+                if (--_intro_d == 0U)                                \
+                {                                                    \
+                    ksort_comb(t,                                    \
+                               _intro_s,                             \
+                               (size_t)(_intro_t - _intro_s) + 1U,   \
+                               func);                                \
+                    _intro_t = _intro_s;                             \
+                    continue;                                        \
+                }                                                    \
+                _intro_i = _intro_s;                                 \
+                _intro_j = _intro_t;                                 \
+                _intro_k = _intro_i +                                \
+                           ((_intro_j - _intro_i) >> 1U) + 1U;       \
+                if (func(*_intro_k, *_intro_i))                      \
+                {                                                    \
+                    if (func(*_intro_k, *_intro_j))                  \
+                    {                                                \
+                        _intro_k = _intro_j;                         \
+                    }                                                \
+                }                                                    \
+                else                                                 \
+                {                                                    \
+                    _intro_k = func(*_intro_j, *_intro_i)            \
+                                   ? _intro_i                        \
+                                   : _intro_j;                       \
+                }                                                    \
+                t _intro_rp = *_intro_k;                             \
+                if (_intro_k != _intro_t)                            \
+                {                                                    \
+                    ksort_swap(t, *_intro_k, *_intro_t);             \
+                }                                                    \
+                for (;;)                                             \
+                {                                                    \
+                    do                                               \
+                    {                                                \
+                        ++_intro_i;                                  \
+                    } while (func(*_intro_i, _intro_rp));            \
+                    do                                               \
+                    {                                                \
+                        --_intro_j;                                  \
+                    } while (_intro_i <= _intro_j &&                 \
+                             func(_intro_rp, *_intro_j));            \
+                    if (_intro_j <= _intro_i)                        \
+                    {                                                \
+                        break;                                       \
+                    }                                                \
+                    ksort_swap(t, *_intro_i, *_intro_j);             \
+                }                                                    \
+                ksort_swap(t, *_intro_i, *_intro_t);                 \
+                if (_intro_i - _intro_s > _intro_t - _intro_i)       \
+                {                                                    \
+                    if (_intro_i - _intro_s > 16U)                   \
+                    {                                                \
+                        _intro_top->left = (void *)_intro_s;         \
+                        _intro_top->right = (void *)(_intro_i - 1U); \
+                        _intro_top->depth = _intro_d;                \
+                        ++_intro_top;                                \
+                    }                                                \
+                    _intro_s = _intro_t - _intro_i > 16U             \
+                                   ? _intro_i + 1U                   \
+                                   : _intro_t;                       \
+                }                                                    \
+                else                                                 \
+                {                                                    \
+                    if (_intro_t - _intro_i > 16U)                   \
+                    {                                                \
+                        _intro_top->left = (void *)(_intro_i + 1U);  \
+                        _intro_top->right = (void *)_intro_t;        \
+                        _intro_top->depth = _intro_d;                \
+                        ++_intro_top;                                \
+                    }                                                \
+                    _intro_t = _intro_i - _intro_s > 16U             \
+                                   ? _intro_i - 1U                   \
+                                   : _intro_s;                       \
+                }                                                    \
+            }                                                        \
+            else                                                     \
+            {                                                        \
+                if (_intro_top == _intro_stack)                      \
+                {                                                    \
+                    free(_intro_stack);                              \
+                    _intro_stack = NULL;                             \
+                    ksort_insert(t, p, n, func);                     \
+                    break;                                           \
+                }                                                    \
+                else                                                 \
+                {                                                    \
+                    --_intro_top;                                    \
+                    _intro_s = (t *)_intro_top->left;                \
+                    _intro_t = (t *)_intro_top->right;               \
+                    _intro_d = _intro_top->depth;                    \
+                }                                                    \
+            }                                                        \
+        }                                                            \
     } while (0)
 #endif /* ksort_intro */
 
@@ -444,12 +444,12 @@ typedef struct ksort_stack_t
 #define ksort_ksmall(t, ret, p, n, func, k)                     \
     do                                                          \
     {                                                           \
-        t* _ksmall_low = (p);                                   \
-        t* _ksmall_high = (p) + (n)-1U;                         \
-        t* _ksmall_k = (p) + (k) % (n);                         \
-        t* _ksmall_ll = NULL;                                   \
-        t* _ksmall_hh = NULL;                                   \
-        t* _ksmall_mid = NULL;                                  \
+        t *_ksmall_low = (p);                                   \
+        t *_ksmall_high = (p) + (n)-1U;                         \
+        t *_ksmall_k = (p) + (k) % (n);                         \
+        t *_ksmall_ll = NULL;                                   \
+        t *_ksmall_hh = NULL;                                   \
+        t *_ksmall_mid = NULL;                                  \
         for (;;)                                                \
         {                                                       \
             if (_ksmall_high <= _ksmall_low)                    \
