@@ -6,14 +6,14 @@ else
 CMAKE_G = -G "Unix Makefiles"
 endif
 
-all:$(BUILD)
-	@cd $(BUILD) && cmake .. $(CMAKE_G) -DCMAKE_BUILD_TYPE="Release" && make -j
+.PHONY: $(BUILD) format clean
 
 $(BUILD):
-	@-mkdir $@
+	@cmake -S . -B $@ $(CMAKE_G) -DCMAKE_BUILD_TYPE="Release" && cd $@ && make -j
 
-.PHONY: format clean
-format: klib test
-	@-find $^ -regex '.*\.\(cpp\|hpp\|cu\|c\|h\)' -exec clang-format --verbose -style=file -i {} \;
 clean:
 	@-git clean -f -d -X
+
+format: klib test
+	@-find $^ -regex '.*\.\(cpp\|hpp\|cu\|c\|h\)' -exec clang-format --verbose -style=file -i {} \;
+
