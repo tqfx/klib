@@ -14,9 +14,9 @@ rule format
 
 build build: cmake .
     pool = console
+
 build clean: clean
 
 build format: format klib test
 
 default build
-
