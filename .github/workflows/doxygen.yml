@@ -17,12 +17,13 @@ jobs:
         with:
           submodules: true
 
+      - name: tqfx/scripts
+        run: git clone https://github.com/tqfx/scripts.git gh-scripts
+
       - name: Setup
         shell: bash
         run: |
-          sudo apt-get install -f -q -qq -y \
-          doxygen \
-          graphviz
+          bash gh-scripts/apt-doxygen.sh
 
       - name: Build
         shell: bash
@@ -36,5 +37,6 @@ jobs:
           COMMIT_GPG_ID: ${{ secrets.COMMIT_GPG_ID }}
           BRANCH: gh-pages
         run: |
-          bash scripts/gh-config.sh
-          bash scripts/gh-deploy.sh html
+          bash gh-scripts/gh-config.sh
+          bash gh-scripts/gh-deploy.sh html
+
