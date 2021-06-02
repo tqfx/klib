@@ -13,7 +13,7 @@ rule format
     description = start format
 
 build build: cmake .
-
+    pool = console
 build clean: clean
 
 build format: format klib test
