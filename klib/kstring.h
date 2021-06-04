@@ -84,6 +84,60 @@ extern int ksprintf(kstring_t *ks,
     KS_ATTR_PRINTF(2, 3);
 
 /*!
+ @brief          locate the cache
+ @param[in]      _str: The pointer of data
+ @param[in]      n: The length of data
+ @param[in]      _pat: The pointer of search patterns
+ @param[in]      m: The length of search patterns
+ @param[in,out]  _prep: The address of the temporary pointer
+  @arg           0 No external memory is used.
+  @arg           &(p=0) Stores patterns to external variables. You need to free memory.
+  @arg           &(p=malloc(m)) Use external memory, at least m bytes.
+ @return         The address at the head of the block found
+  @retval        0  failure
+  @retval        !0 success
+*/
+extern void *kmemmem(const void *_str,
+                     int n,
+                     const void *_pat,
+                     int m,
+                     int **_prep);
+
+/*!
+ @brief          locate the substring
+ @param[in]      str: The pointer of string
+ @param[in]      pat: The pointer of search patterns
+ @param[in,out]  _prep: The address of the temporary pointer
+  @arg           0 No external memory is used.
+  @arg           &(p=0) Stores patterns to external variables. You need to free memory.
+  @arg           &(p=malloc(m)) Use external memory, at least m bytes.
+ @return         The address at the head of the block found
+  @retval        0  failure
+  @retval        !0 success
+*/
+extern char *kstrstr(const char *str,
+                     const char *pat,
+                     int **_prep);
+
+/*!
+ @brief          locate the substring
+ @param[in]      str: The pointer of string
+ @param[in]      n: The length of string
+ @param[in]      pat: The pointer of search patterns
+ @param[in,out]  _prep: The address of the temporary pointer
+  @arg           0 No external memory is used.
+  @arg           &(p=0) Stores patterns to external variables. You need to free memory.
+  @arg           &(p=malloc(m)) Use external memory, at least m bytes.
+ @return         The address at the head of the block found
+  @retval        0  failure
+  @retval        !0 success
+*/
+extern char *kstrnstr(const char *str,
+                      int n,
+                      const char *pat,
+                      int **_prep);
+
+/*!
  @brief          Find the source data from the destination data
  @param[in]      dst: The pointer of destination data
  @param[in]      nd: The number of destination data
@@ -91,7 +145,7 @@ extern int ksprintf(kstring_t *ks,
  @param[in]      ns: The number of source data
  @return         Pointer to the data found in the destination data
 */
-extern void *ks_find(void *dst,
+extern void *ks_find(const void *dst,
                      size_t nd,
                      const void *src,
                      size_t ns);

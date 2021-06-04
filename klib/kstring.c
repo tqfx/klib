@@ -80,7 +80,178 @@ int ksprintf(kstring_t *ks,
     return l;
 }
 
-void *ks_find(void *dst,
+/*!
+ @brief          Boyer-Moore algorithm
+ @ref            http://www-igm.univ-mlv.fr/~lecroq/string/node14.html
+ @param[in]      pat: The pointer of search patterns
+ @param[in]      m: The length of search patterns
+ @return         void *prep[m + 256]
+*/
+static int *ksbm_prep(const unsigned char *pat,
+                      int m)
+{
+    assert(pat && "pat is null");
+
+    int *prep = (int *)calloc((size_t)(m + 256), sizeof(int));
+
+    int *bmGs = prep;
+    int *bmBc = prep + m;
+
+    int m_1 = m ? m - 1 : 0;
+
+    { /* preBmBc() */
+        int *pi = bmBc;
+        int *pd = bmBc + 256;
+        while (pi != pd)
+        {
+            *pi++ = m;
+        }
+        for (int i = 0; i != m_1; ++i)
+        {
+            bmBc[pat[i]] = m_1 - i;
+        }
+    }
+
+    int *suff = (int *)calloc((size_t)m, sizeof(int));
+
+    { /* suffixes() */
+        suff[m_1] = m;
+        int f = 0;
+        int g = m_1;
+        for (int i = m_1 - 1; i != -1; --i)
+        {
+            if (i > g && suff[i + m_1 - f] < i - g)
+            {
+                suff[i] = suff[i + m_1 - f];
+            }
+            else
+            {
+                if (i < g)
+                {
+                    g = i;
+                }
+                f = i;
+                while (g != -1 && pat[g] == pat[g + m_1 - f])
+                {
+                    --g;
+                }
+                suff[i] = f - g;
+            }
+        }
+    }
+
+    { /* preBmGs() */
+        int *pi = bmGs;
+        int *pd = bmGs + m;
+        while (pi != pd)
+        {
+            *pi++ = m;
+        }
+        int j = 0;
+        for (int i = m_1; i != -1; --i)
+        {
+            if (suff[i] == i + 1)
+            {
+                int m_1_i = m_1 - i;
+                while (j != m_1_i)
+                {
+                    if (bmGs[j] == m)
+                    {
+                        bmGs[j] = m_1_i;
+                    }
+                    ++j;
+                }
+            }
+        }
+        for (int i = 0; i != m_1; ++i)
+        {
+            bmGs[m_1 - suff[i]] = m_1 - i;
+        }
+    }
+
+    free(suff);
+    suff = 0;
+
+    return prep;
+}
+
+void *kmemmem(const void *_str,
+              int n,
+              const void *_pat,
+              int m,
+              int **_prep)
+{
+    assert(_str && "_str is null");
+    assert(_pat && "_pat is null");
+
+    const unsigned char *str = (const unsigned char *)_str;
+    const unsigned char *pat = (const unsigned char *)_pat;
+
+    int *prep = (_prep == 0 || *_prep == 0)
+                  ? ksbm_prep(pat, m)
+                  : *_prep;
+    if (_prep && *_prep == 0)
+    {
+        *_prep = prep;
+    }
+
+    int *bmGs = prep;
+    int *bmBc = prep + m;
+
+    int j = 0;
+    while (j <= n - m)
+    {
+        int i = m - 1;
+        while (i != -1 && pat[i] == str[i + j])
+        {
+            --i;
+        }
+        if (i != -1)
+        {
+            int max = bmBc[str[i + j]] - m + 1 + i;
+            if (max < bmGs[i])
+            {
+                max = bmGs[i];
+            }
+            j += max;
+        }
+        else
+        {
+            return (void *)(str + j);
+        }
+    }
+
+    if (_prep == 0)
+    {
+        free(prep);
+        prep = 0;
+    }
+
+    return 0;
+}
+
+char *kstrstr(const char *str,
+              const char *pat,
+              int **_prep)
+{
+    assert(str && "_str is null");
+    assert(pat && "_pat is null");
+
+    return (char *)kmemmem(str, (int)strlen(str), pat, (int)strlen(pat), _prep);
+}
+
+char *kstrnstr(const char *str,
+               int n,
+               const char *pat,
+               int **_prep)
+{
+    assert(str && "_str is null");
+    assert(pat && "_pat is null");
+
+    return (char *)kmemmem(str, n, pat, (int)strlen(pat), _prep);
+}
+
+void *ks_find(const void *dst,
               size_t nd,
               const void *src,
               size_t ns)
@@ -102,10 +273,10 @@ void *ks_find(void *dst,
     /* The end pointer of source */
     const char *src_end = (const char *)src + ns;
     /* The end pointer of destination */
-    char *dst_end = (char *)dst + nd;
+    const char *dst_end = (const char *)dst + nd;
 
     /* Start the iteration */
-    char *p = (char *)dst;
+    const char *p = (const char *)dst;
     while (p != dst_end)
     {
         /* When nd is less than ns */
@@ -117,7 +288,7 @@ void *ks_find(void *dst,
         /* The start pointer of source */
         const char *ps = (const char *)src;
         /* The start pointer of destination */
-        char *pd = p;
+        const char *pd = p;
 
         /* memcmp */
         while (ps != src_end)
@@ -162,8 +333,8 @@ size_t ks_cnt_(const kstring_t *ks,
     /* The end pointer of substring */
     const char *pend = ks->s + ks->l;
     /* The start pointer */
-    char *p = ks->s;
-    while ((p = (char *)ks_find(p, (size_t)(pend - p), s, l)))
+    const char *p = ks->s;
+    while ((p = (const char *)ks_find(p, (size_t)(pend - p), s, l)))
     {
         p += l;
         ++ret;
