@@ -1,4 +1,4 @@
-name: Doxygen
+name: gh-pages
 
 on:
   push:
@@ -9,34 +9,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: true
 
-      - name: tqfx/scripts
-        run: git clone https://github.com/tqfx/scripts.git gh-scripts
-
-      - name: Setup
-        shell: bash
-        run: |
-          bash gh-scripts/apt-doxygen.sh
-
-      - name: Build
-        shell: bash
-        run: |
+      - run: |
+          sudo apt-get install -f -q -qq -y \
+          graphviz doxygen
           doxygen doxygen/Doxyfile
 
-      - name: Deploy
-        shell: bash
-        env:
-          COMMIT_GPG_KEY: ${{ secrets.COMMIT_GPG_KEY }}
-          COMMIT_GPG_ID: ${{ secrets.COMMIT_GPG_ID }}
-          BRANCH: gh-pages
-        run: |
-          bash gh-scripts/gh-config.sh
-          bash gh-scripts/gh-deploy.sh html
-
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: html
+          force_orphan: true
+          commit_message: ${{ github.event.head_commit.message }}
+          disable_nojekyll: true
