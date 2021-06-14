@@ -2255,13 +2255,13 @@ INCLUDE_FILE_PATTERNS  =
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
 PREDEFINED             = __cplusplus \
-                         "__BEGIN_DECLS=" \
-                         "__END_DECLS=" \
-                         "__STATIC_INLINE=" \
-                         "__NONNULL=" \
-                         "__NONNULL_ALL=" \
-                         "__RESULT_USE_CHECK=" \
-			 "KS_ATTR_PRINTF="
+                         "__BEGIN_DECLS:=" \
+                         "__END_DECLS:=" \
+                         "__STATIC_INLINE:=" \
+                         "__NONNULL:=" \
+                         "__NONNULL_ALL:=" \
+                         "__RESULT_USE_CHECK:=" \
+                         "KS_ATTR_PRINTF:="
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
