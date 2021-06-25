@@ -1,0 +1,1305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Klib: klib/kvec.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Klib
+   </div>
+   <div id="projectbrief">A Generic Library in C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5c5baaf4e47b236b58d41f08271825e.html">klib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">kvec.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>vector library  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="klib_8h_source.html">klib.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+kvec.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="kvec_8h__incl.png" border="0" usemap="#klib_2kvec_8h" alt=""/></div>
+<map name="klib_2kvec_8h" id="klib_2kvec_8h">
+<area shape="rect" title="vector library" alt="" coords="77,5,171,32"/>
+<area shape="rect" href="klib_8h.html" title="Some macros of klib" alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="89,80,159,107"/>
+<area shape="rect" title=" " alt="" coords="183,80,254,107"/>
+</map>
+</div>
+</div>
+<p><a href="kvec_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:af8277deb13eb48860c5b289a20971f1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#af8277deb13eb48860c5b289a20971f1f">kvec_type</a>(name,  type)</td></tr>
+<tr class="memdesc:af8277deb13eb48860c5b289a20971f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register type of vector structure  <a href="kvec_8h.html#af8277deb13eb48860c5b289a20971f1f">更多...</a><br /></td></tr>
+<tr class="separator:af8277deb13eb48860c5b289a20971f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4185440ef24a04c729d0828651edf655"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a4185440ef24a04c729d0828651edf655">kvec_t</a>(name)&#160;&#160;&#160;kvec_##name##_t</td></tr>
+<tr class="memdesc:a4185440ef24a04c729d0828651edf655"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef of vector registration  <a href="kvec_8h.html#a4185440ef24a04c729d0828651edf655">更多...</a><br /></td></tr>
+<tr class="separator:a4185440ef24a04c729d0828651edf655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf72b0673ec3ba4b74d274a45166738"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#addf72b0673ec3ba4b74d274a45166738">kvec_s</a>(type)</td></tr>
+<tr class="memdesc:addf72b0673ec3ba4b74d274a45166738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Anonymous structure of vector  <a href="kvec_8h.html#addf72b0673ec3ba4b74d274a45166738">更多...</a><br /></td></tr>
+<tr class="separator:addf72b0673ec3ba4b74d274a45166738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90477a01a4025f97218f38ec439a55e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a90477a01a4025f97218f38ec439a55e7">kv_init</a>(kv)&#160;&#160;&#160;( (kv).n = 0U, (kv).m = 0U, (kv).v = NULL )</td></tr>
+<tr class="memdesc:a90477a01a4025f97218f38ec439a55e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize vector structure  <a href="kvec_8h.html#a90477a01a4025f97218f38ec439a55e7">更多...</a><br /></td></tr>
+<tr class="separator:a90477a01a4025f97218f38ec439a55e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4edcdbc9cfbed08bf08cf5799946f2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#ad4edcdbc9cfbed08bf08cf5799946f2a">kv_pinit</a>(name,  pkv)</td></tr>
+<tr class="memdesc:ad4edcdbc9cfbed08bf08cf5799946f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize pointer of vector structure  <a href="kvec_8h.html#ad4edcdbc9cfbed08bf08cf5799946f2a">更多...</a><br /></td></tr>
+<tr class="separator:ad4edcdbc9cfbed08bf08cf5799946f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9157d90b471fffb790776196b49b9c05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a9157d90b471fffb790776196b49b9c05">kv_clear</a>(kv)&#160;&#160;&#160;( (kv).n = 0U, (kv).m = 0U, free((kv).v), (kv).v = NULL )</td></tr>
+<tr class="memdesc:a9157d90b471fffb790776196b49b9c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free memory of data and clear vector structure  <a href="kvec_8h.html#a9157d90b471fffb790776196b49b9c05">更多...</a><br /></td></tr>
+<tr class="separator:a9157d90b471fffb790776196b49b9c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d1b547392f16613e6c91d2c8772f4dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a9d1b547392f16613e6c91d2c8772f4dd">kv_pclear</a>(pkv)&#160;&#160;&#160;( <a class="el" href="kvec_8h.html#a9157d90b471fffb790776196b49b9c05">kv_clear</a>(*(pkv)), free(pkv), (pkv) = NULL )</td></tr>
+<tr class="memdesc:a9d1b547392f16613e6c91d2c8772f4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free memory and clear pointer of vector structure  <a href="kvec_8h.html#a9d1b547392f16613e6c91d2c8772f4dd">更多...</a><br /></td></tr>
+<tr class="separator:a9d1b547392f16613e6c91d2c8772f4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e9d078fb196807e20236e0bf60f695"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a14e9d078fb196807e20236e0bf60f695">kv_resize</a>(type,  kv,  n)</td></tr>
+<tr class="memdesc:a14e9d078fb196807e20236e0bf60f695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize real memory of data  <a href="kvec_8h.html#a14e9d078fb196807e20236e0bf60f695">更多...</a><br /></td></tr>
+<tr class="separator:a14e9d078fb196807e20236e0bf60f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a63110ac75f7f59d20ac13c0cc4587"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#af7a63110ac75f7f59d20ac13c0cc4587">kv_presize</a>(type,  pkv,  n)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a14e9d078fb196807e20236e0bf60f695">kv_resize</a>(type, *(pkv), n)</td></tr>
+<tr class="memdesc:af7a63110ac75f7f59d20ac13c0cc4587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize real memory of data by pointer  <a href="kvec_8h.html#af7a63110ac75f7f59d20ac13c0cc4587">更多...</a><br /></td></tr>
+<tr class="separator:af7a63110ac75f7f59d20ac13c0cc4587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cfa3f5f73699feb3b564defacfae67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a20cfa3f5f73699feb3b564defacfae67">kv_v</a>(kv,  i)&#160;&#160;&#160;(kv).v[(i)]</td></tr>
+<tr class="memdesc:a20cfa3f5f73699feb3b564defacfae67"><td class="mdescLeft">&#160;</td><td class="mdescRight">element whose index is i. static  <a href="kvec_8h.html#a20cfa3f5f73699feb3b564defacfae67">更多...</a><br /></td></tr>
+<tr class="separator:a20cfa3f5f73699feb3b564defacfae67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40a2ae67eb541e67f45c264e3cffe7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#aa40a2ae67eb541e67f45c264e3cffe7a">kv_pv</a>(pkv,  i)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a20cfa3f5f73699feb3b564defacfae67">kv_v</a>(*(pkv), i)</td></tr>
+<tr class="memdesc:aa40a2ae67eb541e67f45c264e3cffe7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">element whose index is i. static by pointer  <a href="kvec_8h.html#aa40a2ae67eb541e67f45c264e3cffe7a">更多...</a><br /></td></tr>
+<tr class="separator:aa40a2ae67eb541e67f45c264e3cffe7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e761e3bdc1edca19174e6a67a37e14a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a7e761e3bdc1edca19174e6a67a37e14a">kv_size</a>(kv)&#160;&#160;&#160;(kv).n</td></tr>
+<tr class="memdesc:a7e761e3bdc1edca19174e6a67a37e14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of elements  <a href="kvec_8h.html#a7e761e3bdc1edca19174e6a67a37e14a">更多...</a><br /></td></tr>
+<tr class="separator:a7e761e3bdc1edca19174e6a67a37e14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eae8b7bcf1e7682e53ea52489023806"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a7eae8b7bcf1e7682e53ea52489023806">kv_psize</a>(pkv)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a7e761e3bdc1edca19174e6a67a37e14a">kv_size</a>(*(pkv))</td></tr>
+<tr class="memdesc:a7eae8b7bcf1e7682e53ea52489023806"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of elements by pointer  <a href="kvec_8h.html#a7eae8b7bcf1e7682e53ea52489023806">更多...</a><br /></td></tr>
+<tr class="separator:a7eae8b7bcf1e7682e53ea52489023806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88467ba24ffd42246dcf15e1a57f0fa9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a88467ba24ffd42246dcf15e1a57f0fa9">kv_max</a>(kv)&#160;&#160;&#160;(kv).m</td></tr>
+<tr class="memdesc:a88467ba24ffd42246dcf15e1a57f0fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of real memory  <a href="kvec_8h.html#a88467ba24ffd42246dcf15e1a57f0fa9">更多...</a><br /></td></tr>
+<tr class="separator:a88467ba24ffd42246dcf15e1a57f0fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71e728a58aadaa1a35a3ba4e19612ffb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a71e728a58aadaa1a35a3ba4e19612ffb">kv_pmax</a>(pkv)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a88467ba24ffd42246dcf15e1a57f0fa9">kv_max</a>(*(pkv))</td></tr>
+<tr class="memdesc:a71e728a58aadaa1a35a3ba4e19612ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of real memory by pointer  <a href="kvec_8h.html#a71e728a58aadaa1a35a3ba4e19612ffb">更多...</a><br /></td></tr>
+<tr class="separator:a71e728a58aadaa1a35a3ba4e19612ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a402aa9d6c6b30cb6c0900e216f7c83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a6a402aa9d6c6b30cb6c0900e216f7c83">kv_copy</a>(type,  kv1,  kv0)</td></tr>
+<tr class="memdesc:a6a402aa9d6c6b30cb6c0900e216f7c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy kv0 to kv1 by vector structure  <a href="kvec_8h.html#a6a402aa9d6c6b30cb6c0900e216f7c83">更多...</a><br /></td></tr>
+<tr class="separator:a6a402aa9d6c6b30cb6c0900e216f7c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b471784de18824bb674db32f188e8cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a6b471784de18824bb674db32f188e8cf">kv_pcopy</a>(name,  type,  pkv1,  pkv0)</td></tr>
+<tr class="memdesc:a6b471784de18824bb674db32f188e8cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy pkv0 to pkv1 by pointer of vector structure  <a href="kvec_8h.html#a6b471784de18824bb674db32f188e8cf">更多...</a><br /></td></tr>
+<tr class="separator:a6b471784de18824bb674db32f188e8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0cdca7581c31ab007d9c887924f6a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#aca0cdca7581c31ab007d9c887924f6a1">kv_pop</a>(kv)&#160;&#160;&#160;(kv).v[(kv).n ? --(kv).n : 0U]</td></tr>
+<tr class="memdesc:aca0cdca7581c31ab007d9c887924f6a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop a element by vector structure  <a href="kvec_8h.html#aca0cdca7581c31ab007d9c887924f6a1">更多...</a><br /></td></tr>
+<tr class="separator:aca0cdca7581c31ab007d9c887924f6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea2519e9c80401b4448cb52dd05a04c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#aea2519e9c80401b4448cb52dd05a04c7">kv_ppop</a>(pkv)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#aca0cdca7581c31ab007d9c887924f6a1">kv_pop</a>(*(pkv))</td></tr>
+<tr class="memdesc:aea2519e9c80401b4448cb52dd05a04c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop a element pointer of vector structure  <a href="kvec_8h.html#aea2519e9c80401b4448cb52dd05a04c7">更多...</a><br /></td></tr>
+<tr class="separator:aea2519e9c80401b4448cb52dd05a04c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a01cf6f5f98ef8659a27c86b1c1715a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a4a01cf6f5f98ef8659a27c86b1c1715a">kv_push</a>(type,  kv,  x)</td></tr>
+<tr class="memdesc:a4a01cf6f5f98ef8659a27c86b1c1715a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a element by vector structure  <a href="kvec_8h.html#a4a01cf6f5f98ef8659a27c86b1c1715a">更多...</a><br /></td></tr>
+<tr class="separator:a4a01cf6f5f98ef8659a27c86b1c1715a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0380c62f4d979173604c6388df9ecdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#af0380c62f4d979173604c6388df9ecdc">kv_ppush</a>(type,  pkv,  x)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a4a01cf6f5f98ef8659a27c86b1c1715a">kv_push</a>(type, *(pkv), x)</td></tr>
+<tr class="memdesc:af0380c62f4d979173604c6388df9ecdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push a element by pointer of vector structure  <a href="kvec_8h.html#af0380c62f4d979173604c6388df9ecdc">更多...</a><br /></td></tr>
+<tr class="separator:af0380c62f4d979173604c6388df9ecdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376fecb59b50b39218865bb4992acbba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a376fecb59b50b39218865bb4992acbba">kv_pushp</a>(type,  kv)</td></tr>
+<tr class="memdesc:a376fecb59b50b39218865bb4992acbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of element to be pushed  <a href="kvec_8h.html#a376fecb59b50b39218865bb4992acbba">更多...</a><br /></td></tr>
+<tr class="separator:a376fecb59b50b39218865bb4992acbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb318b39f3fc6fd5e479679f11066069"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#abb318b39f3fc6fd5e479679f11066069">kv_ppushp</a>(type,  pkv)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a376fecb59b50b39218865bb4992acbba">kv_pushp</a>(type, *(pkv))</td></tr>
+<tr class="memdesc:abb318b39f3fc6fd5e479679f11066069"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of element to be pushed  <a href="kvec_8h.html#abb318b39f3fc6fd5e479679f11066069">更多...</a><br /></td></tr>
+<tr class="separator:abb318b39f3fc6fd5e479679f11066069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a515d98616b8c0d03ff940f025978d420"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a515d98616b8c0d03ff940f025978d420">kv_vi</a>(type,  kv,  i)</td></tr>
+<tr class="memdesc:a515d98616b8c0d03ff940f025978d420"><td class="mdescLeft">&#160;</td><td class="mdescRight">element whose index is i. dynamic  <a href="kvec_8h.html#a515d98616b8c0d03ff940f025978d420">更多...</a><br /></td></tr>
+<tr class="separator:a515d98616b8c0d03ff940f025978d420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae712399150e595a9f5d2ad00acd6b079"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#ae712399150e595a9f5d2ad00acd6b079">kv_pvi</a>(type,  pkv,  i)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a515d98616b8c0d03ff940f025978d420">kv_vi</a>(type, *(pkv), i)</td></tr>
+<tr class="memdesc:ae712399150e595a9f5d2ad00acd6b079"><td class="mdescLeft">&#160;</td><td class="mdescRight">element whose index is i. dynamic by pointer  <a href="kvec_8h.html#ae712399150e595a9f5d2ad00acd6b079">更多...</a><br /></td></tr>
+<tr class="separator:ae712399150e595a9f5d2ad00acd6b079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909c43d9d751c3438b74f2ab4c125b60"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a909c43d9d751c3438b74f2ab4c125b60">__KVEC_IMPL</a>(SCOPE,  NAME,  TYPE)</td></tr>
+<tr class="separator:a909c43d9d751c3438b74f2ab4c125b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02a6966cd6daabab1493a2d3940fd87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#af02a6966cd6daabab1493a2d3940fd87">kvec_impl</a>(scope,  name,  type)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a909c43d9d751c3438b74f2ab4c125b60">__KVEC_IMPL</a>(scope, name, type)</td></tr>
+<tr class="memdesc:af02a6966cd6daabab1493a2d3940fd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector function Initial Microprogram Loading  <a href="kvec_8h.html#af02a6966cd6daabab1493a2d3940fd87">更多...</a><br /></td></tr>
+<tr class="separator:af02a6966cd6daabab1493a2d3940fd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af45b0338622292051c1bb0d9fe2a0257"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#af45b0338622292051c1bb0d9fe2a0257">__KVEC_INIT</a>(NAME,  TYPE)</td></tr>
+<tr class="separator:af45b0338622292051c1bb0d9fe2a0257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a607c68c4224f29fbeafda54552deeaee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kvec_8h.html#a607c68c4224f29fbeafda54552deeaee">kvec_init</a>(name,  type)&#160;&#160;&#160;<a class="el" href="kvec_8h.html#af45b0338622292051c1bb0d9fe2a0257">__KVEC_INIT</a>(name, type)</td></tr>
+<tr class="memdesc:a607c68c4224f29fbeafda54552deeaee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector function Initial Microprogram Loading  <a href="kvec_8h.html#a607c68c4224f29fbeafda54552deeaee">更多...</a><br /></td></tr>
+<tr class="separator:a607c68c4224f29fbeafda54552deeaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>vector library </p>
+<dl class="section author"><dt>作者</dt><dd>tqfx <a href="#" onclick="location.href='mai'+'lto:'+'tqf'+'x@'+'fox'+'ma'+'il.'+'co'+'m'; return false;">tqfx@<span style="display: none;">.nosp@m.</span>foxm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2021-05-30 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (C) 2021 tqfx <br  />
+ <br  />
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: <br  />
+ <br  />
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. <br  />
+ <br  />
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </dd></dl>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a909c43d9d751c3438b74f2ab4c125b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909c43d9d751c3438b74f2ab4c125b60">&#9670;&nbsp;</a></span>__KVEC_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __KVEC_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SCOPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af45b0338622292051c1bb0d9fe2a0257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af45b0338622292051c1bb0d9fe2a0257">&#9670;&nbsp;</a></span>__KVEC_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __KVEC_INIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code" href="kvec_8h.html#af8277deb13eb48860c5b289a20971f1f">kvec_type</a>(NAME, TYPE);      \</div>
+<div class="line">    __KVEC_IMPL(__STATIC_INLINE <a class="code" href="klib_8h.html#a6c30d490cd2302ff05d355f3ec844c1f">__UNUSED</a>, NAME, TYPE)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9157d90b471fffb790776196b49b9c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9157d90b471fffb790776196b49b9c05">&#9670;&nbsp;</a></span>kv_clear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_clear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv</td><td>)</td>
+          <td>&#160;&#160;&#160;( (kv).n = 0U, (kv).m = 0U, free((kv).v), (kv).v = NULL )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free memory of data and clear vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a402aa9d6c6b30cb6c0900e216f7c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a402aa9d6c6b30cb6c0900e216f7c83">&#9670;&nbsp;</a></span>kv_copy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_copy</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv0&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    (                                \</div>
+<div class="line">     (kv1).m &lt; (kv0).n                   \</div>
+<div class="line">         ? <a class="code" href="kvec_8h.html#a14e9d078fb196807e20236e0bf60f695">kv_resize</a>(type, kv1, (kv0).n) \</div>
+<div class="line">         : 0, <span class="comment">/* (kv1).m &gt;= (kv0).n */</span>   \</div>
+<div class="line">     (kv1).n = (kv0).n,                  \</div>
+<div class="line">     (void)memcpy(                       \</div>
+<div class="line">         (kv1).v,                        \</div>
+<div class="line">         (kv0).v,                        \</div>
+<div class="line">         <span class="keyword">sizeof</span>(*(kv0).v) * (kv0).n) )</div>
+</div><!-- fragment -->
+<p>Copy kv0 to kv1 by vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">kv1</td><td>vector structure, destination </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv0</td><td>vector structure, source </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90477a01a4025f97218f38ec439a55e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90477a01a4025f97218f38ec439a55e7">&#9670;&nbsp;</a></span>kv_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv</td><td>)</td>
+          <td>&#160;&#160;&#160;( (kv).n = 0U, (kv).m = 0U, (kv).v = NULL )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a88467ba24ffd42246dcf15e1a57f0fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88467ba24ffd42246dcf15e1a57f0fa9">&#9670;&nbsp;</a></span>kv_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_max</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv</td><td>)</td>
+          <td>&#160;&#160;&#160;(kv).m</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>size of real memory </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(kv).m </dd></dl>
+
+</div>
+</div>
+<a id="a9d1b547392f16613e6c91d2c8772f4dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d1b547392f16613e6c91d2c8772f4dd">&#9670;&nbsp;</a></span>kv_pclear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pclear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv</td><td>)</td>
+          <td>&#160;&#160;&#160;( <a class="el" href="kvec_8h.html#a9157d90b471fffb790776196b49b9c05">kv_clear</a>(*(pkv)), free(pkv), (pkv) = NULL )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free memory and clear pointer of vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6b471784de18824bb674db32f188e8cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b471784de18824bb674db32f188e8cf">&#9670;&nbsp;</a></span>kv_pcopy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pcopy</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv0&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    (                                \</div>
+<div class="line">     (pkv1)                              \</div>
+<div class="line">         ? 0 <span class="comment">/* pkv1 != NULL */</span>          \</div>
+<div class="line">         : <a class="code" href="kvec_8h.html#ad4edcdbc9cfbed08bf08cf5799946f2a">kv_pinit</a>(name, pkv1),         \</div>
+<div class="line">     kv_copy(type, *(pkv1), *(pkv0)) )</div>
+</div><!-- fragment -->
+<p>Copy pkv0 to pkv1 by pointer of vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pkv1</td><td>pointer of vector structure, destination </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv0</td><td>pointer of vector structure, source </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad4edcdbc9cfbed08bf08cf5799946f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4edcdbc9cfbed08bf08cf5799946f2a">&#9670;&nbsp;</a></span>kv_pinit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pinit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( (pkv) = (kvec_##name##_t *)malloc(<span class="keyword">sizeof</span>(*(pkv))), \</div>
+<div class="line">     kv_init(*(pkv)) )</div>
+</div><!-- fragment -->
+<p>Initialize pointer of vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of vector structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a71e728a58aadaa1a35a3ba4e19612ffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e728a58aadaa1a35a3ba4e19612ffb">&#9670;&nbsp;</a></span>kv_pmax</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pmax</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a88467ba24ffd42246dcf15e1a57f0fa9">kv_max</a>(*(pkv))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>size of real memory by pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(pkv)-&gt;m </dd></dl>
+
+</div>
+</div>
+<a id="aca0cdca7581c31ab007d9c887924f6a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0cdca7581c31ab007d9c887924f6a1">&#9670;&nbsp;</a></span>kv_pop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pop</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv</td><td>)</td>
+          <td>&#160;&#160;&#160;(kv).v[(kv).n ? --(kv).n : 0U]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pop a element by vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(kv).v[(kv).n ? &ndash;(kv).n : 0U] </dd></dl>
+
+</div>
+</div>
+<a id="aea2519e9c80401b4448cb52dd05a04c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea2519e9c80401b4448cb52dd05a04c7">&#9670;&nbsp;</a></span>kv_ppop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_ppop</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#aca0cdca7581c31ab007d9c887924f6a1">kv_pop</a>(*(pkv))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pop a element pointer of vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(pkv)-&gt;v[(pkv)-&gt;n ? &ndash;(pkv)-&gt;n : 0U] </dd></dl>
+
+</div>
+</div>
+<a id="af0380c62f4d979173604c6388df9ecdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0380c62f4d979173604c6388df9ecdc">&#9670;&nbsp;</a></span>kv_ppush</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_ppush</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a4a01cf6f5f98ef8659a27c86b1c1715a">kv_push</a>(type, *(pkv), x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push a element by pointer of vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>element whose pushed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abb318b39f3fc6fd5e479679f11066069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb318b39f3fc6fd5e479679f11066069">&#9670;&nbsp;</a></span>kv_ppushp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_ppushp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a376fecb59b50b39218865bb4992acbba">kv_pushp</a>(type, *(pkv))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>address of element to be pushed </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>((kv)-&gt;v + (kv)-&gt;n++) </dd></dl>
+
+</div>
+</div>
+<a id="af7a63110ac75f7f59d20ac13c0cc4587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a63110ac75f7f59d20ac13c0cc4587">&#9670;&nbsp;</a></span>kv_presize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_presize</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a14e9d078fb196807e20236e0bf60f695">kv_resize</a>(type, *(pkv), n)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resize real memory of data by pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>new size of real memory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7eae8b7bcf1e7682e53ea52489023806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eae8b7bcf1e7682e53ea52489023806">&#9670;&nbsp;</a></span>kv_psize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_psize</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a7e761e3bdc1edca19174e6a67a37e14a">kv_size</a>(*(pkv))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>number of elements by pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(pkv)-&gt;n </dd></dl>
+
+</div>
+</div>
+<a id="a4a01cf6f5f98ef8659a27c86b1c1715a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a01cf6f5f98ef8659a27c86b1c1715a">&#9670;&nbsp;</a></span>kv_push</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_push</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    (                                                  \</div>
+<div class="line">     (kv).n == (kv).m                                      \</div>
+<div class="line">         ? ((kv).m = ((kv).m                               \</div>
+<div class="line">                          ? ((kv).m &lt;&lt; 1U) <span class="comment">/* m != 0 */</span>    \</div>
+<div class="line">                          : 2U),           <span class="comment">/* m == 0 */</span>    \</div>
+<div class="line">            (kv).v = (type *)                              \</div>
+<div class="line">                realloc((kv).v, <span class="keyword">sizeof</span>(*(kv).v) * (kv).m), \</div>
+<div class="line">            0)                                             \</div>
+<div class="line">         : (<span class="comment">/* n != m */</span> 0),                               \</div>
+<div class="line">     (kv).v[(kv).n++] = (x) )</div>
+</div><!-- fragment -->
+<p>Push a element by vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>element whose pushed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a376fecb59b50b39218865bb4992acbba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376fecb59b50b39218865bb4992acbba">&#9670;&nbsp;</a></span>kv_pushp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pushp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ((                                                  \</div>
+<div class="line">      (kv).n == (kv).m                                      \</div>
+<div class="line">          ? (<span class="comment">/* n == m */</span>                                   \</div>
+<div class="line">             (kv).m = ((kv).m                               \</div>
+<div class="line">                           ? ((kv).m &lt;&lt; 1U)                 \</div>
+<div class="line">                           : 2U),                           \</div>
+<div class="line">             (kv).v = (type *)                              \</div>
+<div class="line">                 realloc((kv).v, <span class="keyword">sizeof</span>(*(kv).v) * (kv).m), \</div>
+<div class="line">             0)                                             \</div>
+<div class="line">          : (<span class="comment">/* n != m */</span> 0),                               \</div>
+<div class="line">       0),                                              \</div>
+<div class="line">     (kv).v + (kv).n++)</div>
+</div><!-- fragment -->
+<p>address of element to be pushed </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>((kv).v + (kv).n++) </dd></dl>
+
+</div>
+</div>
+<a id="aa40a2ae67eb541e67f45c264e3cffe7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa40a2ae67eb541e67f45c264e3cffe7a">&#9670;&nbsp;</a></span>kv_pv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pv</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">i&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a20cfa3f5f73699feb3b564defacfae67">kv_v</a>(*(pkv), i)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>element whose index is i. static by pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index of element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(pkv)-&gt;v[(i)] </dd></dl>
+
+</div>
+</div>
+<a id="ae712399150e595a9f5d2ad00acd6b079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae712399150e595a9f5d2ad00acd6b079">&#9670;&nbsp;</a></span>kv_pvi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_pvi</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">i&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a515d98616b8c0d03ff940f025978d420">kv_vi</a>(type, *(pkv), i)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>element whose index is i. dynamic by pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkv</td><td>pointer of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index of element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(kv)-&gt;v[(i)] </dd></dl>
+
+</div>
+</div>
+<a id="a14e9d078fb196807e20236e0bf60f695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e9d078fb196807e20236e0bf60f695">&#9670;&nbsp;</a></span>kv_resize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_resize</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    (                      \</div>
+<div class="line">     (kv).m = (n),             \</div>
+<div class="line">     (kv).v = (type *)realloc((kv).v, <span class="keyword">sizeof</span>(*(kv).v) * (n)) )</div>
+</div><!-- fragment -->
+<p>Resize real memory of data </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>new size of real memory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7e761e3bdc1edca19174e6a67a37e14a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e761e3bdc1edca19174e6a67a37e14a">&#9670;&nbsp;</a></span>kv_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_size</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv</td><td>)</td>
+          <td>&#160;&#160;&#160;(kv).n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>number of elements </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(kv).n </dd></dl>
+
+</div>
+</div>
+<a id="a20cfa3f5f73699feb3b564defacfae67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cfa3f5f73699feb3b564defacfae67">&#9670;&nbsp;</a></span>kv_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_v</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">i&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(kv).v[(i)]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>element whose index is i. static </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index of element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(kv).v[(i)] </dd></dl>
+
+</div>
+</div>
+<a id="a515d98616b8c0d03ff940f025978d420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a515d98616b8c0d03ff940f025978d420">&#9670;&nbsp;</a></span>kv_vi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kv_vi</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kv, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">i&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">                                                           \</div>
+<div class="line">    (                                                  \</div>
+<div class="line">     (kv).m &lt;= (i)                                         \</div>
+<div class="line">         ? (<span class="comment">/*m &lt;= i*/</span>                                     \</div>
+<div class="line">            (kv).m = (kv).n = (i) + 1U,                    \</div>
+<div class="line">            <a class="code" href="klib_8h.html#af808c6880732c15dd7210159c486ff82">kroundup32</a>((kv).m), <span class="comment">/* m = n = i + 1 */</span>        \</div>
+<div class="line">            (kv).v = (type *)                              \</div>
+<div class="line">                realloc((kv).v, <span class="keyword">sizeof</span>(*(kv).v) * (kv).m), \</div>
+<div class="line">            0)                                             \</div>
+<div class="line">         : (<span class="comment">/*m &gt; i*/</span>                                      \</div>
+<div class="line">            (kv).n &lt;= (i)                                  \</div>
+<div class="line">                ? (<span class="comment">/* n &lt;= i */</span> (kv).n = (i) + 1U)         \</div>
+<div class="line">                : (<span class="comment">/* n &gt; i */</span> 0),                         \</div>
+<div class="line">            0),                                            \</div>
+<div class="line">      0),                                              \</div>
+<div class="line">        (kv).v[(i)]</div>
+</div><!-- fragment -->
+<p>element whose index is i. dynamic </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kv</td><td>vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index of element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>(kv).v[(i)] </dd></dl>
+
+</div>
+</div>
+<a id="af02a6966cd6daabab1493a2d3940fd87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02a6966cd6daabab1493a2d3940fd87">&#9670;&nbsp;</a></span>kvec_impl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kvec_impl</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">scope, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#a909c43d9d751c3438b74f2ab4c125b60">__KVEC_IMPL</a>(scope, name, type)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vector function Initial Microprogram Loading </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">scope</td><td>scope of function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a607c68c4224f29fbeafda54552deeaee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a607c68c4224f29fbeafda54552deeaee">&#9670;&nbsp;</a></span>kvec_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kvec_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="kvec_8h.html#af45b0338622292051c1bb0d9fe2a0257">__KVEC_INIT</a>(name, type)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vector function Initial Microprogram Loading </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="addf72b0673ec3ba4b74d274a45166738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addf72b0673ec3ba4b74d274a45166738">&#9670;&nbsp;</a></span>kvec_s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kvec_s</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">struct                                      </span>\</div>
+<div class="line">    {                                           \</div>
+<div class="line">        size_t n; <span class="comment">/* number of elements      */</span> \</div>
+<div class="line">        size_t m; <span class="comment">/* size of real memory     */</span> \</div>
+<div class="line">        type *v;  <span class="comment">/* first address of vector */</span> \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Anonymous structure of vector </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4185440ef24a04c729d0828651edf655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4185440ef24a04c729d0828651edf655">&#9670;&nbsp;</a></span>kvec_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kvec_t</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td>&#160;&#160;&#160;kvec_##name##_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>typedef of vector registration </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of vector structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8277deb13eb48860c5b289a20971f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8277deb13eb48860c5b289a20971f1f">&#9670;&nbsp;</a></span>kvec_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kvec_type</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <span class="keyword">struct </span>kvec_##name##_t              \</div>
+<div class="line">    {                                           \</div>
+<div class="line">        size_t n; <span class="comment">/* number of elements      */</span> \</div>
+<div class="line">        size_t m; <span class="comment">/* size of real memory     */</span> \</div>
+<div class="line">        type *v;  <span class="comment">/* first address of vector */</span> \</div>
+<div class="line">    } kvec_##name##_t</div>
+</div><!-- fragment -->
+<p>Register type of vector structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of vector structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of vector data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<div class="ttc" id="aklib_8h_html_af808c6880732c15dd7210159c486ff82"><div class="ttname"><a href="klib_8h.html#af808c6880732c15dd7210159c486ff82">kroundup32</a></div><div class="ttdeci">#define kroundup32(x)</div><div class="ttdef"><b>Definition:</b> klib.h:188</div></div>
+<div class="ttc" id="akvec_8h_html_ad4edcdbc9cfbed08bf08cf5799946f2a"><div class="ttname"><a href="kvec_8h.html#ad4edcdbc9cfbed08bf08cf5799946f2a">kv_pinit</a></div><div class="ttdeci">#define kv_pinit(name, pkv)</div><div class="ttdoc">Initialize pointer of vector structure</div><div class="ttdef"><b>Definition:</b> kvec.h:94</div></div>
+<div class="ttc" id="akvec_8h_html_af8277deb13eb48860c5b289a20971f1f"><div class="ttname"><a href="kvec_8h.html#af8277deb13eb48860c5b289a20971f1f">kvec_type</a></div><div class="ttdeci">#define kvec_type(name, type)</div><div class="ttdoc">Register type of vector structure</div><div class="ttdef"><b>Definition:</b> kvec.h:44</div></div>
+<div class="ttc" id="akvec_8h_html_a14e9d078fb196807e20236e0bf60f695"><div class="ttname"><a href="kvec_8h.html#a14e9d078fb196807e20236e0bf60f695">kv_resize</a></div><div class="ttdeci">#define kv_resize(type, kv, n)</div><div class="ttdoc">Resize real memory of data</div><div class="ttdef"><b>Definition:</b> kvec.h:127</div></div>
+<div class="ttc" id="aklib_8h_html_a6c30d490cd2302ff05d355f3ec844c1f"><div class="ttname"><a href="klib_8h.html#a6c30d490cd2302ff05d355f3ec844c1f">__UNUSED</a></div><div class="ttdeci">#define __UNUSED</div><div class="ttdef"><b>Definition:</b> klib.h:176</div></div>
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
+</body>
+</html>

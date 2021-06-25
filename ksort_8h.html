@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Klib: klib/ksort.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Klib
+   </div>
+   <div id="projectbrief">A Generic Library in C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5c5baaf4e47b236b58d41f08271825e.html">klib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">结构体</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a>  </div>
+  <div class="headertitle">
+<div class="title">ksort.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>sort library  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="klib_8h_source.html">klib.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+ksort.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="ksort_8h__incl.png" border="0" usemap="#klib_2ksort_8h" alt=""/></div>
+<map name="klib_2ksort_8h" id="klib_2ksort_8h">
+<area shape="rect" title="sort library" alt="" coords="77,5,171,32"/>
+<area shape="rect" href="klib_8h.html" title="Some macros of klib" alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="89,80,159,107"/>
+<area shape="rect" title=" " alt="" coords="183,80,254,107"/>
+</map>
+</div>
+</div>
+<p><a href="ksort_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+结构体</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structksort__stack__t.html">ksort_stack_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a0f54337fc4f66a6f5887430b2c808341"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a0f54337fc4f66a6f5887430b2c808341">ksort_swap</a>(t,  a,  b)</td></tr>
+<tr class="memdesc:a0f54337fc4f66a6f5887430b2c808341"><td class="mdescLeft">&#160;</td><td class="mdescRight">swap a and b  <a href="ksort_8h.html#a0f54337fc4f66a6f5887430b2c808341">更多...</a><br /></td></tr>
+<tr class="separator:a0f54337fc4f66a6f5887430b2c808341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe34cdc2ef1c41aa30a488ffcd71bbd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a7fe34cdc2ef1c41aa30a488ffcd71bbd">ksort_merge</a>(t,  p,  n,  func,  a)</td></tr>
+<tr class="memdesc:a7fe34cdc2ef1c41aa30a488ffcd71bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge sort  <a href="ksort_8h.html#a7fe34cdc2ef1c41aa30a488ffcd71bbd">更多...</a><br /></td></tr>
+<tr class="separator:a7fe34cdc2ef1c41aa30a488ffcd71bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f0e1f0cdf46807befed2c9f69edb6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a04f0e1f0cdf46807befed2c9f69edb6a">ksort_heap_adjust</a>(t,  p,  i,  n,  func)</td></tr>
+<tr class="memdesc:a04f0e1f0cdf46807befed2c9f69edb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap adjust  <a href="ksort_8h.html#a04f0e1f0cdf46807befed2c9f69edb6a">更多...</a><br /></td></tr>
+<tr class="separator:a04f0e1f0cdf46807befed2c9f69edb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa50b5f6378cab15c378dd08e2fb28cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#aaa50b5f6378cab15c378dd08e2fb28cd">ksort_heap_make</a>(t,  p,  n,  func)</td></tr>
+<tr class="memdesc:aaa50b5f6378cab15c378dd08e2fb28cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap make  <a href="ksort_8h.html#aaa50b5f6378cab15c378dd08e2fb28cd">更多...</a><br /></td></tr>
+<tr class="separator:aaa50b5f6378cab15c378dd08e2fb28cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaea062620b497c813fc3780678ed13b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#aeaea062620b497c813fc3780678ed13b">ksort_heap</a>(t,  p,  n,  func)</td></tr>
+<tr class="memdesc:aeaea062620b497c813fc3780678ed13b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap sort  <a href="ksort_8h.html#aeaea062620b497c813fc3780678ed13b">更多...</a><br /></td></tr>
+<tr class="separator:aeaea062620b497c813fc3780678ed13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada2ecd01c1f94aa597e66609cfc7c0a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#ada2ecd01c1f94aa597e66609cfc7c0a2">ksort_insert</a>(t,  p,  n,  func)</td></tr>
+<tr class="memdesc:ada2ecd01c1f94aa597e66609cfc7c0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert sort  <a href="ksort_8h.html#ada2ecd01c1f94aa597e66609cfc7c0a2">更多...</a><br /></td></tr>
+<tr class="separator:ada2ecd01c1f94aa597e66609cfc7c0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7d71ddb42e0219917cfa504e676f3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a5f7d71ddb42e0219917cfa504e676f3f">ksort_comb</a>(t,  p,  n,  func)</td></tr>
+<tr class="memdesc:a5f7d71ddb42e0219917cfa504e676f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comb sort  <a href="ksort_8h.html#a5f7d71ddb42e0219917cfa504e676f3f">更多...</a><br /></td></tr>
+<tr class="separator:a5f7d71ddb42e0219917cfa504e676f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93646176514c364a788cdbafe8f9522c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a93646176514c364a788cdbafe8f9522c">ksort_intro</a>(t,  p,  n,  func)</td></tr>
+<tr class="memdesc:a93646176514c364a788cdbafe8f9522c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intro sort  <a href="ksort_8h.html#a93646176514c364a788cdbafe8f9522c">更多...</a><br /></td></tr>
+<tr class="separator:a93646176514c364a788cdbafe8f9522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70a06981acd5c336623c2d351863dda2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a70a06981acd5c336623c2d351863dda2">ksort_ksmall</a>(t,  ret,  p,  n,  func,  k)</td></tr>
+<tr class="memdesc:a70a06981acd5c336623c2d351863dda2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ksmall  <a href="ksort_8h.html#a70a06981acd5c336623c2d351863dda2">更多...</a><br /></td></tr>
+<tr class="separator:a70a06981acd5c336623c2d351863dda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a6c5795aa89e9c29ecdd9f406c1fed9ef"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structksort__stack__t.html">ksort_stack_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ksort_8h.html#a6c5795aa89e9c29ecdd9f406c1fed9ef">ksort_stack_t</a></td></tr>
+<tr class="separator:a6c5795aa89e9c29ecdd9f406c1fed9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>sort library </p>
+<p>generic sort, including introsort, merge sort, heap sort, comb sort, Knuth shuffle and k-small algorithm. </p><dl class="section author"><dt>作者</dt><dd>tqfx <a href="#" onclick="location.href='mai'+'lto:'+'tqf'+'x@'+'fox'+'ma'+'il.'+'co'+'m'; return false;">tqfx@<span style="display: none;">.nosp@m.</span>foxm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2021-05-31 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (C) 2021 tqfx <br  />
+ <br  />
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: <br  />
+ <br  />
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. <br  />
+ <br  />
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </dd></dl>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a5f7d71ddb42e0219917cfa504e676f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7d71ddb42e0219917cfa504e676f3f">&#9670;&nbsp;</a></span>ksort_comb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_comb</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comb sort </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeaea062620b497c813fc3780678ed13b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaea062620b497c813fc3780678ed13b">&#9670;&nbsp;</a></span>ksort_heap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_heap</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                                    \</div>
+<div class="line">    {                                                     \</div>
+<div class="line">        for (<span class="keywordtype">size_t</span> _heap_k = (n)-1U; _heap_k; --_heap_k) \</div>
+<div class="line">        {                                                 \</div>
+<div class="line">            ksort_swap(t, *(p), (p)[_heap_k]);            \</div>
+<div class="line">            ksort_heap_adjust(t, p, 0U, _heap_k, func);   \</div>
+<div class="line">        }                                                 \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Heap sort </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04f0e1f0cdf46807befed2c9f69edb6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f0e1f0cdf46807befed2c9f69edb6a">&#9670;&nbsp;</a></span>ksort_heap_adjust</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_heap_adjust</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">i, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                                 \</div>
+<div class="line">    {                                                  \</div>
+<div class="line">        t _heap_p = (p)[(i)];                          \</div>
+<div class="line">        size_t _heap_i = (i);                          \</div>
+<div class="line">        size_t _heap_j = (i);                          \</div>
+<div class="line">        while ((_heap_i = (_heap_i &lt;&lt; 1U) + 1U) &lt; (n)) \</div>
+<div class="line">        {                                              \</div>
+<div class="line">            if (_heap_i != (n)-1U &amp;&amp;                   \</div>
+<div class="line">                func((p)[_heap_i], (p)[_heap_i + 1U])) \</div>
+<div class="line">            {                                          \</div>
+<div class="line">                ++_heap_i;                             \</div>
+<div class="line">            }                                          \</div>
+<div class="line">            if (func((p)[_heap_i], _heap_p))           \</div>
+<div class="line">            {                                          \</div>
+<div class="line">                break;                                 \</div>
+<div class="line">            }                                          \</div>
+<div class="line">            (p)[_heap_j] = (p)[_heap_i];               \</div>
+<div class="line">            _heap_j = _heap_i;                         \</div>
+<div class="line">        }                                              \</div>
+<div class="line">        (p)[_heap_j] = _heap_p;                        \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Heap adjust </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>index of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaa50b5f6378cab15c378dd08e2fb28cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa50b5f6378cab15c378dd08e2fb28cd">&#9670;&nbsp;</a></span>ksort_heap_make</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_heap_make</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                                 \</div>
+<div class="line">    {                                                  \</div>
+<div class="line">        for (<span class="keywordtype">size_t</span> _heap_k = ((n) &gt;&gt; 1U) - 1U;        \</div>
+<div class="line">             _heap_k != (size_t)(-1);                  \</div>
+<div class="line">             --_heap_k)                                \</div>
+<div class="line">        {                                              \</div>
+<div class="line">            ksort_heap_adjust(t, p, _heap_k, n, func); \</div>
+<div class="line">        }                                              \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Heap make </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada2ecd01c1f94aa597e66609cfc7c0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2ecd01c1f94aa597e66609cfc7c0a2">&#9670;&nbsp;</a></span>ksort_insert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_insert</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                                        \</div>
+<div class="line">    {                                                         \</div>
+<div class="line">        for (t *_insert_i = (p) + 1U;                         \</div>
+<div class="line">             _insert_i != ((p) + (n));                        \</div>
+<div class="line">             ++_insert_i)                                     \</div>
+<div class="line">        {                                                     \</div>
+<div class="line">            for (t *_insert_j = _insert_i;                    \</div>
+<div class="line">                 _insert_j != (p) &amp;&amp;                          \</div>
+<div class="line">                 func(*_insert_j, *(_insert_j - 1U));         \</div>
+<div class="line">                 --_insert_j)                                 \</div>
+<div class="line">            {                                                 \</div>
+<div class="line">                ksort_swap(t, *_insert_j, *(_insert_j - 1U)); \</div>
+<div class="line">            }                                                 \</div>
+<div class="line">        }                                                     \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Insert sort </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a93646176514c364a788cdbafe8f9522c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93646176514c364a788cdbafe8f9522c">&#9670;&nbsp;</a></span>ksort_intro</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_intro</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intro sort </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a70a06981acd5c336623c2d351863dda2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a06981acd5c336623c2d351863dda2">&#9670;&nbsp;</a></span>ksort_ksmall</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_ksmall</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ret, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">k&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ksmall </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ret</td><td>return variable of macro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">k</td><td>0U &lt;= k &lt; n </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7fe34cdc2ef1c41aa30a488ffcd71bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe34cdc2ef1c41aa30a488ffcd71bbd">&#9670;&nbsp;</a></span>ksort_merge</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_merge</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">p, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Merge sort </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>length of data array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of compare </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>pointer of buffer, length &gt;= n </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f54337fc4f66a6f5887430b2c808341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f54337fc4f66a6f5887430b2c808341">&#9670;&nbsp;</a></span>ksort_swap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ksort_swap</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">t, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                      \</div>
+<div class="line">    {                       \</div>
+<div class="line">        t _swap = (a);      \</div>
+<div class="line">        (a) = (b);          \</div>
+<div class="line">        (b) = _swap;        \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>swap a and b </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>type of swep </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>variable that need to swap </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>variable that need to swap </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="a6c5795aa89e9c29ecdd9f406c1fed9ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5795aa89e9c29ecdd9f406c1fed9ef">&#9670;&nbsp;</a></span>ksort_stack_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structksort__stack__t.html">ksort_stack_t</a> <a class="el" href="structksort__stack__t.html">ksort_stack_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
+</body>
+</html>

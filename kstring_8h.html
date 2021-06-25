@@ -1,0 +1,1843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Klib: klib/kstring.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Klib
+   </div>
+   <div id="projectbrief">A Generic Library in C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5c5baaf4e47b236b58d41f08271825e.html">klib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">结构体</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle">
+<div class="title">kstring.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>basic string library  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="klib_8h_source.html">klib.h</a>&quot;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+kstring.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="kstring_8h__incl.png" border="0" usemap="#klib_2kstring_8h" alt=""/></div>
+<map name="klib_2kstring_8h" id="klib_2kstring_8h">
+<area shape="rect" title="basic string library" alt="" coords="167,5,273,32"/>
+<area shape="rect" href="klib_8h.html" title="Some macros of klib" alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="88,80,163,107"/>
+<area shape="rect" title=" " alt="" coords="187,80,253,107"/>
+<area shape="rect" title=" " alt="" coords="278,80,349,107"/>
+<area shape="rect" title=" " alt="" coords="373,80,443,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="kstring_8h__dep__incl.png" border="0" usemap="#klib_2kstring_8hdep" alt=""/></div>
+<map name="klib_2kstring_8hdep" id="klib_2kstring_8hdep">
+<area shape="rect" title="basic string library" alt="" coords="5,5,112,32"/>
+<area shape="rect" href="kstring_8c.html" title="basic string library" alt="" coords="5,80,112,107"/>
+</map>
+</div>
+</div>
+<p><a href="kstring_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+结构体</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structkstring__t.html">kstring_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">c string  <a href="structkstring__t.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a7a104b2e349617222c6419b36bfd3260"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a7a104b2e349617222c6419b36bfd3260">__STDC_WANT_LIB_EXT1__</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a7a104b2e349617222c6419b36bfd3260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19c6e6925dc499dae25f80825389c338"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a19c6e6925dc499dae25f80825389c338">KS_ATTR_PRINTF</a>(fmt,  arg)</td></tr>
+<tr class="separator:a19c6e6925dc499dae25f80825389c338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a93cc6de5c46c5ecbd64d54d82f3f56fa"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structkstring__t.html">kstring_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a93cc6de5c46c5ecbd64d54d82f3f56fa">kstring_t</a></td></tr>
+<tr class="memdesc:a93cc6de5c46c5ecbd64d54d82f3f56fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">c string  <a href="kstring_8h.html#a93cc6de5c46c5ecbd64d54d82f3f56fa">更多...</a><br /></td></tr>
+<tr class="separator:a93cc6de5c46c5ecbd64d54d82f3f56fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ad352ccf9e08d36caa841bbfe2e14b16c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ad352ccf9e08d36caa841bbfe2e14b16c">kvsprintf</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *fmt, va_list ap)(2</td></tr>
+<tr class="memdesc:ad352ccf9e08d36caa841bbfe2e14b16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">print string to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#ad352ccf9e08d36caa841bbfe2e14b16c">更多...</a><br /></td></tr>
+<tr class="separator:ad352ccf9e08d36caa841bbfe2e14b16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e73dee22c8dce92b688c3cd097d8a4d"><td class="memItemLeft" align="right" valign="top">int int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a9e73dee22c8dce92b688c3cd097d8a4d">ksprintf</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *fmt,...)(2</td></tr>
+<tr class="memdesc:a9e73dee22c8dce92b688c3cd097d8a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">print string to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a9e73dee22c8dce92b688c3cd097d8a4d">更多...</a><br /></td></tr>
+<tr class="separator:a9e73dee22c8dce92b688c3cd097d8a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10fee64a904684b8618272402d634e08"><td class="memItemLeft" align="right" valign="top">int int void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a10fee64a904684b8618272402d634e08">kmemmem</a> (const void *_str, int n, const void *_pat, int m, int **_prep)</td></tr>
+<tr class="memdesc:a10fee64a904684b8618272402d634e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">locate the cache  <a href="kstring_8h.html#a10fee64a904684b8618272402d634e08">更多...</a><br /></td></tr>
+<tr class="separator:a10fee64a904684b8618272402d634e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993de23f93d87d57e10196ede6627345"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a993de23f93d87d57e10196ede6627345">kstrstr</a> (const char *str, const char *pat, int **_prep)</td></tr>
+<tr class="memdesc:a993de23f93d87d57e10196ede6627345"><td class="mdescLeft">&#160;</td><td class="mdescRight">locate the substring  <a href="kstring_8h.html#a993de23f93d87d57e10196ede6627345">更多...</a><br /></td></tr>
+<tr class="separator:a993de23f93d87d57e10196ede6627345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae259137a2db1a02cbdc1621a72b80133"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ae259137a2db1a02cbdc1621a72b80133">kstrnstr</a> (const char *str, int n, const char *pat, int **_prep)</td></tr>
+<tr class="memdesc:ae259137a2db1a02cbdc1621a72b80133"><td class="mdescLeft">&#160;</td><td class="mdescRight">locate the substring  <a href="kstring_8h.html#ae259137a2db1a02cbdc1621a72b80133">更多...</a><br /></td></tr>
+<tr class="separator:ae259137a2db1a02cbdc1621a72b80133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f53254fb7aae480613c027afe3bd693"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a5f53254fb7aae480613c027afe3bd693">ks_find</a> (const void *dst, size_t nd, const void *src, size_t ns)</td></tr>
+<tr class="memdesc:a5f53254fb7aae480613c027afe3bd693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the source data from the destination data  <a href="kstring_8h.html#a5f53254fb7aae480613c027afe3bd693">更多...</a><br /></td></tr>
+<tr class="separator:a5f53254fb7aae480613c027afe3bd693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f5f3f9f1a1c6a6a5ada5d9b44e927e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ab6f5f3f9f1a1c6a6a5ada5d9b44e927e">ks_cnt_</a> (const <a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *s, size_t l)((1</td></tr>
+<tr class="memdesc:ab6f5f3f9f1a1c6a6a5ada5d9b44e927e"><td class="mdescLeft">&#160;</td><td class="mdescRight">count substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#ab6f5f3f9f1a1c6a6a5ada5d9b44e927e">更多...</a><br /></td></tr>
+<tr class="separator:ab6f5f3f9f1a1c6a6a5ada5d9b44e927e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27dee78e97a990b044a1705ab02d8e5c"><td class="memItemLeft" align="right" valign="top">size_t size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a27dee78e97a990b044a1705ab02d8e5c">ks_cnt</a> (const <a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *s)</td></tr>
+<tr class="memdesc:a27dee78e97a990b044a1705ab02d8e5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">count substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a27dee78e97a990b044a1705ab02d8e5c">更多...</a><br /></td></tr>
+<tr class="separator:a27dee78e97a990b044a1705ab02d8e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39dbf884f67485547e6401e468afaa1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a39dbf884f67485547e6401e468afaa1b">ks_ins_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, size_t i, const char *s, size_t l)((1</td></tr>
+<tr class="memdesc:a39dbf884f67485547e6401e468afaa1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert string in <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a39dbf884f67485547e6401e468afaa1b">更多...</a><br /></td></tr>
+<tr class="separator:a39dbf884f67485547e6401e468afaa1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6abac761b31a59e8095a5b2f3ef3179c"><td class="memItemLeft" align="right" valign="top">int int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a6abac761b31a59e8095a5b2f3ef3179c">ks_ins</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, size_t i, const char *s)((1</td></tr>
+<tr class="memdesc:a6abac761b31a59e8095a5b2f3ef3179c"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert string in <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a6abac761b31a59e8095a5b2f3ef3179c">更多...</a><br /></td></tr>
+<tr class="separator:a6abac761b31a59e8095a5b2f3ef3179c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4cc99ef75a2df7c31fe49bfc05ac2b"><td class="memItemLeft" align="right" valign="top">int int size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a1a4cc99ef75a2df7c31fe49bfc05ac2b">ks_del_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *s, size_t l)((1</td></tr>
+<tr class="memdesc:a1a4cc99ef75a2df7c31fe49bfc05ac2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">delete substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a1a4cc99ef75a2df7c31fe49bfc05ac2b">更多...</a><br /></td></tr>
+<tr class="separator:a1a4cc99ef75a2df7c31fe49bfc05ac2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f3438f7a78ea94efb128294bcd5d1b8"><td class="memItemLeft" align="right" valign="top">int int size_t size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a4f3438f7a78ea94efb128294bcd5d1b8">ks_del</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *s)</td></tr>
+<tr class="memdesc:a4f3438f7a78ea94efb128294bcd5d1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">delete substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a4f3438f7a78ea94efb128294bcd5d1b8">更多...</a><br /></td></tr>
+<tr class="separator:a4f3438f7a78ea94efb128294bcd5d1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af588f412236904b8f124c294e56d8f60"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#af588f412236904b8f124c294e56d8f60">ks_del1_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *s, size_t l)((1</td></tr>
+<tr class="memdesc:af588f412236904b8f124c294e56d8f60"><td class="mdescLeft">&#160;</td><td class="mdescRight">delete a substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#af588f412236904b8f124c294e56d8f60">更多...</a><br /></td></tr>
+<tr class="separator:af588f412236904b8f124c294e56d8f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c14458054bd33d6b0a622d83ea3e1e6"><td class="memItemLeft" align="right" valign="top">int int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a2c14458054bd33d6b0a622d83ea3e1e6">ks_del1</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *s)</td></tr>
+<tr class="memdesc:a2c14458054bd33d6b0a622d83ea3e1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">delete a substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a2c14458054bd33d6b0a622d83ea3e1e6">更多...</a><br /></td></tr>
+<tr class="separator:a2c14458054bd33d6b0a622d83ea3e1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67766a22da6732316a845a7cfb6823da"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a67766a22da6732316a845a7cfb6823da">ks_mod_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *old, const char *new, size_t l)((1</td></tr>
+<tr class="memdesc:a67766a22da6732316a845a7cfb6823da"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a67766a22da6732316a845a7cfb6823da">更多...</a><br /></td></tr>
+<tr class="separator:a67766a22da6732316a845a7cfb6823da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae619a693a5cbb41872a6ae71505f00c"><td class="memItemLeft" align="right" valign="top">size_t size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#aae619a693a5cbb41872a6ae71505f00c">ks_mod</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *old, const char *new)</td></tr>
+<tr class="memdesc:aae619a693a5cbb41872a6ae71505f00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#aae619a693a5cbb41872a6ae71505f00c">更多...</a><br /></td></tr>
+<tr class="separator:aae619a693a5cbb41872a6ae71505f00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b6a2bdf32c2069bb615d8dc665708e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a65b6a2bdf32c2069bb615d8dc665708e">ks_mod1_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *old, const char *new, size_t l)((1</td></tr>
+<tr class="memdesc:a65b6a2bdf32c2069bb615d8dc665708e"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> once  <a href="kstring_8h.html#a65b6a2bdf32c2069bb615d8dc665708e">更多...</a><br /></td></tr>
+<tr class="separator:a65b6a2bdf32c2069bb615d8dc665708e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a799d93154c18c9d35d18ace64f295415"><td class="memItemLeft" align="right" valign="top">int int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a799d93154c18c9d35d18ace64f295415">ks_mod1</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *old, const char *new)</td></tr>
+<tr class="memdesc:a799d93154c18c9d35d18ace64f295415"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> once  <a href="kstring_8h.html#a799d93154c18c9d35d18ace64f295415">更多...</a><br /></td></tr>
+<tr class="separator:a799d93154c18c9d35d18ace64f295415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd3c01f8bc7ce1aa71e8b80fbc21f2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a2fd3c01f8bc7ce1aa71e8b80fbc21f2f">ks_init</a> (void)</td></tr>
+<tr class="memdesc:a2fd3c01f8bc7ce1aa71e8b80fbc21f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">calloc <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a2fd3c01f8bc7ce1aa71e8b80fbc21f2f">更多...</a><br /></td></tr>
+<tr class="separator:a2fd3c01f8bc7ce1aa71e8b80fbc21f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf492020b9aaa27dbaaeb9c6fb57fa81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#aaf492020b9aaa27dbaaeb9c6fb57fa81">ks_free</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks)</td></tr>
+<tr class="memdesc:aaf492020b9aaa27dbaaeb9c6fb57fa81"><td class="mdescLeft">&#160;</td><td class="mdescRight">free <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> pointer  <a href="kstring_8h.html#aaf492020b9aaa27dbaaeb9c6fb57fa81">更多...</a><br /></td></tr>
+<tr class="separator:aaf492020b9aaa27dbaaeb9c6fb57fa81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ba4aafd6aa02deb1c0ce473a64f2169"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a7ba4aafd6aa02deb1c0ce473a64f2169">ks_resize</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, size_t m)</td></tr>
+<tr class="memdesc:a7ba4aafd6aa02deb1c0ce473a64f2169"><td class="mdescLeft">&#160;</td><td class="mdescRight">resize kstring memory  <a href="kstring_8h.html#a7ba4aafd6aa02deb1c0ce473a64f2169">更多...</a><br /></td></tr>
+<tr class="separator:a7ba4aafd6aa02deb1c0ce473a64f2169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b592930976ef69e85fd9b0c2d987cea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a8b592930976ef69e85fd9b0c2d987cea">ks_resize_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, size_t m)</td></tr>
+<tr class="memdesc:a8b592930976ef69e85fd9b0c2d987cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">resize kstring memory  <a href="kstring_8h.html#a8b592930976ef69e85fd9b0c2d987cea">更多...</a><br /></td></tr>
+<tr class="separator:a8b592930976ef69e85fd9b0c2d987cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84710e60cb88e1f3ff28be9b13f97ee"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ab84710e60cb88e1f3ff28be9b13f97ee">ks_str</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks)</td></tr>
+<tr class="memdesc:ab84710e60cb88e1f3ff28be9b13f97ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">get pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string  <a href="kstring_8h.html#ab84710e60cb88e1f3ff28be9b13f97ee">更多...</a><br /></td></tr>
+<tr class="separator:ab84710e60cb88e1f3ff28be9b13f97ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01e9d7b9eae08885b3969c991619ea2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ab01e9d7b9eae08885b3969c991619ea2">ks_len</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks)</td></tr>
+<tr class="memdesc:ab01e9d7b9eae08885b3969c991619ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">get length of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string  <a href="kstring_8h.html#ab01e9d7b9eae08885b3969c991619ea2">更多...</a><br /></td></tr>
+<tr class="separator:ab01e9d7b9eae08885b3969c991619ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4353e5ec9bc601a201a4285946c430"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a5c4353e5ec9bc601a201a4285946c430">ks_release</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks)</td></tr>
+<tr class="memdesc:a5c4353e5ec9bc601a201a4285946c430"><td class="mdescLeft">&#160;</td><td class="mdescRight">release <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a5c4353e5ec9bc601a201a4285946c430">更多...</a><br /></td></tr>
+<tr class="separator:a5c4353e5ec9bc601a201a4285946c430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dfbd44f0ede6edef2bd1610125e245c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a7dfbd44f0ede6edef2bd1610125e245c">kputsn</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *p, size_t l)</td></tr>
+<tr class="memdesc:a7dfbd44f0ede6edef2bd1610125e245c"><td class="mdescLeft">&#160;</td><td class="mdescRight">put n characters to s  <a href="kstring_8h.html#a7dfbd44f0ede6edef2bd1610125e245c">更多...</a><br /></td></tr>
+<tr class="separator:a7dfbd44f0ede6edef2bd1610125e245c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32049c5c9e2b87c1d859494d0ab8354a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a32049c5c9e2b87c1d859494d0ab8354a">kputsn_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const void *p, size_t l)</td></tr>
+<tr class="memdesc:a32049c5c9e2b87c1d859494d0ab8354a"><td class="mdescLeft">&#160;</td><td class="mdescRight">put n characters to s  <a href="kstring_8h.html#a32049c5c9e2b87c1d859494d0ab8354a">更多...</a><br /></td></tr>
+<tr class="separator:a32049c5c9e2b87c1d859494d0ab8354a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5769376f70ad1cfdf306ca6bbbbd85c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ab5769376f70ad1cfdf306ca6bbbbd85c">kputs</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, const char *p)</td></tr>
+<tr class="memdesc:ab5769376f70ad1cfdf306ca6bbbbd85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">put string to s  <a href="kstring_8h.html#ab5769376f70ad1cfdf306ca6bbbbd85c">更多...</a><br /></td></tr>
+<tr class="separator:ab5769376f70ad1cfdf306ca6bbbbd85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0442f842d1552e6ee47b3c4a3b27aebe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a0442f842d1552e6ee47b3c4a3b27aebe">kputc</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, int c)</td></tr>
+<tr class="memdesc:a0442f842d1552e6ee47b3c4a3b27aebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">put a character to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a0442f842d1552e6ee47b3c4a3b27aebe">更多...</a><br /></td></tr>
+<tr class="separator:a0442f842d1552e6ee47b3c4a3b27aebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c601ce549ffb2bc46e40d72870f067"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a54c601ce549ffb2bc46e40d72870f067">kputc_</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, int c)</td></tr>
+<tr class="memdesc:a54c601ce549ffb2bc46e40d72870f067"><td class="mdescLeft">&#160;</td><td class="mdescRight">put a character to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a54c601ce549ffb2bc46e40d72870f067">更多...</a><br /></td></tr>
+<tr class="separator:a54c601ce549ffb2bc46e40d72870f067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae701989232eea055631f140fdd011f07"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ae701989232eea055631f140fdd011f07">kputw</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, int c)</td></tr>
+<tr class="memdesc:ae701989232eea055631f140fdd011f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">put int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#ae701989232eea055631f140fdd011f07">更多...</a><br /></td></tr>
+<tr class="separator:ae701989232eea055631f140fdd011f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2caef9f9fba9b6b6cb3d1cc70be1a11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ab2caef9f9fba9b6b6cb3d1cc70be1a11">kputuw</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, unsigned int c)</td></tr>
+<tr class="memdesc:ab2caef9f9fba9b6b6cb3d1cc70be1a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">put unsigned int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#ab2caef9f9fba9b6b6cb3d1cc70be1a11">更多...</a><br /></td></tr>
+<tr class="separator:ab2caef9f9fba9b6b6cb3d1cc70be1a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4dec40a43db5683fcbf2f2504fa9cab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#ae4dec40a43db5683fcbf2f2504fa9cab">kputl</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, long c)</td></tr>
+<tr class="memdesc:ae4dec40a43db5683fcbf2f2504fa9cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">put long int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#ae4dec40a43db5683fcbf2f2504fa9cab">更多...</a><br /></td></tr>
+<tr class="separator:ae4dec40a43db5683fcbf2f2504fa9cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a890e8e22cb74203d3b5ce11473b68590"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kstring_8h.html#a890e8e22cb74203d3b5ce11473b68590">kputul</a> (<a class="el" href="structkstring__t.html">kstring_t</a> *ks, unsigned long int c)</td></tr>
+<tr class="memdesc:a890e8e22cb74203d3b5ce11473b68590"><td class="mdescLeft">&#160;</td><td class="mdescRight">put unsigned long int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a>  <a href="kstring_8h.html#a890e8e22cb74203d3b5ce11473b68590">更多...</a><br /></td></tr>
+<tr class="separator:a890e8e22cb74203d3b5ce11473b68590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>basic string library </p>
+<dl class="section author"><dt>作者</dt><dd>tqfx <a href="#" onclick="location.href='mai'+'lto:'+'tqf'+'x@'+'fox'+'ma'+'il.'+'co'+'m'; return false;">tqfx@<span style="display: none;">.nosp@m.</span>foxm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2021-05-30 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (C) 2021 tqfx <br  />
+ <br  />
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: <br  />
+ <br  />
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. <br  />
+ <br  />
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </dd></dl>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a7a104b2e349617222c6419b36bfd3260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a104b2e349617222c6419b36bfd3260">&#9670;&nbsp;</a></span>__STDC_WANT_LIB_EXT1__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __STDC_WANT_LIB_EXT1__&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19c6e6925dc499dae25f80825389c338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c6e6925dc499dae25f80825389c338">&#9670;&nbsp;</a></span>KS_ATTR_PRINTF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define KS_ATTR_PRINTF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="a93cc6de5c46c5ecbd64d54d82f3f56fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93cc6de5c46c5ecbd64d54d82f3f56fa">&#9670;&nbsp;</a></span>kstring_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structkstring__t.html">kstring_t</a> <a class="el" href="structkstring__t.html">kstring_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>c string </p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="a10fee64a904684b8618272402d634e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10fee64a904684b8618272402d634e08">&#9670;&nbsp;</a></span>kmemmem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int void* kmemmem </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>_pat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>_prep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>locate the cache </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_str</td><td>The pointer of data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>The length of data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_pat</td><td>The pointer of search patterns </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>The length of search patterns </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">_prep</td><td>The address of the temporary pointer <ul>
+<li>0 No external memory is used. </li>
+<li>&amp;(p=0) Stores patterns to external variables. You need to free memory. </li>
+<li>&amp;(p=malloc(m)) Use external memory, at least m bytes. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The address at the head of the block found </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>failure </td></tr>
+    <tr><td class="paramname">!0</td><td>success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0442f842d1552e6ee47b3c4a3b27aebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0442f842d1552e6ee47b3c4a3b27aebe">&#9670;&nbsp;</a></span>kputc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put a character to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>character </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>character </dd></dl>
+
+</div>
+</div>
+<a id="a54c601ce549ffb2bc46e40d72870f067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54c601ce549ffb2bc46e40d72870f067">&#9670;&nbsp;</a></span>kputc_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputc_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put a character to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>character </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>character </dd></dl>
+
+</div>
+</div>
+<a id="ae4dec40a43db5683fcbf2f2504fa9cab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4dec40a43db5683fcbf2f2504fa9cab">&#9670;&nbsp;</a></span>kputl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put long int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>long int data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab5769376f70ad1cfdf306ca6bbbbd85c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5769376f70ad1cfdf306ca6bbbbd85c">&#9670;&nbsp;</a></span>kputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put string to s </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7dfbd44f0ede6edef2bd1610125e245c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dfbd44f0ede6edef2bd1610125e245c">&#9670;&nbsp;</a></span>kputsn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputsn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put n characters to s </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>number of data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a32049c5c9e2b87c1d859494d0ab8354a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32049c5c9e2b87c1d859494d0ab8354a">&#9670;&nbsp;</a></span>kputsn_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputsn_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put n characters to s </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>pointer of data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>number of data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a890e8e22cb74203d3b5ce11473b68590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890e8e22cb74203d3b5ce11473b68590">&#9670;&nbsp;</a></span>kputul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put unsigned long int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>unsigned long int data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2caef9f9fba9b6b6cb3d1cc70be1a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2caef9f9fba9b6b6cb3d1cc70be1a11">&#9670;&nbsp;</a></span>kputuw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputuw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put unsigned int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>unsigned int data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae701989232eea055631f140fdd011f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae701989232eea055631f140fdd011f07">&#9670;&nbsp;</a></span>kputw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kputw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put int to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>int data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a27dee78e97a990b044a1705ab02d8e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27dee78e97a990b044a1705ab02d8e5c">&#9670;&nbsp;</a></span>ks_cnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t size_t ks_cnt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>count substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring </dd></dl>
+
+</div>
+</div>
+<a id="ab6f5f3f9f1a1c6a6a5ada5d9b44e927e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6f5f3f9f1a1c6a6a5ada5d9b44e927e">&#9670;&nbsp;</a></span>ks_cnt_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ks_cnt_ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>count substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring </dd></dl>
+
+</div>
+</div>
+<a id="a4f3438f7a78ea94efb128294bcd5d1b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f3438f7a78ea94efb128294bcd5d1b8">&#9670;&nbsp;</a></span>ks_del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int size_t size_t ks_del </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>delete substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring deleted </dd></dl>
+
+</div>
+</div>
+<a id="a2c14458054bd33d6b0a622d83ea3e1e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c14458054bd33d6b0a622d83ea3e1e6">&#9670;&nbsp;</a></span>ks_del1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int ks_del1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>delete a substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af588f412236904b8f124c294e56d8f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af588f412236904b8f124c294e56d8f60">&#9670;&nbsp;</a></span>ks_del1_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ks_del1_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>delete a substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1a4cc99ef75a2df7c31fe49bfc05ac2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4cc99ef75a2df7c31fe49bfc05ac2b">&#9670;&nbsp;</a></span>ks_del_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int size_t ks_del_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>delete substring from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring deleted </dd></dl>
+
+</div>
+</div>
+<a id="a5f53254fb7aae480613c027afe3bd693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f53254fb7aae480613c027afe3bd693">&#9670;&nbsp;</a></span>ks_find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* ks_find </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>nd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ns</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the source data from the destination data </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dst</td><td>The pointer of destination data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nd</td><td>The number of destination data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">src</td><td>The pointer of source data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ns</td><td>The number of source data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Pointer to the data found in the destination data </dd></dl>
+
+</div>
+</div>
+<a id="aaf492020b9aaa27dbaaeb9c6fb57fa81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf492020b9aaa27dbaaeb9c6fb57fa81">&#9670;&nbsp;</a></span>ks_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ks_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>free <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2fd3c01f8bc7ce1aa71e8b80fbc21f2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd3c01f8bc7ce1aa71e8b80fbc21f2f">&#9670;&nbsp;</a></span>ks_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structkstring__t.html">kstring_t</a>* ks_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calloc <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="structkstring__t.html" title="c string">kstring_t</a> * </dd></dl>
+
+</div>
+</div>
+<a id="a6abac761b31a59e8095a5b2f3ef3179c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6abac761b31a59e8095a5b2f3ef3179c">&#9670;&nbsp;</a></span>ks_ins()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int ks_ins </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>insert string in <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>string need to insert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a39dbf884f67485547e6401e468afaa1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39dbf884f67485547e6401e468afaa1b">&#9670;&nbsp;</a></span>ks_ins_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ks_ins_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>insert string in <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>string need to insert </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab01e9d7b9eae08885b3969c991619ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab01e9d7b9eae08885b3969c991619ea2">&#9670;&nbsp;</a></span>ks_len()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ks_len </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get length of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>length of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string </dd></dl>
+
+</div>
+</div>
+<a id="aae619a693a5cbb41872a6ae71505f00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae619a693a5cbb41872a6ae71505f00c">&#9670;&nbsp;</a></span>ks_mod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t size_t ks_mod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>old</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>new</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">old</td><td>old substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>new substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring replaced </dd></dl>
+
+</div>
+</div>
+<a id="a799d93154c18c9d35d18ace64f295415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a799d93154c18c9d35d18ace64f295415">&#9670;&nbsp;</a></span>ks_mod1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int ks_mod1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>old</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>new</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> once </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">old</td><td>old substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>new substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of new substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring replaced </dd></dl>
+
+</div>
+</div>
+<a id="a65b6a2bdf32c2069bb615d8dc665708e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b6a2bdf32c2069bb615d8dc665708e">&#9670;&nbsp;</a></span>ks_mod1_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ks_mod1_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>old</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>new</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> once </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">old</td><td>old substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>new substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of new substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring replaced </dd></dl>
+
+</div>
+</div>
+<a id="a67766a22da6732316a845a7cfb6823da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67766a22da6732316a845a7cfb6823da">&#9670;&nbsp;</a></span>ks_mod_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ks_mod_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>old</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>new</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>replace src to ss from <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">old</td><td>old substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>new substring </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>length of new substring </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>count of substring replaced </dd></dl>
+
+</div>
+</div>
+<a id="a5c4353e5ec9bc601a201a4285946c430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c4353e5ec9bc601a201a4285946c430">&#9670;&nbsp;</a></span>ks_release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* ks_release </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>release <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="section note"><dt>注解</dt><dd>Give ownership of underlying buffer away to something else (making that something else responsible for freeing it), leaving <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> empty and ready to be used again, or ready to go out of scope without needing free(str.s) to prevent a memory leak. </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string </dd></dl>
+
+</div>
+</div>
+<a id="a7ba4aafd6aa02deb1c0ce473a64f2169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ba4aafd6aa02deb1c0ce473a64f2169">&#9670;&nbsp;</a></span>ks_resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ks_resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>resize kstring memory </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>size of new memory </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b592930976ef69e85fd9b0c2d987cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b592930976ef69e85fd9b0c2d987cea">&#9670;&nbsp;</a></span>ks_resize_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ks_resize_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>resize kstring memory </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>size of new memory </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab84710e60cb88e1f3ff28be9b13f97ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84710e60cb88e1f3ff28be9b13f97ee">&#9670;&nbsp;</a></span>ks_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* ks_str </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> string </dd></dl>
+
+</div>
+</div>
+<a id="a9e73dee22c8dce92b688c3cd097d8a4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e73dee22c8dce92b688c3cd097d8a4d">&#9670;&nbsp;</a></span>ksprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int int ksprintf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>print string to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fmt</td><td>format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Number of characters </dd></dl>
+
+</div>
+</div>
+<a id="ae259137a2db1a02cbdc1621a72b80133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae259137a2db1a02cbdc1621a72b80133">&#9670;&nbsp;</a></span>kstrnstr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* kstrnstr </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>_prep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>locate the substring </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>The pointer of string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>The length of string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pat</td><td>The pointer of search patterns </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">_prep</td><td>The address of the temporary pointer <ul>
+<li>0 No external memory is used. </li>
+<li>&amp;(p=0) Stores patterns to external variables. You need to free memory. </li>
+<li>&amp;(p=malloc(m)) Use external memory, at least m bytes. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The address at the head of the block found </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>failure </td></tr>
+    <tr><td class="paramname">!0</td><td>success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a993de23f93d87d57e10196ede6627345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a993de23f93d87d57e10196ede6627345">&#9670;&nbsp;</a></span>kstrstr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* kstrstr </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>_prep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>locate the substring </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>The pointer of string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pat</td><td>The pointer of search patterns </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">_prep</td><td>The address of the temporary pointer <ul>
+<li>0 No external memory is used. </li>
+<li>&amp;(p=0) Stores patterns to external variables. You need to free memory. </li>
+<li>&amp;(p=malloc(m)) Use external memory, at least m bytes. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The address at the head of the block found </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>failure </td></tr>
+    <tr><td class="paramname">!0</td><td>success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad352ccf9e08d36caa841bbfe2e14b16c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad352ccf9e08d36caa841bbfe2e14b16c">&#9670;&nbsp;</a></span>kvsprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kvsprintf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structkstring__t.html">kstring_t</a> *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">va_list&#160;</td>
+          <td class="paramname"><em>ap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>print string to <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ks</td><td>pointer of <a class="el" href="structkstring__t.html" title="c string">kstring_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fmt</td><td>format </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ap</td><td>va_list </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Number of characters </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
+</body>
+</html>

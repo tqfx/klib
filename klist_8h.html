@@ -1,0 +1,2003 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Klib: klib/klist.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Klib
+   </div>
+   <div id="projectbrief">A Generic Library in C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c5c5baaf4e47b236b58d41f08271825e.html">klib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">klist.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Generic single-linked list and memory pool  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="klib_8h_source.html">klib.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+klist.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="klist_8h__incl.png" border="0" usemap="#klib_2klist_8h" alt=""/></div>
+<map name="klib_2klist_8h" id="klib_2klist_8h">
+<area shape="rect" title="Generic single&#45;linked list and memory pool" alt="" coords="33,5,124,32"/>
+<area shape="rect" href="klib_8h.html" title="Some macros of klib" alt="" coords="5,80,64,107"/>
+<area shape="rect" title=" " alt="" coords="89,80,159,107"/>
+</map>
+</div>
+</div>
+<p><a href="klist_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a09d960c84192fd2ff209c3d9e1ac49d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a09d960c84192fd2ff209c3d9e1ac49d8">kmempool_type</a>(name,  type)</td></tr>
+<tr class="memdesc:a09d960c84192fd2ff209c3d9e1ac49d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register type of memory pool structure  <a href="klist_8h.html#a09d960c84192fd2ff209c3d9e1ac49d8">更多...</a><br /></td></tr>
+<tr class="separator:a09d960c84192fd2ff209c3d9e1ac49d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36617be9d36fbc027b9150530f78f05d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a36617be9d36fbc027b9150530f78f05d">kmempool_t</a>(name)&#160;&#160;&#160;kmp_##name##_t</td></tr>
+<tr class="memdesc:a36617be9d36fbc027b9150530f78f05d"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef of memory pool registration  <a href="klist_8h.html#a36617be9d36fbc027b9150530f78f05d">更多...</a><br /></td></tr>
+<tr class="separator:a36617be9d36fbc027b9150530f78f05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d2cd8b21063caab83e4c8cd0386631"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a92d2cd8b21063caab83e4c8cd0386631">kmempool_s</a>(type)</td></tr>
+<tr class="memdesc:a92d2cd8b21063caab83e4c8cd0386631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Anonymous structure of memory pool  <a href="klist_8h.html#a92d2cd8b21063caab83e4c8cd0386631">更多...</a><br /></td></tr>
+<tr class="separator:a92d2cd8b21063caab83e4c8cd0386631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac832096701a2481c2e45e87818c3eff5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ac832096701a2481c2e45e87818c3eff5">kmp_init</a>(kmp)</td></tr>
+<tr class="memdesc:ac832096701a2481c2e45e87818c3eff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize memory pool structure  <a href="klist_8h.html#ac832096701a2481c2e45e87818c3eff5">更多...</a><br /></td></tr>
+<tr class="separator:ac832096701a2481c2e45e87818c3eff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73dad27f6f367df7e044f0dc8624718"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ab73dad27f6f367df7e044f0dc8624718">kmp_pinit</a>(name,  pkmp)</td></tr>
+<tr class="memdesc:ab73dad27f6f367df7e044f0dc8624718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize pointer of memory pool structure  <a href="klist_8h.html#ab73dad27f6f367df7e044f0dc8624718">更多...</a><br /></td></tr>
+<tr class="separator:ab73dad27f6f367df7e044f0dc8624718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9d587078bc9c8534b320ef6c747a4b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a1e9d587078bc9c8534b320ef6c747a4b">kmp_clear</a>(func,  kmp)</td></tr>
+<tr class="memdesc:a1e9d587078bc9c8534b320ef6c747a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear memory pool struture  <a href="klist_8h.html#a1e9d587078bc9c8534b320ef6c747a4b">更多...</a><br /></td></tr>
+<tr class="separator:a1e9d587078bc9c8534b320ef6c747a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1baa59b27044a6a88a7359fd01f93fcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a1baa59b27044a6a88a7359fd01f93fcd">kmp_pclear</a>(func,  pkmp)</td></tr>
+<tr class="memdesc:a1baa59b27044a6a88a7359fd01f93fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear memory pool pointer  <a href="klist_8h.html#a1baa59b27044a6a88a7359fd01f93fcd">更多...</a><br /></td></tr>
+<tr class="separator:a1baa59b27044a6a88a7359fd01f93fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2630503818dbfaae263529385ae37574"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a2630503818dbfaae263529385ae37574">kmp_alloc</a>(type,  kmp)</td></tr>
+<tr class="memdesc:a2630503818dbfaae263529385ae37574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory pool structure allocate  <a href="klist_8h.html#a2630503818dbfaae263529385ae37574">更多...</a><br /></td></tr>
+<tr class="separator:a2630503818dbfaae263529385ae37574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b25ad63d7c07e7b115df9b1712e8b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a41b25ad63d7c07e7b115df9b1712e8b5">kmp_palloc</a>(type,  pkmp)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a2630503818dbfaae263529385ae37574">kmp_alloc</a>(type, *(pkmp))</td></tr>
+<tr class="memdesc:a41b25ad63d7c07e7b115df9b1712e8b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory pool pointer allocate  <a href="klist_8h.html#a41b25ad63d7c07e7b115df9b1712e8b5">更多...</a><br /></td></tr>
+<tr class="separator:a41b25ad63d7c07e7b115df9b1712e8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cbe00ca8c9e419810a75e90c54a42b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a80cbe00ca8c9e419810a75e90c54a42b">kmp_free</a>(type,  kmp,  pdat)</td></tr>
+<tr class="memdesc:a80cbe00ca8c9e419810a75e90c54a42b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory pool structure free  <a href="klist_8h.html#a80cbe00ca8c9e419810a75e90c54a42b">更多...</a><br /></td></tr>
+<tr class="separator:a80cbe00ca8c9e419810a75e90c54a42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422b7163845d141991870a577855d1c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a422b7163845d141991870a577855d1c7">kmp_pfree</a>(type,  pkmp,  pdat)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a80cbe00ca8c9e419810a75e90c54a42b">kmp_free</a>(type, *(pkmp), pdat)</td></tr>
+<tr class="memdesc:a422b7163845d141991870a577855d1c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory pool pointer free  <a href="klist_8h.html#a422b7163845d141991870a577855d1c7">更多...</a><br /></td></tr>
+<tr class="separator:a422b7163845d141991870a577855d1c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a153d85f689ec7bffc73a1ef64938befb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a153d85f689ec7bffc73a1ef64938befb">klist1_type</a>(name,  type)</td></tr>
+<tr class="memdesc:a153d85f689ec7bffc73a1ef64938befb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register type of singly list structure  <a href="klist_8h.html#a153d85f689ec7bffc73a1ef64938befb">更多...</a><br /></td></tr>
+<tr class="separator:a153d85f689ec7bffc73a1ef64938befb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b6862f9baf234897fed149295d99e53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a2b6862f9baf234897fed149295d99e53">klist1_t</a>(name)&#160;&#160;&#160;kl1_##name##_t</td></tr>
+<tr class="memdesc:a2b6862f9baf234897fed149295d99e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef of singly list registration  <a href="klist_8h.html#a2b6862f9baf234897fed149295d99e53">更多...</a><br /></td></tr>
+<tr class="separator:a2b6862f9baf234897fed149295d99e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a245b271e5777b4069a474eeedc96dfa0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a245b271e5777b4069a474eeedc96dfa0">kl1_v</a>(kl1)&#160;&#160;&#160;(kl1).data</td></tr>
+<tr class="memdesc:a245b271e5777b4069a474eeedc96dfa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">data of singly list structure  <a href="klist_8h.html#a245b271e5777b4069a474eeedc96dfa0">更多...</a><br /></td></tr>
+<tr class="separator:a245b271e5777b4069a474eeedc96dfa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada68a5d2b79a1dd0adcb79c43b2ef416"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ada68a5d2b79a1dd0adcb79c43b2ef416">kl1_pv</a>(pkl1)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a245b271e5777b4069a474eeedc96dfa0">kl1_v</a>(*(pkl1))</td></tr>
+<tr class="memdesc:ada68a5d2b79a1dd0adcb79c43b2ef416"><td class="mdescLeft">&#160;</td><td class="mdescRight">data of singly list pointer  <a href="klist_8h.html#ada68a5d2b79a1dd0adcb79c43b2ef416">更多...</a><br /></td></tr>
+<tr class="separator:ada68a5d2b79a1dd0adcb79c43b2ef416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7874838c99976eddc8167bc382d09917"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a7874838c99976eddc8167bc382d09917">kl1_next</a>(kl1)&#160;&#160;&#160;(kl1).next</td></tr>
+<tr class="memdesc:a7874838c99976eddc8167bc382d09917"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node of singly list structure  <a href="klist_8h.html#a7874838c99976eddc8167bc382d09917">更多...</a><br /></td></tr>
+<tr class="separator:a7874838c99976eddc8167bc382d09917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2e34fa99adc0027b847b8fbc7dcaaa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a0f2e34fa99adc0027b847b8fbc7dcaaa">kl1_pnext</a>(pkl1)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a7874838c99976eddc8167bc382d09917">kl1_next</a>(*(pkl1))</td></tr>
+<tr class="memdesc:a0f2e34fa99adc0027b847b8fbc7dcaaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">next node of singly list pointer  <a href="klist_8h.html#a0f2e34fa99adc0027b847b8fbc7dcaaa">更多...</a><br /></td></tr>
+<tr class="separator:a0f2e34fa99adc0027b847b8fbc7dcaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ef4b6af570b4a56fa458c0d3de1ef0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#aa9ef4b6af570b4a56fa458c0d3de1ef0">klist_type</a>(name)</td></tr>
+<tr class="memdesc:aa9ef4b6af570b4a56fa458c0d3de1ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register type of link list structure  <a href="klist_8h.html#aa9ef4b6af570b4a56fa458c0d3de1ef0">更多...</a><br /></td></tr>
+<tr class="separator:aa9ef4b6af570b4a56fa458c0d3de1ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f87e195754c73baf00050ca58d7cc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ac7f87e195754c73baf00050ca58d7cc9">klist_t</a>(name)&#160;&#160;&#160;kl_##name##_t</td></tr>
+<tr class="memdesc:ac7f87e195754c73baf00050ca58d7cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">typedef of link list registration  <a href="klist_8h.html#ac7f87e195754c73baf00050ca58d7cc9">更多...</a><br /></td></tr>
+<tr class="separator:ac7f87e195754c73baf00050ca58d7cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802a9c6e25d98f413c11b3b0f2af5989"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a802a9c6e25d98f413c11b3b0f2af5989">klist_s</a>(name)</td></tr>
+<tr class="memdesc:a802a9c6e25d98f413c11b3b0f2af5989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Anonymous structure of link list  <a href="klist_8h.html#a802a9c6e25d98f413c11b3b0f2af5989">更多...</a><br /></td></tr>
+<tr class="separator:a802a9c6e25d98f413c11b3b0f2af5989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2187fe4492a5642bd72b284e39861ea9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a2187fe4492a5642bd72b284e39861ea9">kl_begin</a>(kl)&#160;&#160;&#160;(kl).head</td></tr>
+<tr class="memdesc:a2187fe4492a5642bd72b284e39861ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">begin node of link list structure  <a href="klist_8h.html#a2187fe4492a5642bd72b284e39861ea9">更多...</a><br /></td></tr>
+<tr class="separator:a2187fe4492a5642bd72b284e39861ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6669570c980f48d68168c48079d55139"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a6669570c980f48d68168c48079d55139">kl_pbegin</a>(pkl)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a2187fe4492a5642bd72b284e39861ea9">kl_begin</a>(*(pkl))</td></tr>
+<tr class="memdesc:a6669570c980f48d68168c48079d55139"><td class="mdescLeft">&#160;</td><td class="mdescRight">begin node of link list pointer  <a href="klist_8h.html#a6669570c980f48d68168c48079d55139">更多...</a><br /></td></tr>
+<tr class="separator:a6669570c980f48d68168c48079d55139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4adf28eea5b4771e28f3cade4162d2c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ac4adf28eea5b4771e28f3cade4162d2c">kl_end</a>(kl)&#160;&#160;&#160;(kl).tail</td></tr>
+<tr class="memdesc:ac4adf28eea5b4771e28f3cade4162d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">end node of link list structure  <a href="klist_8h.html#ac4adf28eea5b4771e28f3cade4162d2c">更多...</a><br /></td></tr>
+<tr class="separator:ac4adf28eea5b4771e28f3cade4162d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accfc52e1e06d672e5fc79362cf3c7de6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#accfc52e1e06d672e5fc79362cf3c7de6">kl_pend</a>(pkl)&#160;&#160;&#160;<a class="el" href="klist_8h.html#ac4adf28eea5b4771e28f3cade4162d2c">kl_end</a>(*(pkl))</td></tr>
+<tr class="memdesc:accfc52e1e06d672e5fc79362cf3c7de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">end node of link list pointer  <a href="klist_8h.html#accfc52e1e06d672e5fc79362cf3c7de6">更多...</a><br /></td></tr>
+<tr class="separator:accfc52e1e06d672e5fc79362cf3c7de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6197cb230f650052b1b9e948fa2dba0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ab6197cb230f650052b1b9e948fa2dba0">kl_init</a>(name,  kl)</td></tr>
+<tr class="memdesc:ab6197cb230f650052b1b9e948fa2dba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize link list structure  <a href="klist_8h.html#ab6197cb230f650052b1b9e948fa2dba0">更多...</a><br /></td></tr>
+<tr class="separator:ab6197cb230f650052b1b9e948fa2dba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add9760c1282df786c8e9b0360409fb66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#add9760c1282df786c8e9b0360409fb66">kl_pinit</a>(name,  pkl)</td></tr>
+<tr class="memdesc:add9760c1282df786c8e9b0360409fb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize link list pointer  <a href="klist_8h.html#add9760c1282df786c8e9b0360409fb66">更多...</a><br /></td></tr>
+<tr class="separator:add9760c1282df786c8e9b0360409fb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a6d4f0a9a8b86e201fc2ae84b2527ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a5a6d4f0a9a8b86e201fc2ae84b2527ca">kl_clear</a>(name,  func,  kl)</td></tr>
+<tr class="memdesc:a5a6d4f0a9a8b86e201fc2ae84b2527ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear link list structure  <a href="klist_8h.html#a5a6d4f0a9a8b86e201fc2ae84b2527ca">更多...</a><br /></td></tr>
+<tr class="separator:a5a6d4f0a9a8b86e201fc2ae84b2527ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50a32a0f179e9e5217fe89fd120317f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ab50a32a0f179e9e5217fe89fd120317f">kl_pclear</a>(name,  func,  pkl)</td></tr>
+<tr class="memdesc:ab50a32a0f179e9e5217fe89fd120317f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear link list pointer  <a href="klist_8h.html#ab50a32a0f179e9e5217fe89fd120317f">更多...</a><br /></td></tr>
+<tr class="separator:ab50a32a0f179e9e5217fe89fd120317f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85dd0fc368c0dfeb3e6f380baec4fe5b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a85dd0fc368c0dfeb3e6f380baec4fe5b">kl_push</a>(name,  kl,  x)</td></tr>
+<tr class="memdesc:a85dd0fc368c0dfeb3e6f380baec4fe5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push data to link list structure  <a href="klist_8h.html#a85dd0fc368c0dfeb3e6f380baec4fe5b">更多...</a><br /></td></tr>
+<tr class="separator:a85dd0fc368c0dfeb3e6f380baec4fe5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd5dad025a2ea741ae7c6949a04f5a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a2cd5dad025a2ea741ae7c6949a04f5a6">kl_ppush</a>(name,  pkl,  x)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a85dd0fc368c0dfeb3e6f380baec4fe5b">kl_push</a>(name, *(pkl), x)</td></tr>
+<tr class="memdesc:a2cd5dad025a2ea741ae7c6949a04f5a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push data to link list pointer  <a href="klist_8h.html#a2cd5dad025a2ea741ae7c6949a04f5a6">更多...</a><br /></td></tr>
+<tr class="separator:a2cd5dad025a2ea741ae7c6949a04f5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f6fca2733e8490ebf8d197fdcd9429"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a77f6fca2733e8490ebf8d197fdcd9429">kl_pushp</a>(name,  kl,  px)</td></tr>
+<tr class="memdesc:a77f6fca2733e8490ebf8d197fdcd9429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get address of stored data variable  <a href="klist_8h.html#a77f6fca2733e8490ebf8d197fdcd9429">更多...</a><br /></td></tr>
+<tr class="separator:a77f6fca2733e8490ebf8d197fdcd9429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74aa60995aecc8851e02fec2d73227f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a74aa60995aecc8851e02fec2d73227f9">kl_ppushp</a>(name,  pkl,  px)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a77f6fca2733e8490ebf8d197fdcd9429">kl_pushp</a>(name, *(pkl), px)</td></tr>
+<tr class="memdesc:a74aa60995aecc8851e02fec2d73227f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get address of stored data variable  <a href="klist_8h.html#a74aa60995aecc8851e02fec2d73227f9">更多...</a><br /></td></tr>
+<tr class="separator:a74aa60995aecc8851e02fec2d73227f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac547e34a296b4b56bb70996905e07596"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#ac547e34a296b4b56bb70996905e07596">kl_shift</a>(name,  kl,  x)</td></tr>
+<tr class="memdesc:ac547e34a296b4b56bb70996905e07596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift data to variable from link list structure  <a href="klist_8h.html#ac547e34a296b4b56bb70996905e07596">更多...</a><br /></td></tr>
+<tr class="separator:ac547e34a296b4b56bb70996905e07596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ba84c09ea9adc0a4c0c59233e19fd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a61ba84c09ea9adc0a4c0c59233e19fd5">kl_pshift</a>(name,  pkl,  x)&#160;&#160;&#160;<a class="el" href="klist_8h.html#ac547e34a296b4b56bb70996905e07596">kl_shift</a>(name, *(pkl), x)</td></tr>
+<tr class="memdesc:a61ba84c09ea9adc0a4c0c59233e19fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift data to variable from link list pointer  <a href="klist_8h.html#a61ba84c09ea9adc0a4c0c59233e19fd5">更多...</a><br /></td></tr>
+<tr class="separator:a61ba84c09ea9adc0a4c0c59233e19fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3687bdaac4c75bba3f82380fa02f4a0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a3687bdaac4c75bba3f82380fa02f4a0b">kl_shiftp</a>(name,  kl,  px)</td></tr>
+<tr class="memdesc:a3687bdaac4c75bba3f82380fa02f4a0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get shift data address to variable from link list structure  <a href="klist_8h.html#a3687bdaac4c75bba3f82380fa02f4a0b">更多...</a><br /></td></tr>
+<tr class="separator:a3687bdaac4c75bba3f82380fa02f4a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51dff25ccd5cb537843f9451fdb673e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a51dff25ccd5cb537843f9451fdb673e9">kl_pshiftp</a>(name,  pkl,  px)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a3687bdaac4c75bba3f82380fa02f4a0b">kl_shiftp</a>(name, *(pkl), px)</td></tr>
+<tr class="memdesc:a51dff25ccd5cb537843f9451fdb673e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get shift data address to variable from link list pointer  <a href="klist_8h.html#a51dff25ccd5cb537843f9451fdb673e9">更多...</a><br /></td></tr>
+<tr class="separator:a51dff25ccd5cb537843f9451fdb673e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1523d22c808686f884923da7373413"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#abd1523d22c808686f884923da7373413">__KMEMPOOL_IMPL</a>(SCOPE,  NAME,  TYPE,  FUNC)</td></tr>
+<tr class="separator:abd1523d22c808686f884923da7373413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe787c9d25bec46b67b1ea7864d1d8d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#afe787c9d25bec46b67b1ea7864d1d8d3">kmempool_impl</a>(scope,  name,  type,  func)&#160;&#160;&#160;<a class="el" href="klist_8h.html#abd1523d22c808686f884923da7373413">__KMEMPOOL_IMPL</a>(scope, name, type, func)</td></tr>
+<tr class="memdesc:afe787c9d25bec46b67b1ea7864d1d8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory pool function Initial Microprogram Loading  <a href="klist_8h.html#afe787c9d25bec46b67b1ea7864d1d8d3">更多...</a><br /></td></tr>
+<tr class="separator:afe787c9d25bec46b67b1ea7864d1d8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a7dc48790580a5c9f9f6cb83a321e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a54a7dc48790580a5c9f9f6cb83a321e8">__KMEMPOOL_INIT</a>(NAME,  TYPE,  FUNC)</td></tr>
+<tr class="separator:a54a7dc48790580a5c9f9f6cb83a321e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49c791211fc94978b6236c14fb3c017"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#aa49c791211fc94978b6236c14fb3c017">kmempool_init</a>(name,  type,  func)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a54a7dc48790580a5c9f9f6cb83a321e8">__KMEMPOOL_INIT</a>(name, type, func)</td></tr>
+<tr class="memdesc:aa49c791211fc94978b6236c14fb3c017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory pool function Initial Microprogram Loading  <a href="klist_8h.html#aa49c791211fc94978b6236c14fb3c017">更多...</a><br /></td></tr>
+<tr class="separator:aa49c791211fc94978b6236c14fb3c017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c090eb70382c19420214b2e86646853"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a9c090eb70382c19420214b2e86646853">__KLIST_IMPL</a>(SCOPE,  NAME,  TYPE)</td></tr>
+<tr class="separator:a9c090eb70382c19420214b2e86646853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7477606b87b1223c84cdc1b1ad846598"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a7477606b87b1223c84cdc1b1ad846598">klist_impl</a>(scope,  name,  type)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a9c090eb70382c19420214b2e86646853">__KLIST_IMPL</a>(scope, name, type)</td></tr>
+<tr class="memdesc:a7477606b87b1223c84cdc1b1ad846598"><td class="mdescLeft">&#160;</td><td class="mdescRight">List function Initial Microprogram Loading  <a href="klist_8h.html#a7477606b87b1223c84cdc1b1ad846598">更多...</a><br /></td></tr>
+<tr class="separator:a7477606b87b1223c84cdc1b1ad846598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a900bef641d8119288fa363178a795a38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a900bef641d8119288fa363178a795a38">__KLIST_INIT</a>(NAME,  TYPE,  FUNC)</td></tr>
+<tr class="separator:a900bef641d8119288fa363178a795a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561c302988ed2d7c51cbade2ac1d4b05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="klist_8h.html#a561c302988ed2d7c51cbade2ac1d4b05">klist_init</a>(name,  type,  func)&#160;&#160;&#160;<a class="el" href="klist_8h.html#a900bef641d8119288fa363178a795a38">__KLIST_INIT</a>(name, type, func)</td></tr>
+<tr class="memdesc:a561c302988ed2d7c51cbade2ac1d4b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">List function Initial Microprogram Loading  <a href="klist_8h.html#a561c302988ed2d7c51cbade2ac1d4b05">更多...</a><br /></td></tr>
+<tr class="separator:a561c302988ed2d7c51cbade2ac1d4b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Generic single-linked list and memory pool </p>
+<dl class="section author"><dt>作者</dt><dd>tqfx <a href="#" onclick="location.href='mai'+'lto:'+'tqf'+'x@'+'fox'+'ma'+'il.'+'co'+'m'; return false;">tqfx@<span style="display: none;">.nosp@m.</span>foxm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2021-05-31 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (C) 2021 tqfx <br  />
+ <br  />
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: <br  />
+ <br  />
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. <br  />
+ <br  />
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </dd></dl>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="a9c090eb70382c19420214b2e86646853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c090eb70382c19420214b2e86646853">&#9670;&nbsp;</a></span>__KLIST_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __KLIST_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SCOPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a900bef641d8119288fa363178a795a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a900bef641d8119288fa363178a795a38">&#9670;&nbsp;</a></span>__KLIST_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __KLIST_INIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code" href="klist_8h.html#a153d85f689ec7bffc73a1ef64938befb">klist1_type</a>(NAME, TYPE);                                              \</div>
+<div class="line">    kmempool_type(NAME, <a class="code" href="klist_8h.html#a2b6862f9baf234897fed149295d99e53">klist1_t</a>(NAME));                                  \</div>
+<div class="line">    klist_type(NAME);                                                     \</div>
+<div class="line">    __KMEMPOOL_IMPL(__STATIC_INLINE <a class="code" href="klib_8h.html#a6c30d490cd2302ff05d355f3ec844c1f">__UNUSED</a>, NAME, <a class="code" href="klist_8h.html#a2b6862f9baf234897fed149295d99e53">klist1_t</a>(NAME), FUNC) \</div>
+<div class="line">    __KLIST_IMPL(__STATIC_INLINE <a class="code" href="klib_8h.html#a6c30d490cd2302ff05d355f3ec844c1f">__UNUSED</a>, NAME, TYPE)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abd1523d22c808686f884923da7373413"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1523d22c808686f884923da7373413">&#9670;&nbsp;</a></span>__KMEMPOOL_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __KMEMPOOL_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SCOPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54a7dc48790580a5c9f9f6cb83a321e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54a7dc48790580a5c9f9f6cb83a321e8">&#9670;&nbsp;</a></span>__KMEMPOOL_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __KMEMPOOL_INIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FUNC&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <a class="code" href="klist_8h.html#a09d960c84192fd2ff209c3d9e1ac49d8">kmempool_type</a>(NAME, TYPE);            \</div>
+<div class="line">    __KMEMPOOL_IMPL(__STATIC_INLINE <a class="code" href="klib_8h.html#a6c30d490cd2302ff05d355f3ec844c1f">__UNUSED</a>, NAME, TYPE, FUNC)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7874838c99976eddc8167bc382d09917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7874838c99976eddc8167bc382d09917">&#9670;&nbsp;</a></span>kl1_next</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl1_next</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl1</td><td>)</td>
+          <td>&#160;&#160;&#160;(kl1).next</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>next node of singly list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl1</td><td>singly list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f2e34fa99adc0027b847b8fbc7dcaaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2e34fa99adc0027b847b8fbc7dcaaa">&#9670;&nbsp;</a></span>kl1_pnext</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl1_pnext</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl1</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a7874838c99976eddc8167bc382d09917">kl1_next</a>(*(pkl1))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>next node of singly list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl1</td><td>pointer of singly list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada68a5d2b79a1dd0adcb79c43b2ef416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada68a5d2b79a1dd0adcb79c43b2ef416">&#9670;&nbsp;</a></span>kl1_pv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl1_pv</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl1</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a245b271e5777b4069a474eeedc96dfa0">kl1_v</a>(*(pkl1))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>data of singly list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl1</td><td>pointer of singly list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a245b271e5777b4069a474eeedc96dfa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a245b271e5777b4069a474eeedc96dfa0">&#9670;&nbsp;</a></span>kl1_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl1_v</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl1</td><td>)</td>
+          <td>&#160;&#160;&#160;(kl1).data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>data of singly list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl1</td><td>singly list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2187fe4492a5642bd72b284e39861ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2187fe4492a5642bd72b284e39861ea9">&#9670;&nbsp;</a></span>kl_begin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_begin</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl</td><td>)</td>
+          <td>&#160;&#160;&#160;(kl).head</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>begin node of link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5a6d4f0a9a8b86e201fc2ae84b2527ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a6d4f0a9a8b86e201fc2ae84b2527ca">&#9670;&nbsp;</a></span>kl_clear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_clear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                                      \</div>
+<div class="line">    {                                                       \</div>
+<div class="line">        while ((kl).head != (kl).tail)                      \</div>
+<div class="line">        {                                                   \</div>
+<div class="line">            kmp_pfree(kl1_##name##_t, (kl).kmp, (kl).head); \</div>
+<div class="line">            (kl).head = (kl).head-&gt;next;                    \</div>
+<div class="line">        }                                                   \</div>
+<div class="line">        kmp_pfree(kl1_##name##_t, (kl).kmp, (kl).tail);     \</div>
+<div class="line">        kmp_pclear(func, (kl).kmp);                         \</div>
+<div class="line">        (kl).size = 0U;                                     \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Clear link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function that free data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4adf28eea5b4771e28f3cade4162d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4adf28eea5b4771e28f3cade4162d2c">&#9670;&nbsp;</a></span>kl_end</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_end</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl</td><td>)</td>
+          <td>&#160;&#160;&#160;(kl).tail</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>end node of link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab6197cb230f650052b1b9e948fa2dba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6197cb230f650052b1b9e948fa2dba0">&#9670;&nbsp;</a></span>kl_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( (kl).size = 0U,                              \</div>
+<div class="line">     <a class="code" href="klist_8h.html#ab73dad27f6f367df7e044f0dc8624718">kmp_pinit</a>(name, (kl).kmp),                        \</div>
+<div class="line">     (kl).tail = <a class="code" href="klist_8h.html#a41b25ad63d7c07e7b115df9b1712e8b5">kmp_palloc</a>(kl1_##name##_t, (kl).kmp), \</div>
+<div class="line">     (kl).head = (kl).tail,                            \</div>
+<div class="line">     (kl).head-&gt;next = NULL )</div>
+</div><!-- fragment -->
+<p>Initialize link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6669570c980f48d68168c48079d55139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6669570c980f48d68168c48079d55139">&#9670;&nbsp;</a></span>kl_pbegin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pbegin</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a2187fe4492a5642bd72b284e39861ea9">kl_begin</a>(*(pkl))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>begin node of link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab50a32a0f179e9e5217fe89fd120317f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50a32a0f179e9e5217fe89fd120317f">&#9670;&nbsp;</a></span>kl_pclear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pclear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span>                                \</div>
+<div class="line">    {                                 \</div>
+<div class="line">        kl_clear(name, func, *(pkl)); \</div>
+<div class="line">        free(pkl);                    \</div>
+<div class="line">        (pkl) = NULL;                 \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Clear link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function that free data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="accfc52e1e06d672e5fc79362cf3c7de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfc52e1e06d672e5fc79362cf3c7de6">&#9670;&nbsp;</a></span>kl_pend</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pend</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#ac4adf28eea5b4771e28f3cade4162d2c">kl_end</a>(*(pkl))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>end node of link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add9760c1282df786c8e9b0360409fb66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add9760c1282df786c8e9b0360409fb66">&#9670;&nbsp;</a></span>kl_pinit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pinit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( (pkl) = (kl_##name##_t *)malloc(<span class="keyword">sizeof</span>(*(pkl))), \</div>
+<div class="line">     kl_init(name, *(pkl)) )</div>
+</div><!-- fragment -->
+<p>Initialize link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2cd5dad025a2ea741ae7c6949a04f5a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd5dad025a2ea741ae7c6949a04f5a6">&#9670;&nbsp;</a></span>kl_ppush</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_ppush</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a85dd0fc368c0dfeb3e6f380baec4fe5b">kl_push</a>(name, *(pkl), x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Push data to link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>data whose pushed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a74aa60995aecc8851e02fec2d73227f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74aa60995aecc8851e02fec2d73227f9">&#9670;&nbsp;</a></span>kl_ppushp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_ppushp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">px&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a77f6fca2733e8490ebf8d197fdcd9429">kl_pushp</a>(name, *(pkl), px)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get address of stored data variable </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">px</td><td>pointer that stores data address </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a61ba84c09ea9adc0a4c0c59233e19fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61ba84c09ea9adc0a4c0c59233e19fd5">&#9670;&nbsp;</a></span>kl_pshift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pshift</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#ac547e34a296b4b56bb70996905e07596">kl_shift</a>(name, *(pkl), x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shift data to variable from link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>variable that stores data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a51dff25ccd5cb537843f9451fdb673e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51dff25ccd5cb537843f9451fdb673e9">&#9670;&nbsp;</a></span>kl_pshiftp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pshiftp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">px&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a3687bdaac4c75bba3f82380fa02f4a0b">kl_shiftp</a>(name, *(pkl), px)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get shift data address to variable from link list pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkl</td><td>pointer of link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">px</td><td>pointer that stores data variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85dd0fc368c0dfeb3e6f380baec4fe5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85dd0fc368c0dfeb3e6f380baec4fe5b">&#9670;&nbsp;</a></span>kl_push</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_push</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( ++(kl).size,                                       \</div>
+<div class="line">     (kl).tail-&gt;next = <a class="code" href="klist_8h.html#a41b25ad63d7c07e7b115df9b1712e8b5">kmp_palloc</a>(kl1_##name##_t, (kl).kmp), \</div>
+<div class="line">     (kl).tail-&gt;next-&gt;next = NULL,                           \</div>
+<div class="line">     (kl).tail-&gt;data = (x),                                  \</div>
+<div class="line">     (kl).tail = (kl).tail-&gt;next )</div>
+</div><!-- fragment -->
+<p>Push data to link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>data whose pushed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77f6fca2733e8490ebf8d197fdcd9429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f6fca2733e8490ebf8d197fdcd9429">&#9670;&nbsp;</a></span>kl_pushp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_pushp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">px&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( ++(kl).size,                                       \</div>
+<div class="line">     (kl).tail-&gt;next = <a class="code" href="klist_8h.html#a41b25ad63d7c07e7b115df9b1712e8b5">kmp_palloc</a>(kl1_##name##_t, (kl).kmp), \</div>
+<div class="line">     (kl).tail-&gt;next-&gt;next = NULL,                           \</div>
+<div class="line">     (px) = &amp;(kl).tail-&gt;data,                                \</div>
+<div class="line">     (kl).tail = (kl).tail-&gt;next )</div>
+</div><!-- fragment -->
+<p>Get address of stored data variable </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">px</td><td>pointer that stores data address </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac547e34a296b4b56bb70996905e07596"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac547e34a296b4b56bb70996905e07596">&#9670;&nbsp;</a></span>kl_shift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_shift</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( (kl).head-&gt;next                                   \</div>
+<div class="line">         ? (<span class="comment">/* head-&gt;next != NULL */</span>                        \</div>
+<div class="line">            --(kl).size,                                    \</div>
+<div class="line">            (x) = (kl).head-&gt;data,                          \</div>
+<div class="line">            kmp_pfree(kl1_##name##_t, (kl).kmp, (kl).head), \</div>
+<div class="line">            (kl).head = (kl).head-&gt;next,                    \</div>
+<div class="line">            0)                                              \</div>
+<div class="line">         : (<span class="comment">/* head-&gt;next == NULL */</span> -1) )</div>
+</div><!-- fragment -->
+<p>Shift data to variable from link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>variable that stores data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3687bdaac4c75bba3f82380fa02f4a0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3687bdaac4c75bba3f82380fa02f4a0b">&#9670;&nbsp;</a></span>kl_shiftp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kl_shiftp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kl, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">px&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( (kl).head-&gt;next                                   \</div>
+<div class="line">         ? (<span class="comment">/* head-&gt;next != NULL */</span>                        \</div>
+<div class="line">            --(kl).size,                                    \</div>
+<div class="line">            (px) = &amp;(kl).head-&gt;data,                        \</div>
+<div class="line">            kmp_pfree(kl1_##name##_t, (kl).kmp, (kl).head), \</div>
+<div class="line">            (kl).head = (kl).head-&gt;next,                    \</div>
+<div class="line">            0)                                              \</div>
+<div class="line">         : (<span class="comment">/* head-&gt;next == NULL */</span> -1) )</div>
+</div><!-- fragment -->
+<p>Get shift data address to variable from link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kl</td><td>link list structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">px</td><td>pointer that stores data variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>The execution state of the function </dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success </td></tr>
+    <tr><td class="paramname">-1</td><td>failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2b6862f9baf234897fed149295d99e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b6862f9baf234897fed149295d99e53">&#9670;&nbsp;</a></span>klist1_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist1_t</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td>&#160;&#160;&#160;kl1_##name##_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>typedef of singly list registration </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of singly list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a153d85f689ec7bffc73a1ef64938befb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a153d85f689ec7bffc73a1ef64938befb">&#9670;&nbsp;</a></span>klist1_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist1_type</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <span class="keyword">struct </span>kl1_##name##_t                                    \</div>
+<div class="line">    {                                                                \</div>
+<div class="line">        struct kl1_##name##_t *next; <span class="comment">/* address of next node      */</span> \</div>
+<div class="line">        type data;                   <span class="comment">/* variable that stores data */</span> \</div>
+<div class="line">    } kl1_##name##_t</div>
+</div><!-- fragment -->
+<p>Register type of singly list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of singly list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of Singly list data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7477606b87b1223c84cdc1b1ad846598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7477606b87b1223c84cdc1b1ad846598">&#9670;&nbsp;</a></span>klist_impl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist_impl</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">scope, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a9c090eb70382c19420214b2e86646853">__KLIST_IMPL</a>(scope, name, type)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List function Initial Microprogram Loading </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">scope</td><td>scope of function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of link list data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a561c302988ed2d7c51cbade2ac1d4b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a561c302988ed2d7c51cbade2ac1d4b05">&#9670;&nbsp;</a></span>klist_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a900bef641d8119288fa363178a795a38">__KLIST_INIT</a>(name, type, func)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List function Initial Microprogram Loading </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of link list data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of free data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a802a9c6e25d98f413c11b3b0f2af5989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802a9c6e25d98f413c11b3b0f2af5989">&#9670;&nbsp;</a></span>klist_s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist_s</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">struct                                                 </span>\</div>
+<div class="line">    {                                                      \</div>
+<div class="line">        size_t size;          <span class="comment">/* count of node          */</span> \</div>
+<div class="line">        kl1_##name##_t *head; <span class="comment">/* head address of list   */</span> \</div>
+<div class="line">        kl1_##name##_t *tail; <span class="comment">/* tail address of list   */</span> \</div>
+<div class="line">        kmp_##name##_t *kmp;  <span class="comment">/* address of memory pool */</span> \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Anonymous structure of link list </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac7f87e195754c73baf00050ca58d7cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7f87e195754c73baf00050ca58d7cc9">&#9670;&nbsp;</a></span>klist_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist_t</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td>&#160;&#160;&#160;kl_##name##_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>typedef of link list registration </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9ef4b6af570b4a56fa458c0d3de1ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ef4b6af570b4a56fa458c0d3de1ef0">&#9670;&nbsp;</a></span>klist_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define klist_type</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <span class="keyword">struct </span>kl_##name##_t                           \</div>
+<div class="line">    {                                                      \</div>
+<div class="line">        size_t size;          <span class="comment">/* count of node      */</span>     \</div>
+<div class="line">        kl1_##name##_t *head; <span class="comment">/* head address of list   */</span> \</div>
+<div class="line">        kl1_##name##_t *tail; <span class="comment">/* tail address of list   */</span> \</div>
+<div class="line">        kmp_##name##_t *kmp;  <span class="comment">/* address of memory pool */</span> \</div>
+<div class="line">    } kl_##name##_t</div>
+</div><!-- fragment -->
+<p>Register type of link list structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of link list structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afe787c9d25bec46b67b1ea7864d1d8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe787c9d25bec46b67b1ea7864d1d8d3">&#9670;&nbsp;</a></span>kmempool_impl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmempool_impl</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">scope, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#abd1523d22c808686f884923da7373413">__KMEMPOOL_IMPL</a>(scope, name, type, func)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Memory pool function Initial Microprogram Loading </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">scope</td><td>scope of function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of memory pool structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of free data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa49c791211fc94978b6236c14fb3c017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49c791211fc94978b6236c14fb3c017">&#9670;&nbsp;</a></span>kmempool_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmempool_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a54a7dc48790580a5c9f9f6cb83a321e8">__KMEMPOOL_INIT</a>(name, type, func)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Memory pool function Initial Microprogram Loading </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of memory pool structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function of free data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a92d2cd8b21063caab83e4c8cd0386631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92d2cd8b21063caab83e4c8cd0386631">&#9670;&nbsp;</a></span>kmempool_s</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmempool_s</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">struct                                              </span>\</div>
+<div class="line">    {                                                   \</div>
+<div class="line">        size_t cnt; <span class="comment">/* count of alloc memory         */</span> \</div>
+<div class="line">        size_t n;   <span class="comment">/* number of unused memory       */</span> \</div>
+<div class="line">        size_t m;   <span class="comment">/* size of real memory           */</span> \</div>
+<div class="line">        type **p;   <span class="comment">/* first address of pointer list */</span> \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Anonymous structure of memory pool </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a36617be9d36fbc027b9150530f78f05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36617be9d36fbc027b9150530f78f05d">&#9670;&nbsp;</a></span>kmempool_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmempool_t</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td>&#160;&#160;&#160;kmp_##name##_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>typedef of memory pool registration </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a09d960c84192fd2ff209c3d9e1ac49d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d960c84192fd2ff209c3d9e1ac49d8">&#9670;&nbsp;</a></span>kmempool_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmempool_type</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    <span class="keyword">typedef</span> <span class="keyword">struct </span>kmp_##name##_t                       \</div>
+<div class="line">    {                                                   \</div>
+<div class="line">        size_t cnt; <span class="comment">/* count of alloc memory         */</span> \</div>
+<div class="line">        size_t n;   <span class="comment">/* number of unused memory       */</span> \</div>
+<div class="line">        size_t m;   <span class="comment">/* size of real memory           */</span> \</div>
+<div class="line">        type **p;   <span class="comment">/* first address of pointer list */</span> \</div>
+<div class="line">    } kmp_##name##_t</div>
+</div><!-- fragment -->
+<p>Register type of memory pool structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of memory pool structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2630503818dbfaae263529385ae37574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2630503818dbfaae263529385ae37574">&#9670;&nbsp;</a></span>kmp_alloc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_alloc</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kmp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">                                          \</div>
+<div class="line">    ( ++(kmp).cnt,                    \</div>
+<div class="line">     (kmp).n                              \</div>
+<div class="line">         ? <span class="comment">/* n &gt; 0 */</span> (kmp).p[--(kmp).n] \</div>
+<div class="line">         : <span class="comment">/* n = 0 */</span> (type *)calloc(1U, <span class="keyword">sizeof</span>(**(kmp).p)) )</div>
+</div><!-- fragment -->
+<p>Memory pool structure allocate </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kmp</td><td>memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>type * </dd></dl>
+
+</div>
+</div>
+<a id="a1e9d587078bc9c8534b320ef6c747a4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9d587078bc9c8534b320ef6c747a4b">&#9670;&nbsp;</a></span>kmp_clear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_clear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kmp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">                                     \</div>
+<div class="line">    do                               \</div>
+<div class="line">    {                                \</div>
+<div class="line">        while ((kmp).n)              \</div>
+<div class="line">        {                            \</div>
+<div class="line">            --(kmp).n;               \</div>
+<div class="line">            func((kmp).p[(kmp).n]);  \</div>
+<div class="line">            free((kmp).p[(kmp).n]);  \</div>
+<div class="line">            (kmp).p[(kmp).n] = NULL; \</div>
+<div class="line">        }                            \</div>
+<div class="line">        if ((kmp).m)                 \</div>
+<div class="line">        {                            \</div>
+<div class="line">            free((kmp).p);           \</div>
+<div class="line">            (kmp).p = NULL;          \</div>
+<div class="line">            (kmp).m = 0U;            \</div>
+<div class="line">        }                            \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Clear memory pool struture </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function that free data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kmp</td><td>memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80cbe00ca8c9e419810a75e90c54a42b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80cbe00ca8c9e419810a75e90c54a42b">&#9670;&nbsp;</a></span>kmp_free</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_free</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pdat&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">                                                              \</div>
+<div class="line">    ( --(kmp).cnt,                                        \</div>
+<div class="line">     (kmp).n == (kmp).m                                       \</div>
+<div class="line">         ? (<span class="comment">/* n == m */</span>                                      \</div>
+<div class="line">            (kmp).m =                                         \</div>
+<div class="line">                ((kmp).m                                      \</div>
+<div class="line">                     ? <span class="comment">/* m &gt; 0 */</span> (kmp).m &lt;&lt; 1U              \</div>
+<div class="line">                     : <span class="comment">/* m == 0 */</span> 16U),                     \</div>
+<div class="line">            (kmp).p = (type **)                               \</div>
+<div class="line">                realloc((kmp).p, <span class="keyword">sizeof</span>(*(kmp).p) * (kmp).m), \</div>
+<div class="line">            0)                                                \</div>
+<div class="line">         : (<span class="comment">/* n != m */</span> 0),                                  \</div>
+<div class="line">     (kmp).p[(kmp).n++] = (pdat) )</div>
+</div><!-- fragment -->
+<p>Memory pool structure free </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kmp</td><td>memory pool structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pdat</td><td>pointer that free data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac832096701a2481c2e45e87818c3eff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac832096701a2481c2e45e87818c3eff5">&#9670;&nbsp;</a></span>kmp_init</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_init</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">kmp</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    (             \</div>
+<div class="line">     (kmp).cnt = 0U,  \</div>
+<div class="line">     (kmp).n = 0U,    \</div>
+<div class="line">     (kmp).m = 0U,    \</div>
+<div class="line">     (kmp).p = NULL )</div>
+</div><!-- fragment -->
+<p>Initialize memory pool structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">kmp</td><td>memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a41b25ad63d7c07e7b115df9b1712e8b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b25ad63d7c07e7b115df9b1712e8b5">&#9670;&nbsp;</a></span>kmp_palloc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_palloc</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkmp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a2630503818dbfaae263529385ae37574">kmp_alloc</a>(type, *(pkmp))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Memory pool pointer allocate </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkmp</td><td>pointer of memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>type * </dd></dl>
+
+</div>
+</div>
+<a id="a1baa59b27044a6a88a7359fd01f93fcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1baa59b27044a6a88a7359fd01f93fcd">&#9670;&nbsp;</a></span>kmp_pclear</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_pclear</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">func, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkmp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">                                  \</div>
+<div class="line">    do                            \</div>
+<div class="line">    {                             \</div>
+<div class="line">        kmp_clear(func, *(pkmp)); \</div>
+<div class="line">        free(pkmp);               \</div>
+<div class="line">        (pkmp) = NULL;            \</div>
+<div class="line">    } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+<p>Clear memory pool pointer </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>function that free data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkmp</td><td>pointer of memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a422b7163845d141991870a577855d1c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a422b7163845d141991870a577855d1c7">&#9670;&nbsp;</a></span>kmp_pfree</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_pfree</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pdat&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="klist_8h.html#a80cbe00ca8c9e419810a75e90c54a42b">kmp_free</a>(type, *(pkmp), pdat)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Memory pool pointer free </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>type of memory pool data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pkmp</td><td>pointer of memory pool structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pdat</td><td>pointer that free data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab73dad27f6f367df7e044f0dc8624718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab73dad27f6f367df7e044f0dc8624718">&#9670;&nbsp;</a></span>kmp_pinit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define kmp_pinit</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pkmp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">    ( (pkmp) = (kmp_##name##_t *)malloc(<span class="keyword">sizeof</span>(*(pkmp))), \</div>
+<div class="line">     kmp_init(*(pkmp)) )</div>
+</div><!-- fragment -->
+<p>Initialize pointer of memory pool structure </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>identity name of memory pool structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pkmp</td><td>pointer of memory pool structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<div class="ttc" id="aklist_8h_html_a41b25ad63d7c07e7b115df9b1712e8b5"><div class="ttname"><a href="klist_8h.html#a41b25ad63d7c07e7b115df9b1712e8b5">kmp_palloc</a></div><div class="ttdeci">#define kmp_palloc(type, pkmp)</div><div class="ttdoc">Memory pool pointer allocate</div><div class="ttdef"><b>Definition:</b> klist.h:172</div></div>
+<div class="ttc" id="aklist_8h_html_a153d85f689ec7bffc73a1ef64938befb"><div class="ttname"><a href="klist_8h.html#a153d85f689ec7bffc73a1ef64938befb">klist1_type</a></div><div class="ttdeci">#define klist1_type(name, type)</div><div class="ttdoc">Register type of singly list structure</div><div class="ttdef"><b>Definition:</b> klist.h:217</div></div>
+<div class="ttc" id="aklist_8h_html_ab73dad27f6f367df7e044f0dc8624718"><div class="ttname"><a href="klist_8h.html#ab73dad27f6f367df7e044f0dc8624718">kmp_pinit</a></div><div class="ttdeci">#define kmp_pinit(name, pkmp)</div><div class="ttdoc">Initialize pointer of memory pool structure</div><div class="ttdef"><b>Definition:</b> klist.h:99</div></div>
+<div class="ttc" id="aklist_8h_html_a2b6862f9baf234897fed149295d99e53"><div class="ttname"><a href="klist_8h.html#a2b6862f9baf234897fed149295d99e53">klist1_t</a></div><div class="ttdeci">#define klist1_t(name)</div><div class="ttdoc">typedef of singly list registration</div><div class="ttdef"><b>Definition:</b> klist.h:231</div></div>
+<div class="ttc" id="aklist_8h_html_a09d960c84192fd2ff209c3d9e1ac49d8"><div class="ttname"><a href="klist_8h.html#a09d960c84192fd2ff209c3d9e1ac49d8">kmempool_type</a></div><div class="ttdeci">#define kmempool_type(name, type)</div><div class="ttdoc">Register type of memory pool structure</div><div class="ttdef"><b>Definition:</b> klist.h:43</div></div>
+<div class="ttc" id="aklib_8h_html_a6c30d490cd2302ff05d355f3ec844c1f"><div class="ttname"><a href="klib_8h.html#a6c30d490cd2302ff05d355f3ec844c1f">__UNUSED</a></div><div class="ttdeci">#define __UNUSED</div><div class="ttdef"><b>Definition:</b> klib.h:176</div></div>
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
+</body>
+</html>
